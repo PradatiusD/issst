@@ -40,9 +40,12 @@ module.exports = (grunt) ->
 				options:                       
 					style: 'expanded'
 				files:
-					'theme/style.css': 'style.sass'
+					'issst/style.css': 'style.sass'
 
 		watch:
+			local:
+				files: 'issst/**'
+				tasks: ['sass','copy']
 			theme:
 				files: 'theme/*.php'
 				tasks: ['ftp-deploy:php']
@@ -59,4 +62,4 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks('grunt-concurrent')
 	grunt.loadNpmTasks('grunt-contrib-sass')
 	grunt.loadNpmTasks('grunt-contrib-watch')
-	grunt.registerTask('default', ['watch'])
+	grunt.registerTask('default', ['watch:local'])

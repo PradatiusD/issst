@@ -1,13 +1,9 @@
 <?php get_header(); ?>
 
-	<div class="sidebar-bg"></div>
-
 	<div class="container">
 		<div class="row">
 
-			<?php get_sidebar(); ?>
-
-			<main class="col-md-9">
+			<main class="col-md-12">
 
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
