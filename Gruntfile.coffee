@@ -44,7 +44,7 @@ module.exports = (grunt) ->
 
 		watch:
 			local:
-				files: 'issst/**'
+				files: ['style.sass','issst/**']
 				tasks: ['sass','copy']
 			theme:
 				files: 'theme/*.php'

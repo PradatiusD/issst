@@ -1,0 +1,32 @@
+<?php get_header(); ?>
+
+<section class="top-box">
+	<div class="container">
+		<div class="row">
+			<main class="col-md-12">
+				<div class="issst-opening">
+					<p>Be a</p>
+					<span id="prefix">scien</span>
+					<img class="issst-logo" src="<?php echo get_template_directory_uri();?>/img/issst.png" alt="">
+				</div>
+			</main>
+		</div>
+	</div>
+</section>
+<section>	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 avocado">
+			</div>
+			<div class="col-md-6">
+				<h1>Welcome to ISSST</h1>
+				<p class="lead">ISSST is the International Symposium on Sustainable Systems & Technology.  This is a reunion, a gathering, a sleep over, of the foremost thinkers in sustainability thinking.</p>
+			</div>
+			<div class="col-md-3 pasta">
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<?php get_footer(); ?>

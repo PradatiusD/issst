@@ -13,14 +13,14 @@
  * Use it to make something cool, have fun, and share what you've learned with others.
  *  */
 
-@import url("http://fonts.googleapis.com/css?family=Merriweather:400,300,700,400italic,900")
+// @import url("http://fonts.googleapis.com/css?family=Merriweather:400,300,700,400italic,900")
 
 
 @import 'bower_components/bourbon/app/assets/stylesheets/bourbon'
 
 
 $body-bg: #F8F8F8
-$font-family-base: 'Merriweather', serif
+// $font-family-base: 'Merriweather', serif
 $font-size-base : 14px
 $font-size-large : ceil(($font-size-base * 1.25))
 $font-size-h1 : floor(($font-size-base * 2.6))
@@ -55,135 +55,43 @@ main p
 	text-align: center
 	font-weight: bold
 
-.michael-pic
-	display: block
-	height: 128px
-	width: auto
-	margin: 1em auto 0 auto
+.logged-in 
+	.navbar-default
+		padding-top: 33px
 
-.navbar
-	position: relative
-	z-index: 100
-	display: block
-	@media only screen and (min-width:1008px)
-		display: none
+body.home
 
-aside
-	@media only screen and (max-width:1007px)
-		display: none
+	.top-box, .avocado, .pasta
+		background-size: cover !important
+		height: 650px
+		text-align: center
+		background-position: center !important
 
+	.top-box
+		background: url('img/slide.png')
 
-.page-template-default
+	.pasta
+		background: url('img/pasta.jpg')
 
-	@media only screen and (min-width:1007px)
+	.avocado
+		background: url('img/avocado.jpg')
 
-		.nav-pills > li > a, .site-title a
-			color: white
+	.issst-opening
+		color: #FFF
+		margin-top: 200px
 
-		.sidebar-bg
-			width: 27%
-			background: url('http://michaelblairmount.com/wp-content/uploads/2014/All/five-R1-02628-004A.jpg')
-			height: 100%
-			position: fixed
-			background-position: center
+		p
+			font-size: 7em
+			margin: 0.45em 0 0
+			line-height: 0.5em			
+		
+		span
+			font-size: 9em
+			display: inline-block
+			vertical-align: bottom
+			line-height: 1.2em		
 
-.page-template-gallery-php
+		img
+			width: 300px
+			display: inline-block
 
-	@media only screen and (min-width:991px)
-		.container, .row, aside
-			height: 100%
-
-	aside
-		padding-bottom: 1em
-		border-bottom-left-radius: 1em
-		border-bottom-right-radius: 1em
-		background: rgba(0, 0, 0, 0.71)
-		position: relative
-		z-index: 100
-
-		.site-title
-			border-bottom: 3px solid rgba(253, 253, 253, 0.36)
-			padding-bottom: 10px
-
-		a
-			color: white
-			@include transition (all 0.3s ease-in-out)
-
-			&:hover
-				color: #333
-
-
-/* Glide.js customizations */
-
-.slider
-	position: relative
-	width: 100%
-	height: 420px
-	overflow: hidden
-
-.slides
-	height: 100%
-	overflow: hidden
-	*zoom: 1
-	-webkit-backface-visibility: hidden
-	-webkit-transform-style: preserve-3d
-
-.slide
-	height: 100%
-	float: left
-	clear: none
-
-.slider-arrow
-	position: absolute
-	display: block
-	margin-bottom: -20px
-	padding: 10px 12px
-	background: rgba(255, 255, 255, 0.4)
-	border-radius: 100%
-	color: #614A4A
-	opacity: 0.8
-
-.slider-arrow--right
-	bottom: 50%
-	right: 30px
-
-.slider-arrow--left
-	bottom: 50%
-	left: 30px
-
-.slider-nav
-	position: absolute
-	bottom: 30px
-
-.slider-nav__item
-	width: 12px
-	height: 12px
-	float: left
-	clear: none
-	display: block
-	margin: 0 5px
-	background: #fff
-	border-radius: 1em
-	opacity: 0.7
-
-.slider-nav__item:hover
-	background: #ccc
-
-.slider-nav__item--current
-	background: #ccc
-
-
-html, body, .slider
-	height: 100% !important
-
-.slider
-	position: absolute
-	top: 0
-	left: 0
-
-.slide
-	background-size: cover
-	list-style-type: none
-	background-position: center center
-	position: relative
-	right: 40px
