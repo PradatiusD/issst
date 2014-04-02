@@ -43,15 +43,12 @@ module.exports = (grunt) ->
 					'issst/style.css': 'style.sass'
 
 		watch:
-			local:
-				files: ['style.sass','issst/**']
-				tasks: ['sass','copy']
 			theme:
-				files: 'theme/*.php'
-				tasks: ['ftp-deploy:php']
+				files: 'issst/*.php'
+				tasks: ['copy']
 			sassy:
 				files: 'style.sass'
-				tasks: ['sass','ftp-deploy:sass']
+				tasks: ['sass','copy']
 
 
 	)
@@ -62,4 +59,4 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks('grunt-concurrent')
 	grunt.loadNpmTasks('grunt-contrib-sass')
 	grunt.loadNpmTasks('grunt-contrib-watch')
-	grunt.registerTask('default', ['watch:local'])
+	grunt.registerTask('default', ['watch'])

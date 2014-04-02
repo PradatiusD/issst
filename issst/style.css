@@ -4144,6 +4144,58 @@
   animation-name: wobble;
 }
 
+/*	----------------------------------------------------------------
+	MaxCycle (Fullscreen Slideshow for use with jQuery Cycle Plugin)
+	----------------------------------------------------------------
+	
+	Demo at: http://www.aaronvanderzwan.com/maxcycle/
+	Download and Info at: http://github.com/akv2/MaxCycle---jQuery-Plugin/
+	Copyright (c) 2007-2011 Aaron Vanderzwan
+	Dual licensed under the MIT and GPL licenses.
+	
+*/
+/*! Version: 2.0.73 (12-Oct-2012) */
+.mc-hide-scrolls {
+  overflow: hidden;
+}
+
+body .mc-cycle {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+div.mc-image {
+  /*NOTE: Mozilla flickers when fading and using 'all', so we have to be specific with what property we want to transition:
+   	If you are using fading transitions, use 'opacity: */
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  /*If you are using horizontal slide transitions, use the following CSS:
+  -webkit-transition: left 1s ease-in-out; 
+  -moz-transition: left 1s ease-in-out; 
+  -o-transition: left 1s ease-in-out; 
+  transition: left 1s ease-in-out;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.mc-old-browser .mc-image {
+  overflow: hidden;
+}
+
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -10495,6 +10547,14 @@ main p {
   padding-top: 33px;
 }
 
+body.home {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+body.home .mc-cycle {
+  position: static !important;
+}
 body.home .top-box, body.home .avocado, body.home .pasta {
   background-size: cover !important;
   height: 650px;
@@ -10502,7 +10562,15 @@ body.home .top-box, body.home .avocado, body.home .pasta {
   background-position: center !important;
 }
 body.home .top-box {
-  background: url("img/slide.png");
+  -webkit-transition: background 1s ease-out;
+  transition: background 1s ease-out;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+body.home .top-box .container {
+  position: relative;
+  z-index: 1000;
 }
 body.home .pasta {
   background: url("img/pasta.jpg");

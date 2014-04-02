@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-<section class="top-box">
+
+<section class="top-box" id="header-slides">
 	<div class="container">
 		<div class="row">
 			<main class="col-md-11">
@@ -35,6 +36,17 @@
 	</div>
 </section>
 
+<div id="maximage">
+	<img src="http://localhost/issst/wp-content/themes/issst/img/slide1.jpg" alt="">
+	<img src="http://localhost/issst/wp-content/themes/issst/img/slide2.jpg" alt="">
+	<img src="http://localhost/issst/wp-content/themes/issst/img/slide3.jpg" alt="">
+	<img src="http://localhost/issst/wp-content/themes/issst/img/slide4.jpg" alt="">
+	<img src="http://localhost/issst/wp-content/themes/issst/img/slide5.jpg" alt="">
+</div>
+
+
+<script src="http://www.aaronvanderzwan.com/maximage/lib/js/jquery.cycle.all.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://www.aaronvanderzwan.com/maximage/lib/js/jquery.maximage.js" type="text/javascript" charset="utf-8"></script>
 <script>
 
 	(function ($){
@@ -42,8 +54,6 @@
 		$prefixSelector = $('#prefix');
 
 		function changePrefix (toText) {
-
-			console.log(toText)
 
 			setTimeout( function () {
 
@@ -61,14 +71,26 @@
 
 		}
 
-		prefixArray = ['art','theor','activ','ethic', 'optim','natur','futur', 'environmental', 'technolog', 'scient']
+		prefixArray = ['art','theor','activ','ethic', 'optim','natur','futur', 'technolog', 'scient']; // 'environmental', too long
 
 		var i = 0;
 
 		setInterval(function(){
-			console.log(prefixArray[i++ % prefixArray.length]);
 			changePrefix(prefixArray[i++ % prefixArray.length]);
+
 		},3000);
+
+
+		$('#maximage').maximage({
+			cycleOptions: {
+				fx: 'fade',
+				speed: 1000, // Set the speed for CSS transitions in jQuery.maximage.css (lines 30 - 33)
+				timeout: 1000,
+				pause: 1
+			},
+			fillElement: '#holder',
+			backgroundSize: 'contain'
+		});
 
 
 
