@@ -3,7 +3,7 @@
 <section class="top-box">
 	<div class="container">
 		<div class="row">
-			<main class="col-md-12">
+			<main class="col-md-11">
 				<div class="issst-opening">
 					<p>Be a</p>
 					<span id="prefix">scien</span>
@@ -27,6 +27,43 @@
 		</div>
 	</div>
 </section>
+<script>
+
+	(function ($){
+
+		$prefixSelector = $('#prefix');
+
+		function changePrefix (toText) {
+
+			console.log(toText)
+
+			setTimeout( function () {
+
+				$prefixSelector.addClass('animated fade-out');
+
+			}, 0)
+
+			setTimeout(function(){
+
+				$prefixSelector
+						.text(toText)
+						.removeClass('animated fade-out')
+						.addClass('animated fade-in');
+			}, 1000);
+
+		}
+
+		prefixArray = ['art','theor','activ','ethic', 'optim','natur','futur', 'environmental', 'technolog', 'scient']
+
+		var i = 0;
+
+		setInterval(function(){
+			console.log(prefixArray[i++ % prefixArray.length]);
+			changePrefix(prefixArray[i++ % prefixArray.length]);
+		},3000);
 
 
+
+	})(jQuery);
+</script>
 <?php get_footer(); ?>

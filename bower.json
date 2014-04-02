@@ -1,6 +1,6 @@
 {
-  "name": "mmount",
-  "version": "0.0.0",
+  "name": "issst",
+  "version": "0.0.1",
   "authors": [
     "PradatiusD <danielprada2012@gmail.com>"
   ],
@@ -12,5 +12,11 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "homepage": "https://github.com/PradatiusD/issst",
+  "dependencies": {
+    "animate.scss": "*",
+    "bourbon": "~3.1.8",
+    "twbs-bootstrap-sass": "~3.1.1"
+  }
 }
