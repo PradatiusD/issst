@@ -10547,6 +10547,16 @@ main p {
   padding-top: 33px;
 }
 
+body.page-template-default {
+  padding-top: 52px;
+}
+
+#map-canvas {
+  height: 600px;
+  margin: 0px;
+  padding: 0px;
+}
+
 body.home {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;

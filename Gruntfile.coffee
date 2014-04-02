@@ -10,22 +10,14 @@ module.exports = (grunt) ->
 					port: 5000
 
 		'ftp-deploy':
-			sass:
+			dev:
 				auth:
 					host: 'pradadesigners.com'
 					port: 21
 					authKey: 'key1'
-				src: 'theme'
-				dest: ''
-				exclusions: ['theme/*.php']
-			php:
-				auth:
-					host: 'pradadesigners.com'
-					port: 21
-					authKey: 'key1'
-				src: 'theme'
-				dest: ''
-				exclusions: ['theme/*.css','theme/lib/*']
+				src: 'issst'
+				dest: 'wp-content/themes/issst'
+				# exclusions: ['issst/*.css','issst/lib/*']
 
 		copy:
 			main:
