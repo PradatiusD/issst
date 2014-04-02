@@ -13,8 +13,7 @@
  * Use it to make something cool, have fun, and share what you've learned with others.
  *  */
 
-// @import url("http://fonts.googleapis.com/css?family=Merriweather:400,300,700,400italic,900")
-
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic")
 
 @import 'bower_components/animate.scss/animate'
 @import 'bower_components/bourbon/app/assets/stylesheets/bourbon'
@@ -22,14 +21,46 @@
 
 
 $body-bg: #F8F8F8
-// $font-family-base: 'Merriweather', serif
-$font-size-base : 14px
+
+// Typography
+$font-family-base: 'Lato', $helvetica
+$font-size-base : 16px
 $font-size-large : ceil(($font-size-base * 1.25))
 $font-size-h1 : floor(($font-size-base * 2.6))
 $headings-font-weight : 900
 $headings-line-height : 1.1
-$nav-pills-active-link-hover-bg : #428BCA
-$grid-float-breakpoint: 1008px
+
+
+// Navbar
+$navbar-default-color:             #f0ecec
+$navbar-default-bg:                #16356e
+$navbar-default-border:            darken($navbar-default-bg, 6.5%)
+$navbar-default-link-color:                #f4f4f4
+$navbar-default-link-hover-color:          #2f9f49
+$navbar-default-link-hover-bg:             transparent
+$navbar-default-link-active-color:         #f4f4f4
+$navbar-default-link-active-bg:            lighten($navbar-default-bg, 6.5%)
+
+.navbar-default
+	text-transform: uppercase
+	font-weight: 200
+
+	.logged-in &
+		padding-top: 33px
+		@media all and (max-width: 782px)
+			padding-top: 0px
+
+	.active > a
+		font-weight: 400
+
+	.navbar-brand
+		background: url('img/issst.png')
+		background-size: 100% auto
+		background-repeat: no-repeat
+		text-indent: -9999px
+		width: 78px
+		margin-right: 14px !important
+		margin-left: 5px !important
 
 @import 'bower_components/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap'
 
@@ -57,10 +88,6 @@ main p
 	text-align: center
 	font-weight: bold
 
-.logged-in 
-	.navbar-default
-		padding-top: 33px
-
 
 body.page-template-default
 	padding-top: 52px
@@ -87,6 +114,7 @@ body.home
 	.top-box
 		@include transition (background 1s ease-out)
 		@include backface-visibility(hidden)
+		background: black
 
 		.container
 			position: relative

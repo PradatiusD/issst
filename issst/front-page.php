@@ -18,7 +18,7 @@
 	<section class="row">
 		<div class="col-md-8">
 			<h1>Welcome to ISSST</h1>
-			<p class="lead">The International Symposium on Sustainable Systems and Technology (ISSST) is the premier conference for research related to the sustainability of science and technology systems. The program covers the spectrum of issues for assessing and managing products and services across their life cycle, and the design, management, and policy implications of sustainable engineered systems and technologies.</p>
+			<p class="lead">The <strong>International Symposium on Sustainable Systems and Technology</strong> (ISSST) is the premier conference for research related to the sustainability of science and technology systems. It covers the spectrum of issues for assessing and managing products and services across their life cycle, and the design, management, and policy implications of sustainable engineered systems and technologies.</p>
 			<p><strong>Authors</strong> are invited to submit papers describing research, applications, tools, and case studies addressing the topics below. Proceedings will be distributed exclusively to the conference participants and authors may retain copyrights to the submitted papers, or elect to submit their papers for consideration in sustainability-related journals.</p>
 			<p><strong>Students</strong> are especially encouraged to attend and can participate in special paper and poster competitions, judged by leading academics and researchers from government and industry.</p>
 			<p>ISSST is entering its 20th successful year.  Between 1993 and 2008, the conference was known as the IEEE International Symposium on Electronics and the Environment (IEEE ISEE). In 2008, however, the scope of the conference was broadened to all industries and products while still maintaining a focus on the sustainability of information and communication technology (ICT) services. The new scope further strengthens this premier event on sustainable technology issues. Accordingly, the name has been changed to International Symposium on Sustainable Systems and Technology (ISSST).</p>
@@ -32,7 +32,9 @@
 		</div>
 		<div class="col-md-6">
 			<h1>Welcome to Oakland</h1>
-			<p class="lead">This year’s conference will be held in Oakland, California at the Marriott City Center from 19 May – 21 May, 2014, with a pre-conference workshop being held on May 18th, and post-conference workshops being held on May 22nd. Information on registration and the schedule will be available soon. If you have any questions, direct them to ISSSTNetwork@gmail.com.</p>
+			<p class="lead">This year’s conference will be held in Oakland, California at the Marriott City Center from 19 May – 21 May, 2014.</p>
+			<p>A pre-conference workshop will be held on May 18th, and a post-conference workshops will be held on May 22nd.</p>
+			<p>Information on registration and the schedule will be available soon. If you have any questions, direct them to <a href="mailto:ISSSTNetwork@gmail.com">ISSSTNetwork@gmail.com</a>.</p>
 		</div>
 	</section>
 	<section class="row">
