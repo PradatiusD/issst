@@ -41,7 +41,7 @@
 			<p class="lead">This year’s conference will be held in Oakland, California at the Marriott City Center from 19 May – 21 May, 2014.</p>
 			<p>A pre-conference workshop will be held on May 18th, and a post-conference workshops will be held on May 22nd.</p>
 			<p>Information on registration and the schedule will be available soon. If you have any questions, direct them to <a href="mailto:ISSSTNetwork@gmail.com">ISSSTNetwork@gmail.com</a>.</p>
-			<p><a href="https://www.regonline.com/builder/site/?eventid=1482855" class="btn btn-primary btn-large btn-success btn-block">Register Now!</a></p>
+			<p><a href="https://www.regonline.com/builder/site/?eventid=1482855" class="btn btn-primary btn-large btn-success btn-block register-now">Register Now!</a></p>
 		</div>
 	</section>
 	<section class="row">
@@ -291,13 +291,12 @@
 
 	</section>
 </div>
-
 <div id="maximage">
-	<img src="http://localhost/issst/wp-content/themes/issst/img/slide1.jpg" alt="">
-	<img src="http://localhost/issst/wp-content/themes/issst/img/slide2.jpg" alt="">
-	<img src="http://localhost/issst/wp-content/themes/issst/img/slide3.jpg" alt="">
-	<img src="http://localhost/issst/wp-content/themes/issst/img/slide4.jpg" alt="">
-	<img src="http://localhost/issst/wp-content/themes/issst/img/slide5.jpg" alt="">
+	<img src="<?php bloginfo('template_url'); ?>/img/slide1.jpg" alt="">
+	<img src="<?php bloginfo('template_url'); ?>/img/slide3.jpg" alt="">
+	<img src="<?php bloginfo('template_url'); ?>/img/slide4.jpg" alt="">
+	<img src="<?php bloginfo('template_url'); ?>/img/slide5.jpg" alt="">
+	<img src="<?php bloginfo('template_url'); ?>/img/slide6.jpg" alt="">
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -403,7 +402,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 		}
 
-		prefixArray = ['art','theor','activ','ethic', 'optim','natur','futur', 'technolog', 'scient']; // 'environmental', too long
+		prefixArray = ['art','theor','activ','ethic', 'optim','natural','futur', 'technolog', 'scient', 'human','ecolog','special']; 
+		// 'environmental', too long
+		// Idea Altruist Biologist
 
 		var i = 0;
 
