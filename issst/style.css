@@ -10579,6 +10579,15 @@ body.page-template-default {
   padding: 0px;
 }
 
+footer {
+  background: #5cb85c;
+  padding-top: 1em;
+  color: white;
+  font-weight: 200;
+  font-size: 1.2em;
+  margin-top: 2em;
+}
+
 body.home {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
