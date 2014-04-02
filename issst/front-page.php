@@ -19,8 +19,14 @@
 		<div class="col-md-8">
 			<h1>Welcome to ISSST</h1>
 			<p class="lead">The <strong>International Symposium on Sustainable Systems and Technology</strong> (ISSST) is the premier conference for research related to the sustainability of science and technology systems. It covers the spectrum of issues for assessing and managing products and services across their life cycle, and the design, management, and policy implications of sustainable engineered systems and technologies.</p>
-			<p><strong>Authors</strong> are invited to submit papers describing research, applications, tools, and case studies addressing the topics below. Proceedings will be distributed exclusively to the conference participants and authors may retain copyrights to the submitted papers, or elect to submit their papers for consideration in sustainability-related journals.</p>
-			<p><strong>Students</strong> are especially encouraged to attend and can participate in special paper and poster competitions, judged by leading academics and researchers from government and industry.</p>
+			<div class="row">
+				<div class="col-md-6">
+					<p><strong>Authors</strong> are invited to submit papers describing research, applications, tools, and case studies addressing the topics below. Proceedings will be distributed exclusively to the conference participants and authors may retain copyrights to the submitted papers, or elect to submit their papers for consideration in sustainability-related journals.</p>				
+				</div>
+				<div class="col-md-6">
+					<p><strong>Students</strong> are especially encouraged to attend and can participate in special paper and poster competitions, judged by leading academics and researchers from government and industry.</p>
+				</div>				
+			</div>
 			<p>ISSST is entering its 20th successful year.  Between 1993 and 2008, the conference was known as the IEEE International Symposium on Electronics and the Environment (IEEE ISEE). In 2008, however, the scope of the conference was broadened to all industries and products while still maintaining a focus on the sustainability of information and communication technology (ICT) services. The new scope further strengthens this premier event on sustainable technology issues. Accordingly, the name has been changed to International Symposium on Sustainable Systems and Technology (ISSST).</p>
 		</div>
 		<div class="col-md-3 pasta">
@@ -35,10 +41,11 @@
 			<p class="lead">This year’s conference will be held in Oakland, California at the Marriott City Center from 19 May – 21 May, 2014.</p>
 			<p>A pre-conference workshop will be held on May 18th, and a post-conference workshops will be held on May 22nd.</p>
 			<p>Information on registration and the schedule will be available soon. If you have any questions, direct them to <a href="mailto:ISSSTNetwork@gmail.com">ISSSTNetwork@gmail.com</a>.</p>
+			<p><a href="https://www.regonline.com/builder/site/?eventid=1482855" class="btn btn-primary btn-large btn-success btn-block">Register Now!</a></p>
 		</div>
 	</section>
 	<section class="row">
-		<div class="col-md-6 col-md-offset-3">
+		<div class="col-md-6 col-md-offset-3 mailchimp-join-list">
 			<h1>Want to get PISSST weekly?</h1>
 			<p class="lead">Sign up to be part of Proceedings from the International Symposium on Sustainable Systems & Technology, better known as PISSST.</p>
 
@@ -65,14 +72,18 @@
 					<br>
 					<div class="mc-field-group input-group">
 					    <strong>Email Format </strong>
-					    <ul>
-					    	<li>
-					    		<input type="radio" value="html" name="EMAILTYPE" id="mce-EMAILTYPE-0"><label for="mce-EMAILTYPE-0">html</label>
-					    	</li>
-						<li>
-							<input type="radio" value="text" name="EMAILTYPE" id="mce-EMAILTYPE-1"><label for="mce-EMAILTYPE-1">text</label>
-						</li>
-					</ul>
+					    <div class="radio">
+					    	<label for="mce-EMAILTYPE-1">
+					    		<input type="radio" value="text" name="EMAILTYPE" id="mce-EMAILTYPE-1">
+					    		text
+					    	</label>
+					    </div>
+					    <div class="radio">
+				    		<label for="mce-EMAILTYPE-0">
+				    			<input type="radio" value="html" name="EMAILTYPE" id="mce-EMAILTYPE-0">
+				    			html
+				    		</label>					    	
+					    </div>
 					</div>
 						<div id="mce-responses" class="clear">
 							<div class="response" id="mce-error-response" style="display:none"></div>
@@ -80,7 +91,7 @@
 						</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 					    <div style="position: absolute; left: -5000px;"><input type="text" name="b_9c4c3f7f77bdb09de3fa52e0a_8f5c8a5f2d" value=""></div>
 						<div class="clear">
-							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-lg">
+							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-lg btn-success">
 						</div>
 				</form>
 			</div>
