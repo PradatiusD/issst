@@ -10608,3 +10608,6 @@ body.home .issst-opening img {
   width: 300px;
   display: inline-block;
 }
+body.home .indicates-required {
+  text-align: right;
+}
