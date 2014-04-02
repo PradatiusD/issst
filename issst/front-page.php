@@ -16,17 +16,25 @@
 <section>	
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3 avocado">
-			</div>
-			<div class="col-md-6">
+			<div class="col-md-8">
 				<h1>Welcome to ISSST</h1>
 				<p class="lead">ISSST is the International Symposium on Sustainable Systems & Technology.  This is a reunion, a gathering, a sleep over, of the foremost thinkers in sustainability thinking.</p>
 			</div>
 			<div class="col-md-3 pasta">
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-3 avocado">
+			</div>
+			<div class="col-md-6">
+				<h1>Welcome to ISSST</h1>
+				<p class="lead">ISSST is the International Symposium on Sustainable Systems & Technology.  This is a reunion, a gathering, a sleep over, of the foremost thinkers in sustainability thinking.</p>
+			</div>
+
+		</div>
 	</div>
 </section>
+
 <script>
 
 	(function ($){
