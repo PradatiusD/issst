@@ -10596,6 +10596,12 @@ body.home {
 body.home .mc-cycle {
   position: static !important;
 }
+@media all and (max-width: 767px) {
+  body.home .mc-image {
+    height: 353px !important;
+    margin-top: 49px;
+  }
+}
 body.home .top-box, body.home .avocado, body.home .pasta {
   background-size: cover !important;
   height: 650px;
@@ -10613,6 +10619,11 @@ body.home .top-box {
 body.home .top-box .container {
   position: relative;
   z-index: 1000;
+}
+@media all and (max-width: 767px) {
+  body.home .top-box {
+    height: 353px !important;
+  }
 }
 body.home .pasta {
   background: url("img/pasta.jpg");

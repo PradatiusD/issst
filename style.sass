@@ -113,6 +113,11 @@ body.home
 	.mc-cycle
 		position: static !important
 
+	@media all and (max-width: 767px)
+		.mc-image
+			height: 353px !important
+			margin-top: 49px
+
 	.top-box, .avocado, .pasta
 		background-size: cover !important
 		height: 650px
@@ -127,6 +132,9 @@ body.home
 		.container
 			position: relative
 			z-index: 1000
+
+		@media all and (max-width: 767px)
+			height: 353px !important	
 
 	.pasta
 		background: url('img/pasta.jpg')

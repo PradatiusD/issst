@@ -6,7 +6,7 @@
 		<div class="row">
 			<main class="col-md-11">
 				<div class="issst-opening">
-					<p>Be a</p>
+					<p>be a</p>
 					<span id="prefix">scien</span>
 					<img class="issst-logo" src="<?php echo get_template_directory_uri();?>/img/issst.png" alt="">
 				</div>
@@ -213,7 +213,7 @@
 	</section>
 	<section class="row">
 		<div class="col-md-6 col-md-offset-3 mailchimp-join-list">
-			<h1>Want to get PISSST weekly?</h1>
+			<h1>Want to get P.ISSST weekly?</h1>
 			<p class="lead">Sign up to be part of Proceedings from the International Symposium on Sustainable Systems & Technology, better known as PISSST.</p>
 
 			<!-- Begin MailChimp Signup Form -->
@@ -257,7 +257,7 @@
 							<div class="response" id="mce-success-response" style="display:none"></div>
 						</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 					    <div style="position: absolute; left: -5000px;"><input type="text" name="b_9c4c3f7f77bdb09de3fa52e0a_8f5c8a5f2d" value=""></div>
-						<div class="clear">
+						<div class="clear text-center">
 							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-lg btn-success">
 						</div>
 				</form>
