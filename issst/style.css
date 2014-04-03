@@ -10569,7 +10569,7 @@ main p {
   font-weight: bold;
 }
 
-body.page-template-default {
+body .page-template-default, body .blog {
   padding-top: 52px;
 }
 
@@ -10589,6 +10589,7 @@ footer {
 }
 
 body.home {
+  -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
