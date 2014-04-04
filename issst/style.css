@@ -10569,7 +10569,7 @@ main p {
   font-weight: bold;
 }
 
-body .page-template-default, body .blog {
+body.page-template-default, body.blog, body.single {
   padding-top: 52px;
 }
 
@@ -10587,15 +10587,26 @@ footer {
   font-size: 1.2em;
   margin-top: 2em;
 }
+body.home footer {
+  padding-top: 0;
+  margin-top: 0;
+}
 
 body.home {
-  -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
+  background: black;
+}
+body.home .rest-of-content {
+  background-color: #f8f8f8;
+  padding-bottom: 3em;
 }
 body.home .mc-cycle {
   position: static !important;
+}
+body.home .mc-image {
+  max-height: 702px;
 }
 @media all and (max-width: 767px) {
   body.home .mc-image {
@@ -10615,9 +10626,6 @@ body.home .top-box {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
-  background: black;
-}
-body.home .top-box .container {
   position: relative;
   z-index: 1000;
 }

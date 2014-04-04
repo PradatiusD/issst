@@ -89,9 +89,8 @@ main p
 	font-weight: bold
 
 
-body
-	.page-template-default, .blog
-		padding-top: 52px
+body.page-template-default, body.blog, body.single
+	padding-top: 52px
 
 #map-canvas
 	height: 600px
@@ -107,12 +106,24 @@ footer
 	font-size: 1.2em
 	margin-top: 2em
 
+	body.home &
+		padding-top: 0
+		margin-top: 0
+
 body.home
-	-webkit-transform: translate3d(0,0,0)
+	-webkit-transform:translate3d(0,0,0)
 	@include backface-visibility(hidden)
+	background: black
+
+	.rest-of-content
+		background-color: #F8F8F8
+		padding-bottom: 3em
 
 	.mc-cycle
 		position: static !important
+
+	.mc-image
+		max-height: 702px
 
 	@media all and (max-width: 767px)
 		.mc-image
@@ -128,11 +139,8 @@ body.home
 	.top-box
 		@include transition (background 1s ease-out)
 		@include backface-visibility(hidden)
-		background: black
-
-		.container
-			position: relative
-			z-index: 1000
+		position: relative
+		z-index: 1000
 
 		@media all and (max-width: 767px)
 			height: 353px !important	
