@@ -17,7 +17,7 @@ module.exports = (grunt) ->
 					authKey: 'key1'
 				src: 'issst'
 				dest: 'wp-content/themes/issst'
-				# exclusions: ['issst/*.css','issst/lib/*']
+				exclusions: ['issst/lib/*','issst/img/*']
 
 		copy:
 			main:

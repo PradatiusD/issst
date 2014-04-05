@@ -14,7 +14,11 @@
 				<?php endwhile; else: ?>
 					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 				<?php endif; ?>
-				
+		
+				<div class="commentlist">
+					<?php comments_template( '/comments.php' ) ?>
+				</div>
+
 			</main>
 		</div>
 	</div>

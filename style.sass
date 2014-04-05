@@ -110,6 +110,25 @@ footer
 		padding-top: 0
 		margin-top: 0
 
+.commentlist
+	code
+		white-space: pre-line
+
+	#submit, .comment-reply-link
+		@extend .btn
+
+	#submit
+		@extend .btn-large
+		@extend .btn-success
+
+	.comment-reply-link
+		@extend .btn-sm
+		@extend .btn-primary
+
+	.comment-meta, .pingback
+		margin-bottom: 1em
+
+
 body.home
 	-webkit-transform:translate3d(0,0,0)
 	@include backface-visibility(hidden)
