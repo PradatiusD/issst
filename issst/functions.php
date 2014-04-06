@@ -21,3 +21,13 @@
 	register_nav_menus( array(
 	    'primary' => __( 'Primary Menu', 'ISSST' ),
 	) );
+
+
+		register_sidebar(array(
+			'name'=> 'Sidebar',
+			'id' => 'sidebar',
+			'before_widget' => '<article id="%1$s" class="widget %2$s">',
+			'after_widget' => '</article>',
+			'before_title' => '<h3>',
+			'after_title' => '</h3>',
+		));

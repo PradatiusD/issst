@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 
-			<main class="col-md-12">
+			<main class="col-md-9">
 
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -14,12 +14,16 @@
 				<?php endwhile; else: ?>
 					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 				<?php endif; ?>
-		
-				<div class="commentlist">
-					<?php comments_template( '/comments.php' ) ?>
-				</div>
 
 			</main>
+			<aside class="col-md-3">
+				<?php get_sidebar(); ?>
+			</aside>
+		</div>
+		<div class="row">
+			<section class="col-md-12 commentlist">
+				<?php comments_template( '/comments.php' ) ?>
+			</section>
 		</div>
 	</div>
 

@@ -118,7 +118,6 @@ footer
 		@extend .btn
 
 	#submit
-		@extend .btn-large
 		@extend .btn-success
 
 	.comment-reply-link
@@ -128,6 +127,8 @@ footer
 	.comment-meta, .pingback
 		margin-bottom: 1em
 
+
+$homeBreakPt: 767px
 
 body.home
 	-webkit-transform:translate3d(0,0,0)
@@ -144,7 +145,7 @@ body.home
 	.mc-image
 		max-height: 702px
 
-	@media all and (max-width: 767px)
+	@media all and (max-width: $homeBreakPt)
 		.mc-image
 			height: 353px !important
 			margin-top: 49px
@@ -174,21 +175,29 @@ body.home
 		color: #FFF
 		margin-top: 200px
 		text-align: right
+		@media all and (max-width: $homeBreakPt)
+			margin-top: 0
 
 		p
 			font-size: 7em
 			margin: 0.45em 0 0
 			line-height: 0.5em			
+			@media all and (max-width: $homeBreakPt)
+				font-size: 5em
 		
 		span
 			font-size: 9em
 			display: inline-block
 			vertical-align: bottom
-			line-height: 1.2em		
+			line-height: 1.2em
+			@media all and (max-width: $homeBreakPt)
+				font-size: 6em
 
 		img
 			width: 300px
 			display: inline-block
+			@media all and (max-width: $homeBreakPt)
+				width: 200px
 
 
 	.indicates-required

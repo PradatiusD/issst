@@ -10718,10 +10718,20 @@ body.home .issst-opening {
   margin-top: 200px;
   text-align: right;
 }
+@media all and (max-width: 767px) {
+  body.home .issst-opening {
+    margin-top: 0;
+  }
+}
 body.home .issst-opening p {
   font-size: 7em;
   margin: 0.45em 0 0;
   line-height: 0.5em;
+}
+@media all and (max-width: 767px) {
+  body.home .issst-opening p {
+    font-size: 5em;
+  }
 }
 body.home .issst-opening span {
   font-size: 9em;
@@ -10729,9 +10739,19 @@ body.home .issst-opening span {
   vertical-align: bottom;
   line-height: 1.2em;
 }
+@media all and (max-width: 767px) {
+  body.home .issst-opening span {
+    font-size: 6em;
+  }
+}
 body.home .issst-opening img {
   width: 300px;
   display: inline-block;
+}
+@media all and (max-width: 767px) {
+  body.home .issst-opening img {
+    width: 200px;
+  }
 }
 body.home .indicates-required {
   text-align: right;
