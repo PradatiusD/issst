@@ -4214,7 +4214,7 @@ div.mc-image {
 }
 .navbar-default .navbar-brand {
   background: url("img/issst.png");
-  background-size: 100% auto;
+  background-size: 88% auto;
   background-repeat: no-repeat;
   text-indent: -9999px;
   width: 78px;
@@ -10653,6 +10653,9 @@ footer {
   font-size: 1.2em;
   margin-top: 2em;
 }
+footer img {
+  margin: 0 auto;
+}
 body.home footer {
   padding-top: 0;
   margin-top: 0;
@@ -10666,6 +10669,7 @@ body.home footer {
 }
 
 body.home {
+  -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -10747,6 +10751,9 @@ body.home .issst-opening span {
 body.home .issst-opening img {
   width: 300px;
   display: inline-block;
+  position: relative;
+  top: 5px;
+  margin-right: -5px;
 }
 @media all and (max-width: 767px) {
   body.home .issst-opening img {
@@ -10766,4 +10773,29 @@ body.home .mailchimp-join-list {
 }
 body.home .mailchimp-join-list #mc_embed_signup {
   text-align: left;
+}
+body.home .partners {
+  background-color: white;
+  margin-bottom: -47px;
+  padding: 1em 0px 2em;
+}
+body.home .partners .logos {
+  text-align: center;
+}
+body.home .partners .img-responsive {
+  display: inline-block;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: all 1.5s ease-out;
+  transition: all 1.5s ease-out;
+}
+body.home .partners .img-responsive:hover {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
 }

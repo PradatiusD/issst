@@ -13,6 +13,26 @@
  * Use it to make something cool, have fun, and share what you've learned with others.
  *  */
 
+// From https://gist.github.com/GeneLocklin/2957278
+// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html 
+//
+// grayscale      ex: filter: grayscale(100%);
+// sepia          ex: filter: sepia(100%);
+// saturate       ex: filter: saturate(0%);
+// hue-rotate     ex: filter: hue-rotate(45deg);
+// invert         ex: filter: invert(100%);
+// brightness     ex: filter: brightness(15%);
+// contrast       ex: filter: contrast(200%);
+// blur           ex: filter: blur(2px);
+ 
+=filter($filter-type,$filter-amount)
+	-webkit-filter: $filter-type+unquote('(#{$filter-amount})')
+	-moz-filter: $filter-type+unquote('(#{$filter-amount})')
+	-ms-filter: $filter-type+unquote('(#{$filter-amount})')
+	-o-filter: $filter-type+unquote('(#{$filter-amount})')
+	filter: $filter-type+unquote('(#{$filter-amount})')
+
+
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic")
 
 @import 'bower_components/animate.scss/animate'
@@ -55,7 +75,7 @@ $navbar-default-link-active-bg:            lighten($navbar-default-bg, 6.5%)
 
 	.navbar-brand
 		background: url('img/issst.png')
-		background-size: 100% auto
+		background-size: 88% auto
 		background-repeat: no-repeat
 		text-indent: -9999px
 		width: 78px
@@ -74,10 +94,10 @@ h1
 		color: #4B4A4A
 
 a
-	@include transition (color 0.3s ease-in-out)
+	+transition (color 0.3s ease-in-out)
 
 	&:hover
-		@include transition (color 0.3s ease-in-out)
+		+transition (color 0.3s ease-in-out)
 		text-decoration: none
 
 main p
@@ -106,6 +126,9 @@ footer
 	font-size: 1.2em
 	margin-top: 2em
 
+	img
+		margin: 0 auto
+
 	body.home &
 		padding-top: 0
 		margin-top: 0
@@ -131,8 +154,8 @@ footer
 $homeBreakPt: 767px
 
 body.home
-	-webkit-transform:translate3d(0,0,0)
-	@include backface-visibility(hidden)
+	-webkit-transform: translate3d(0,0,0)
+	+backface-visibility(hidden)
 	background: black
 
 	.rest-of-content
@@ -157,8 +180,8 @@ body.home
 		background-position: center !important
 
 	.top-box
-		@include transition (background 1s ease-out)
-		@include backface-visibility(hidden)
+		+transition (background 1s ease-out)
+		+backface-visibility(hidden)
 		position: relative
 		z-index: 1000
 
@@ -196,6 +219,9 @@ body.home
 		img
 			width: 300px
 			display: inline-block
+			position: relative
+			top: 5px
+			margin-right: -5px
 			@media all and (max-width: $homeBreakPt)
 				width: 200px
 
@@ -204,7 +230,7 @@ body.home
 		text-align: right
 
 	.register-now
-		@include transition (all 0.3s ease-out)
+		+transition (all 0.3s ease-out)
 		font-size: 1.65em
 
 	.mailchimp-join-list
@@ -212,3 +238,18 @@ body.home
 
 		#mc_embed_signup
 			text-align: left
+
+	.partners
+		background-color: white
+		margin-bottom: -47px
+		padding: 1em 0px 2em
+
+		.logos
+			text-align: center
+
+		.img-responsive
+			display: inline-block
+			+filter(grayscale,100%)
+			+transition (all 1.5s ease-out)
+			&:hover
+				+filter(grayscale, 0%)

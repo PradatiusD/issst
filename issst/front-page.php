@@ -46,7 +46,7 @@
 			</div>
 		</section>
 		<section class="row">
-			<h1>Monstrous Schedule</h1>
+			<h1>Preliminary Schedule</h1>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -215,7 +215,7 @@
 		</section>
 		<section class="row">
 			<div class="col-md-6 col-md-offset-3 mailchimp-join-list">
-				<h1>Want to get P.ISSST weekly?</h1>
+				<h1>Want to get PISSST weekly?</h1>
 				<p class="lead">Sign up to be part of Proceedings from the International Symposium on Sustainable Systems & Technology, better known as PISSST.</p>
 
 				<!-- Begin MailChimp Signup Form -->
@@ -460,7 +460,27 @@
 
 		</section>
 	</div>
-	
+	<div class="partners">
+		<div class="container">
+			<section class="row">
+				<div class="col-md-12">
+					<h1>Say hello!</h1>
+					<p class="lead">To our wonderful set of partners!  Please on them click to find more about their conferences.</p>
+					<div class="logos">
+						<a href="http://www.care-electronics.net/CI2014/">
+							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-care.jpg" alt="">
+						</a>
+						<a href="http://www.egg2012.de/">
+							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-egg.jpg" alt="">							
+						</a>
+						<a href="http://ecodesign.or.kr/sub/overview.asp">
+							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-eco-design.jpg" alt="">						
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
 </div>
 
 <div id="maximage">
@@ -472,6 +492,8 @@
 	<img src="<?php bloginfo('template_url'); ?>/img/slide6.jpg" alt="">
 	<img src="<?php bloginfo('template_url'); ?>/img/slide7.jpg" alt="">
 </div>
+
+
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="http://www.aaronvanderzwan.com/maximage/lib/js/jquery.cycle.all.js" type="text/javascript" charset="utf-8"></script>
@@ -604,4 +626,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 	})(jQuery);
 </script>
+<style>
+	html {
+		margin-top: 0 !important;
+	}
+</style>
 <?php get_footer(); ?>
