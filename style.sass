@@ -16,14 +16,14 @@
 // From https://gist.github.com/GeneLocklin/2957278
 // https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html 
 //
-// grayscale      ex: filter: grayscale(100%);
-// sepia          ex: filter: sepia(100%);
-// saturate       ex: filter: saturate(0%);
-// hue-rotate     ex: filter: hue-rotate(45deg);
-// invert         ex: filter: invert(100%);
-// brightness     ex: filter: brightness(15%);
-// contrast       ex: filter: contrast(200%);
-// blur           ex: filter: blur(2px);
+// grayscale      ex: filter: grayscale(100%)
+// sepia          ex: filter: sepia(100%)
+// saturate       ex: filter: saturate(0%)
+// hue-rotate     ex: filter: hue-rotate(45deg)
+// invert         ex: filter: invert(100%)
+// brightness     ex: filter: brightness(15%)
+// contrast       ex: filter: contrast(200%)
+// blur           ex: filter: blur(2px)
  
 =filter($filter-type,$filter-amount)
 	-webkit-filter: $filter-type+unquote('(#{$filter-amount})')
@@ -32,12 +32,23 @@
 	-o-filter: $filter-type+unquote('(#{$filter-amount})')
 	filter: $filter-type+unquote('(#{$filter-amount})')
 
-
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic")
 
 @import 'bower_components/animate.scss/animate'
 @import 'bower_components/bourbon/app/assets/stylesheets/bourbon'
 @import 'bower_components/maximage/lib/css/jquery.maximage'
+
+@include keyframes(squeeze)
+	from
+		width: 62px
+	to
+		width: 0px
+
+@include keyframes(expand)
+	from
+		width: 0px
+	to
+		width: 62px
 
 
 $body-bg: #F8F8F8
@@ -204,11 +215,22 @@ body.home
 		p
 			font-size: 7em
 			margin: 0.45em 0 0
-			line-height: 0.5em			
+			line-height: 0.5em
+			display: inline-block		
 			@media all and (max-width: $homeBreakPt)
 				font-size: 5em
-		
-		span
+	
+		#n
+			overflow-x: hidden
+			height: 70px
+
+			&.squeeze
+				@include animation(squeeze 1.0s  ease-in)
+
+			&.expand
+				@include animation(expand 1.0s  ease-in)
+
+		#prefix
 			font-size: 9em
 			display: inline-block
 			vertical-align: bottom

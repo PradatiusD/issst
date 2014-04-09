@@ -6,7 +6,7 @@
 		<div class="row">
 			<main class="col-md-11">
 				<div class="issst-opening">
-					<p>be a</p>
+					<p>be a</p><p id="n" style="width:0px">n</p><br>
 					<span id="prefix">scien</span>
 					<img class="issst-logo" src="<?php echo get_template_directory_uri();?>/img/issst.png" alt="">
 				</div>
@@ -579,6 +579,30 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 	(function ($){
 
+		var $n = $('#n');
+
+		function squeeze () {
+
+			$n.removeClass('expand squeeze');
+			$n.addClass('squeeze');
+
+			setTimeout(function(){
+				$n.css('width','0px')
+			}, 1000)
+
+		}
+
+		function expand () {
+
+			$n.removeClass('expand squeeze');
+			$n.addClass('expand');
+
+			setTimeout(function(){
+				$n.css('width','');
+			}, 1000)
+
+		}
+
 		$prefixSelector = $('#prefix');
 
 		function changePrefix (toText) {
@@ -587,7 +611,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 				$prefixSelector.addClass('animated fade-out');
 
-			}, 0)
+				if (toText.charAt('0') === 'a' || toText.charAt('0') === 'e' || toText.charAt('0') === 'i' || toText.charAt('0') === 'o' || toText.charAt('0') === 'u') {
+
+					expand();
+
+				} else {
+
+					squeeze();
+				}
+
+
+			}, 0);
 
 			setTimeout(function(){
 
@@ -595,6 +629,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						.text(toText)
 						.removeClass('animated fade-out')
 						.addClass('animated fade-in');
+
 			}, 1000);
 
 		}

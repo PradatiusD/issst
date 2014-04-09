@@ -4197,6 +4197,86 @@ div.mc-image {
   overflow: hidden;
 }
 
+@-webkit-keyframes squeeze {
+  from {
+    width: 62px;
+  }
+
+  to {
+    width: 0px;
+  }
+}
+
+@-moz-keyframes squeeze {
+  from {
+    width: 62px;
+  }
+
+  to {
+    width: 0px;
+  }
+}
+
+@-o-keyframes squeeze {
+  from {
+    width: 62px;
+  }
+
+  to {
+    width: 0px;
+  }
+}
+
+@keyframes squeeze {
+  from {
+    width: 62px;
+  }
+
+  to {
+    width: 0px;
+  }
+}
+
+@-webkit-keyframes expand {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 62px;
+  }
+}
+
+@-moz-keyframes expand {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 62px;
+  }
+}
+
+@-o-keyframes expand {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 62px;
+  }
+}
+
+@keyframes expand {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 62px;
+  }
+}
+
 .navbar-default {
   text-transform: uppercase;
   font-weight: 200;
@@ -10731,20 +10811,33 @@ body.home .issst-opening p {
   font-size: 7em;
   margin: 0.45em 0 0;
   line-height: 0.5em;
+  display: inline-block;
 }
 @media all and (max-width: 767px) {
   body.home .issst-opening p {
     font-size: 5em;
   }
 }
-body.home .issst-opening span {
+body.home .issst-opening #n {
+  overflow-x: hidden;
+  height: 70px;
+}
+body.home .issst-opening #n.squeeze {
+  -webkit-animation: squeeze 1s ease-in;
+  animation: squeeze 1s ease-in;
+}
+body.home .issst-opening #n.expand {
+  -webkit-animation: expand 1s ease-in;
+  animation: expand 1s ease-in;
+}
+body.home .issst-opening #prefix {
   font-size: 9em;
   display: inline-block;
   vertical-align: bottom;
   line-height: 1.2em;
 }
 @media all and (max-width: 767px) {
-  body.home .issst-opening span {
+  body.home .issst-opening #prefix {
     font-size: 6em;
   }
 }
