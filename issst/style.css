@@ -10819,7 +10819,7 @@ body.home .issst-opening p {
   }
 }
 body.home .issst-opening #n {
-  overflow-x: hidden;
+  overflow: hidden;
   height: 70px;
 }
 body.home .issst-opening #n.squeeze {
