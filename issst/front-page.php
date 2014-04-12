@@ -45,6 +45,7 @@
 				<p><a href="https://www.regonline.com/builder/site/?eventid=1482855" class="btn btn-primary btn-large btn-success btn-block register-now">Register Now!</a></p>
 			</div>
 		</section>
+		<!--
 		<section class="row">
 			<h1>Preliminary Schedule</h1>
 			<table class="table table-striped">
@@ -202,6 +203,7 @@
 						<td class="warning">Cereal rotation and the use of a Decision Support System to improve the sustainability of durum wheat cultivation</td>
 						<td class="info">Comparing NFA and MRIO approaches for calculating nations' Ecological Footprint of consumption</td>
 					</tr>
+	-->
 	<!-- 
 					<tr>
 						<td></td>
