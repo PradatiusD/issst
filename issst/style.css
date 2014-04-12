@@ -10748,6 +10748,13 @@ body.home footer {
   margin-bottom: 1em;
 }
 
+.program-schedule {
+  display: none;
+}
+body.logged-in .program-schedule {
+  display: block;
+}
+
 body.home {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
