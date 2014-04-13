@@ -10715,7 +10715,7 @@ main p {
   font-weight: bold;
 }
 
-body.page-template-default, body.blog, body.single {
+body.page-template-default, body.blog, body.single, body.page-template-full-width-php {
   padding-top: 52px;
 }
 
@@ -10750,6 +10750,43 @@ body.home footer {
 
 .program-schedule {
   display: none;
+}
+.program-schedule.icon-set .fa {
+  display: block;
+  width: 100%;
+  font-size: 3em;
+}
+.program-schedule.icon-set td.success, .program-schedule.icon-set td.warning, .program-schedule.icon-set td.info {
+  text-align: center;
+  -webkit-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
+}
+.program-schedule.icon-set td.success {
+  color: #477f31;
+}
+.program-schedule.icon-set td.success:hover {
+  background: #d0e9c6;
+}
+.program-schedule.icon-set td.success .fa {
+  color: #93cd7c;
+}
+.program-schedule.icon-set td.warning {
+  color: #b39a13;
+}
+.program-schedule.icon-set td.warning:hover {
+  background: #faf2cc;
+}
+.program-schedule.icon-set td.warning .fa {
+  color: #f0db70;
+}
+.program-schedule.icon-set td.info {
+  color: #207098;
+}
+.program-schedule.icon-set td.info:hover {
+  background: #c4e3f3;
+}
+.program-schedule.icon-set td.info .fa {
+  color: #70bbe1;
 }
 body.logged-in .program-schedule {
   display: block;

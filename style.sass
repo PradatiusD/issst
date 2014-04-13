@@ -120,7 +120,7 @@ main p
 	font-weight: bold
 
 
-body.page-template-default, body.blog, body.single
+body.page-template-default, body.blog, body.single, body.page-template-full-width-php
 	padding-top: 52px
 
 #map-canvas
@@ -162,8 +162,37 @@ footer
 		margin-bottom: 1em
 
 
+=iconTable ($colar)
+	color: darken($colar, 55%)
+
+	&:hover
+		background: darken($colar, 5%)
+	.fa
+		color: darken($colar, 25%)
+
 .program-schedule
 	display: none
+
+	&.icon-set
+	
+		.fa
+			display: block
+			width: 100%
+			font-size: 3em
+
+		td.success, td.warning, td.info
+			text-align: center
+			@include transition(all 0.8s ease-out)
+
+
+		td.success
+			+iconTable(#DFF0D8)
+
+		td.warning
+			+iconTable(#FCF8E3)
+
+		td.info
+			+iconTable(#D9EDF7)
 
 	body.logged-in &
 		display: block

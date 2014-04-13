@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 <section class="top-box" id="header-slides">
 	<div class="container">
@@ -55,6 +55,166 @@
 	
 			<h1><?php echo $programPost->post_title; ?></h1>
 			<div><?php echo $programPost->post_content; ?></div>
+		</section>
+
+		<section class="row program-schedule icon-set">
+			<div class="col-md-12">
+				<h1>Your Schedule</h1>
+				<p class="lead">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th style="width: 121px">Time</th>
+							<th class="text-center">Track 1</th>
+							<th class="text-center">Track 2</th>
+							<th class="text-center">Track 3</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="4"><h2>Sunday May 18th</h2></td>
+						</tr>
+						<tr>
+							<td>09:00 - 12:00</td>
+							<td colspan="3" class="text-center">
+								<strong>Onsite registration</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td>13:00 - 17:00</td>
+							<td colspan="3" class="text-center">
+								<strong>Pre-conference sessions (to be added)</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td colspan="4"><h2>Monday May 19th</h2></td>
+						</tr>
+						<tr>
+							<td>13:00 - 14:00</td>
+							<td colspan="3" class="text-center">
+								<strong>Welcome:</strong> Tom Seager, <em>ISSST 2014 Conference Chair</em><br>
+								<strong>Opening Plenary:</strong> Capt. Wayne Porter, <em>US Navy Post-graduate School</em>
+							</td>					
+						</tr>
+						<tr>
+							<td>14:00 - 15:30</td>
+							<td class="success">
+								<i class="fa fa-truck"></i>Sustainable Transportation
+							</td>
+							<td class="warning"><i class="fa fa-sun-o"></i>Solar Technology</td>
+							<td class="info"><i class="fa fa-building-o"></i>Urban Sustainability 1</td>
+						</tr>
+						<tr>
+							<td>15:30 - 16:00</td>
+							<td colspan="3" class="text-center">
+								<strong>Break</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td>16:00 - 17:30</td>
+							<td class="success"><i class="fa fa-leaf"></i>Biofuel Technology</td>
+							<td class="warning"><i class="fa fa-cogs"></i>Building Efficiency</td>
+							<td class="info"><i class="fa fa-building-o"></i>Urban Sustainability II</td>
+						</tr>
+						<tr>
+							<td>17:30 - 19:30</td>
+							<td colspan="3" class="text-center">
+								<strong>POSTER SESSION: Refreshments served.</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td colspan="4"><h2>Tuesday May 20th</h2></td>
+						</tr>
+						<tr>
+							<td>7:30-8:30</td>
+							<td colspan="3" class="text-center">
+								<strong>BREAKFAST: fruit juice, coffee, danish & bagels.  STUDENT ORGANIZING COMMITTEE MEETING</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td>08:30 - 10:00</td>
+							<td class="success"><i class="fa fa-gavel"></i>Policy-Making</td>
+							<td class="warning"><i class="fa fa-globe"></i>LCA of Energy</td>
+							<td class="info"><i class="fa fa-group"></i>Social Sustainability</td>
+						</tr>
+						<tr>
+							<td>10:00-10:30</td>
+							<td colspan="3" class="text-center">
+								<strong>Break</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td>10:30 - 12:00</td>
+							<td class="success"><i class="fa fa-pencil"></i>Sustainable Production</td>
+							<td class="warning"><i class="fa fa-lightbulb-o"></i>Alternative Energy</td>
+							<td class="info"><i class="fa fa-pencil"></i>LCA Methods</td>
+						</tr>
+						<tr>
+							<td>10:00-10:30</td>
+							<td colspan="3" class="text-center">
+								<strong>Luncheon and Awards</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td>10:30 - 12:00</td>
+							<td class="success"><i class="fa fa-trash-o"></i>Waste Management</td>
+							<td class="warning"><i class="fa fa-flash"></i>Electric Vehicles</td>
+							<td class="info"><i class="fa fa-cog"></i>Construction</td>
+						</tr>
+						<tr>
+							<td>10:00-10:30</td>
+							<td colspan="3" class="text-center">
+								<strong>Break</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td>10:30 - 12:00</td>
+							<td class="success"><i class="fa fa-warning"></i>End of Life</td>
+							<td class="warning"><i class="fa fa-signal"></i>Emerging Technologies</td>
+							<td class="info"><i class="fa fa-book"></i>Education</td>
+						</tr>
+						<tr>
+							<td>Evening</td>
+							<td colspan="3" class="text-center">
+								<strong>Activity (to be added)</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td colspan="4"><h2>Wednesday May 21th</h2></td>
+						</tr>
+						<tr>
+							<td>7:30-8:30</td>
+							<td colspan="3" class="text-center">
+								<strong>Breakfast</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td>8:30 - 10:00</td>
+							<td class="success"><i class="fa fa-pencil"></i>Sustainable ICT</td>
+							<td class="warning"><i class="fa fa-flash"></i>Renewable Energy</td>
+							<td class="info"><i class="fa fa-bar-chart-o"></i>Sustainability Metrics</td>
+						</tr>
+						<tr>
+							<td>10:00-10:30</td>
+							<td colspan="3" class="text-center">
+								<strong>Break</strong>
+							</td>					
+						</tr>
+						<tr>
+							<td>8:30 - 10:00</td>
+							<td class="success"><i class="fa fa-comments"></i>Unconference Sessions</td>
+							<td class="warning"><i class="fa fa-flash"></i>Energy Efficiency</td>
+							<td class="info"><i class="fa fa-pencil"></i>LCA Applications</td>
+						</tr>
+						<tr>
+							<td>12:00 noon</td>
+							<td colspan="3" class="text-center">
+								<strong>End of the Symposium</strong>
+							</td>					
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</section>
 
 		<section class="row">
