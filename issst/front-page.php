@@ -219,8 +219,8 @@
 
 		<section class="row">
 			<div class="col-md-6 col-md-offset-3 mailchimp-join-list">
-				<h1>Want to get PISSST weekly?</h1>
-				<p class="lead">Sign up to be part of Proceedings from the International Symposium on Sustainable Systems & Technology, better known as PISSST.</p>
+				<h1>Stay connected!</h1>
+				<p class="lead">Sign up to be part of Proceedings from the International Symposium on Sustainable Systems & Technology, better known as Proc.ISSST.</p>
 
 				<!-- Begin MailChimp Signup Form -->
 				<div id="mc_embed_signup">
