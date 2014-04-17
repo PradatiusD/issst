@@ -49,7 +49,7 @@
 		<section class="row program-schedule icon-set">
 			<div class="col-md-12">
 				<h1>Your Schedule</h1>
-				<p class="lead">Click <a href="http://issst2014.net/2014-program/">here</a> for a more detailed version of the schedule.</p>
+				<p class="lead">Click <a href="http://issst2014.net/program/preliminary-2014-program/">here</a> for a more detailed version of the schedule.</p>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -576,7 +576,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <script>
 	(function redirectClickTable($){
 		$('.program-schedule td').click(function(){
-			window.location.href= 'http://issst2014.net/2014-program/'
+			window.location.href= 'http://issst2014.net/program/preliminary-2014-program/'
 		});
 	})(jQuery);
 

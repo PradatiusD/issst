@@ -10748,9 +10748,6 @@ body.home footer {
   margin-bottom: 1em;
 }
 
-.program-schedule {
-  display: none;
-}
 .program-schedule.icon-set .fa {
   display: block;
   width: 100%;
@@ -10790,9 +10787,6 @@ body.home footer {
 }
 .program-schedule.icon-set td:hover {
   cursor: pointer;
-}
-body.logged-in .program-schedule {
-  display: block;
 }
 
 body.home {
