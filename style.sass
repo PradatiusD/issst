@@ -194,6 +194,9 @@ footer
 		td.info
 			+iconTable(#D9EDF7)
 
+		td:hover
+			cursor: pointer
+
 	body.logged-in &
 		display: block
 
@@ -297,6 +300,14 @@ body.home
 		#mc_embed_signup
 			text-align: left
 
+	.superimpose
+		position: relative
+		.fa-bolt
+			position: absolute
+			top: 18px
+			right: 0px
+			opacity: 0.8
+			font-size: 1.6em
 	.partners
 		background-color: white
 		margin-bottom: -47px
@@ -306,6 +317,7 @@ body.home
 			text-align: center
 
 		.img-responsive
+			max-height: 150px
 			display: inline-block
 			+filter(grayscale,100%)
 			+transition (all 1.5s ease-out)

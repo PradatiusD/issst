@@ -46,21 +46,10 @@
 			</div>
 		</section>
 
-		<section class="row program-schedule">
-			<div class="col-md-12">
-			<?php 
-			$programPost = get_post(1714); //Production
-			// $programPost = get_post(1595); //Local
-			?>
-	
-			<h1><?php echo $programPost->post_title; ?></h1>
-			<div><?php echo $programPost->post_content; ?></div>
-		</section>
-
 		<section class="row program-schedule icon-set">
 			<div class="col-md-12">
 				<h1>Your Schedule</h1>
-				<p class="lead">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
+				<p class="lead">Click <a href="http://issst2014.net/2014-program/">here</a> for a more detailed version of the schedule.</p>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -112,8 +101,8 @@
 						</tr>
 						<tr>
 							<td>16:00 - 17:30</td>
-							<td class="success"><i class="fa fa-leaf"></i>Biofuel Technology</td>
-							<td class="warning"><i class="fa fa-cogs"></i>Building Efficiency</td>
+							<td class="success"><i class="fa fa-cogs"></i>Building Efficiency</td>
+							<td class="warning"><i class="fa fa-leaf"></i>Biofuel Technology</td>
 							<td class="info"><i class="fa fa-building-o"></i>Urban Sustainability II</td>
 						</tr>
 						<tr>
@@ -134,7 +123,7 @@
 						<tr>
 							<td>08:30 - 10:00</td>
 							<td class="success"><i class="fa fa-gavel"></i>Policy-Making</td>
-							<td class="warning"><i class="fa fa-globe"></i>LCA of Energy</td>
+							<td class="warning superimpose"><i class="fa fa-refresh"></i><i class="fa fa-bolt"></i>LCA of Energy</td>
 							<td class="info"><i class="fa fa-group"></i>Social Sustainability</td>
 						</tr>
 						<tr>
@@ -145,9 +134,9 @@
 						</tr>
 						<tr>
 							<td>10:30 - 12:00</td>
-							<td class="success"><i class="fa fa-pencil"></i>Sustainable Production</td>
-							<td class="warning"><i class="fa fa-lightbulb-o"></i>Alternative Energy</td>
-							<td class="info"><i class="fa fa-pencil"></i>LCA Methods</td>
+							<td class="success"><i class="fa fa-cogs"></i>Sustainable Production</td>
+							<td class="warning"><i class="fa fa-bolt"></i>Alternative Energy</td>
+							<td class="info"><i class="fa fa-refresh"></i>LCA Methods</td>
 						</tr>
 						<tr>
 							<td>10:00-10:30</td>
@@ -169,8 +158,8 @@
 						</tr>
 						<tr>
 							<td>10:30 - 12:00</td>
-							<td class="success"><i class="fa fa-warning"></i>End of Life</td>
-							<td class="warning"><i class="fa fa-signal"></i>Emerging Technologies</td>
+							<td class="success"><i class="fa fa-refresh"></i>End of Life</td>
+							<td class="warning"><i class="fa fa-level-up"></i>Emerging Technologies</td>
 							<td class="info"><i class="fa fa-book"></i>Education</td>
 						</tr>
 						<tr>
@@ -190,7 +179,7 @@
 						</tr>
 						<tr>
 							<td>8:30 - 10:00</td>
-							<td class="success"><i class="fa fa-pencil"></i>Sustainable ICT</td>
+							<td class="success"><i class="fa fa-info"></i>Sustainable ICT</td>
 							<td class="warning"><i class="fa fa-flash"></i>Renewable Energy</td>
 							<td class="info"><i class="fa fa-bar-chart-o"></i>Sustainability Metrics</td>
 						</tr>
@@ -477,8 +466,14 @@
 						<a href="http://www.egg2012.de/">
 							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-egg.jpg" alt="">							
 						</a>
+						<a href="http://earthshift.com/">
+							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-earthshift.jpg" alt="">						
+						</a>
 						<a href="http://ecodesign.or.kr/sub/overview.asp">
 							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-eco-design.jpg" alt="">						
+						</a>
+						<a href="http://gcgreencarbon.com/">
+							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-carbon.jpg" alt="">						
 						</a>
 					</div>
 				</div>
@@ -500,8 +495,7 @@
 
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script src="http://www.aaronvanderzwan.com/maximage/lib/js/jquery.cycle.all.js" type="text/javascript" charset="utf-8"></script>
-<script src="http://www.aaronvanderzwan.com/maximage/lib/js/jquery.maximage.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/homepage.min.js"></script>
 <script>
 var issstHotel = new google.maps.LatLng(37.802206, -122.272897);
 var map;
@@ -580,8 +574,13 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <script>
+	(function redirectClickTable($){
+		$('.program-schedule td').click(function(){
+			window.location.href= 'http://issst2014.net/2014-program/'
+		});
+	})(jQuery);
 
-	(function ($){
+	(function headerISTAnimation($){
 
 		var $n = $('#n');
 

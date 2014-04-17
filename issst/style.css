@@ -10788,6 +10788,9 @@ body.home footer {
 .program-schedule.icon-set td.info .fa {
   color: #70bbe1;
 }
+.program-schedule.icon-set td:hover {
+  cursor: pointer;
+}
 body.logged-in .program-schedule {
   display: block;
 }
@@ -10911,6 +10914,16 @@ body.home .mailchimp-join-list {
 body.home .mailchimp-join-list #mc_embed_signup {
   text-align: left;
 }
+body.home .superimpose {
+  position: relative;
+}
+body.home .superimpose .fa-bolt {
+  position: absolute;
+  top: 18px;
+  right: 0px;
+  opacity: 0.8;
+  font-size: 1.6em;
+}
 body.home .partners {
   background-color: white;
   margin-bottom: -47px;
@@ -10920,6 +10933,7 @@ body.home .partners .logos {
   text-align: center;
 }
 body.home .partners .img-responsive {
+  max-height: 150px;
   display: inline-block;
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);

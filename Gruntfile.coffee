@@ -17,7 +17,7 @@ module.exports = (grunt) ->
 					authKey: 'key1'
 				src: 'issst'
 				dest: 'wp-content/themes/issst'
-				exclusions: ['issst/lib/*','issst/img/*', '.DS_Store','favicon.ico']
+				# exclusions: ['issst/lib/*','issst/img/*', '.DS_Store','favicon.ico']
 
 		copy:
 			main:
@@ -42,14 +42,24 @@ module.exports = (grunt) ->
 				files: 'style.sass'
 				tasks: ['sass','copy']
 
-
+		uglify:
+			homepage:
+				files:
+					'issst/js/homepage.min.js': [
+						'bower_components/maximage/lib/js/jquery.cycle.all.js',
+						'bower_components/maximage/lib/js/jquery.maximage.js'
+					]
+			global:
+				files:
+					'issst/js/global.min.js': ['issst/lib/*.js']
 	)
 
 	grunt.loadNpmTasks('grunt-php')
-	grunt.loadNpmTasks('grunt-contrib-copy')
 	grunt.loadNpmTasks('grunt-ftp-deploy')
 	grunt.loadNpmTasks('grunt-concurrent')
+	grunt.loadNpmTasks('grunt-contrib-copy')
 	grunt.loadNpmTasks('grunt-contrib-sass')
 	grunt.loadNpmTasks('grunt-contrib-watch')
+	grunt.loadNpmTasks('grunt-contrib-uglify')
 	grunt.registerTask('default', ['watch'])
 	grunt.registerTask('deploy', ['ftp-deploy'])
