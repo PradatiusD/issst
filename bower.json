@@ -1,6 +1,6 @@
 {
   "name": "issst",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "authors": [
     "PradatiusD <danielprada2012@gmail.com>"
   ],
@@ -13,8 +13,10 @@
     "test",
     "tests"
   ],
-  "homepage": "https://github.com/PradatiusD/issst",
+  "homepage": "http://issst2014.net",
   "dependencies": {
+    "datejs": "*",
+    "jquery": "~2.1.0",
     "maximage": "*",
     "animate.scss": "*",
     "bourbon": "~3.1.8",

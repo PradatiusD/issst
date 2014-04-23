@@ -10789,6 +10789,10 @@ body.home footer {
   cursor: pointer;
 }
 
+#gCal .table-stacked-div {
+  padding: 1em;
+}
+
 body.home {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;

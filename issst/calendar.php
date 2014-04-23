@@ -26,15 +26,25 @@ Template Name: Google Calendar Template
 		</div>
 	</div>
 		
-		<?php
-		// error_reporting(E_ALL);
-		// ini_set('display_errors', 1);
+		
+	<?php
+	// error_reporting(E_ALL);
+	// ini_set('display_errors', 1);
 
-		$calFeed = file_get_contents('https://www.google.com/calendar/feeds/6m1mp10rru9iq2i7rt035m5c9k%40group.calendar.google.com/public/full?alt=json&max-results=100');
-		$calFeed = json_decode($calFeed, true);
-		$entries = $calFeed['feed']['entry'];
-		$timecomparer = null;
-		?>
+	$calFeed = file_get_contents('https://www.google.com/calendar/feeds/6m1mp10rru9iq2i7rt035m5c9k%40group.calendar.google.com/public/full?alt=json&max-results=100');
+	$calFeed = json_decode($calFeed, true);
+	$entries = $calFeed['feed']['entry'];
+	$timecomparer = null;
+
+	function compare_time($a, $b) { 
+	    if($a['gd$when'][0]['startTime'] == $b['gd$when'][0]['startTime']) {
+	        return 0 ;
+	    } 
+	  return ($a['gd$when'][0]['startTime'] < $b['gd$when'][0]['startTime']) ? -1 : 1;
+	} 
+
+	usort($entries, 'compare_time');
+	?>
 
 	<section class="container">
 		<div class="col-md-12">
@@ -50,7 +60,9 @@ Template Name: Google Calendar Template
 
 					$startTime = new DateTime($entry['gd$when'][0]['startTime']);
 
-					$startTime = $startTime->format('F dS, h:ia');
+					$startTimeDay = $startTime->format('l, F dS');
+
+					$startTime = $startTime->format('h:ia');
 
 					$endTime = new DateTime($entry['gd$when'][0]['endTime']);
 					$endTime = $endTime->format('h:ia');
@@ -59,21 +71,23 @@ Template Name: Google Calendar Template
 
 
 					if ($timecomparer == null) {
-						echo "<tr><td style=\"width: 121px\">$startTime - $endTime</td>\n\t\t<td>";
+
+						echo "<tr data-time=\"$startTimeData\" data-day=\"$startTimeDay\"><td class=\"text-center\">$startTime to $endTime</td>\n\t\t<td>";
+
 					}
 					else if ($timecomparer == $startTimeData) {
 						echo "<td>";
 
 					} else {
-						echo "\t<tr><td style=\"width: 121px\">$startTime - $endTime</td>\n\t\t<td>";
+						echo "\t<tr data-time=\"$startTimeData\" data-day=\"$startTimeDay\"><td class=\"text-center\">$startTime to $endTime</td>\n\t\t<td>";
 					}
 
 
 				?>
 						
-						<h4><?php echo $title;?></h4>
+						<h4><?php   echo $title;?></h4>
 						<p><b><?php echo $where;?></b></p>
-						<p><?php  echo $content;?></p>
+						<p><?php    echo $content;?></p>
 
 				<?php  
 
@@ -91,8 +105,37 @@ Template Name: Google Calendar Template
 			</table>
 		</div>
 	</section>
+
+
+	<div class="container">
+		<div class="row">
+			<section class="col-md-12 commentlist">
+				<?php comments_template( '/comments.php' ) ?>
+			</section>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/date.js"></script>
 	<script>
 		(function($){
+
+			function fixLongTable ($selector) {
+
+				console.log($selector);
+				var htm = "";
+				for (var i = 0; i < $selector.length; i++) {
+					var innerData =  $selector[i].innerHTML;
+					htm += "<div class=\"table-stacked-div bg-"+$selector[i].className+"\">" + innerData +"</div>";
+				};
+
+				htm = "<td colspan=\"4\">" + htm + "</td>";
+
+				console.log(htm);
+				$tds.eq(0).after(htm);
+				$selector.remove();
+			}
+
+			// // This component adds css classes depending on the format
 
 			$trs = $('#gCal').find('tr');
 
@@ -104,11 +147,11 @@ Template Name: Google Calendar Template
 
 				switch ($columnsInRow) {
 					case 2:
-						$tds.eq(1).attr('colspan', 3).addClass('text-center');
+						$tds.eq(1).attr('colspan', 5).addClass('text-center');
 					break;
 					case 3:
-						$tds.eq(1).addClass('success');
-						$tds.eq(2).addClass('warning');
+						$tds.eq(1).attr('colspan', 2);
+						$tds.eq(2).attr('colspan', 1);
 					break;
 					case 4:
 						$tds.attr('colspan', 1);
@@ -116,20 +159,48 @@ Template Name: Google Calendar Template
 						$tds.eq(2).addClass('warning');
 						$tds.eq(3).addClass('info');
 					break;
+					case 5:
+						$tds.attr('colspan', 1);
+						$tds.eq(1).addClass('success');
+						$tds.eq(2).addClass('warning');
+						$tds.eq(3).addClass('info');
+						$tds.eq(4).addClass('danger');
+						fixLongTable($tds.not(':first'));
+					break;
+					case 6:
+
+						$tds.eq(1).addClass('success');
+						$tds.eq(2).addClass('warning');
+						$tds.eq(3).addClass('info');
+						$tds.eq(4).addClass('danger');
+						fixLongTable($tds.not(':first'));
+					break;
 				}
 
 			});
 
+			var tempDate = null;
+
+			$trs.each(function(){
+
+				var date = new Date($(this).attr('data-time'))
+
+				date = date.getOrdinalNumber();
+
+				if (tempDate === null || tempDate !== date) {
+					var dayString = $(this).attr('data-day');
+					$(this).before('<tr><td colspan="4"><h2>'+dayString+'</td></tr>');
+					console.log(date);
+				};
+
+				tempDate = date;
+
+			});
+
+			$('#gCal').removeClass('hidden').addClass('animated fade-up-in');
+
 
 		})(jQuery);
 	</script>
-
-	<div class="container">
-		<div class="row">
-			<section class="col-md-12 commentlist">
-				<?php comments_template( '/comments.php' ) ?>
-			</section>
-		</div>
-	</div>
 
 <?php get_footer(); ?>
