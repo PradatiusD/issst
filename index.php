@@ -24,6 +24,8 @@
 	usort($entries, 'compare_time');
 	?>
 
+	<pre><?php // print_r($entries); ?></pre>
+
 <section class="container">
 	<div class="col-md-12">
 		<table class="table table-striped" id="gCal">
@@ -31,6 +33,8 @@
 			foreach ($entries as $entry):
 
 				$title = $entry['title']['$t'];
+
+				$link = $entry['link'][0]['href'];
 
 				$content = $entry['content']['$t'];
 
@@ -63,9 +67,10 @@
 
 			?>
 					
-					<h4><?php   echo $title;?></h4>
-					<p><b><?php echo $where;?></b></p>
-					<p><?php    echo $content;?></p>
+					<h4><a href="#" class="show-des"><?php echo $title;?></a></h4>
+					<p class="hidden"><b><?php echo $where;?></b></p>
+					<p class="hidden"><?php echo $content;?></p>
+					<p class="hidden"><small><a href="<?php echo $link; ?>">View in Google Calendar</a></small></p>
 
 			<?php  
 
@@ -114,9 +119,10 @@
 
 			switch ($columnsInRow) {
 				case 2:
-					$tds.eq(1).attr('colspan', 5).addClass('text-center');
+					$tds.eq(1).attr('colspan', 5);
 				break;
 				case 3:
+
 					$tds.eq(1).attr('colspan', 2);
 					$tds.eq(2).attr('colspan', 1);
 				break;
@@ -135,7 +141,6 @@
 					fixLongTable($tds.not(':first'));
 				break;
 				case 6:
-
 					$tds.eq(1).addClass('success');
 					$tds.eq(2).addClass('warning');
 					$tds.eq(3).addClass('info');
@@ -145,18 +150,6 @@
 			}
 
 		});
-
-		// // This sorts them into chronological order
-
-		// var $sortedTrs = $trs.sort(function (a, b) {
-
-		// 	var contentA = $(a).attr('data-time');
-		// 	var contentB = $(b).attr('data-time');
-		// 	return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
-		// });
-
-		// $trs.remove();
-		// $sortedTrs.appendTo('table');
 
 		var tempDate = null;
 
@@ -176,7 +169,12 @@
 
 		});
 
-
+		// Show hide information on click
+		$('.show-des').click(function(e){
+			e.preventDefault();
+			var $ps = $(this).parent().parent().find('p');
+			$ps.toggleClass('hidden animated fade-down-in');
+		});
 
 	})(jQuery);
 </script>

@@ -22,12 +22,24 @@
 	    'primary' => __( 'Primary Menu', 'ISSST' ),
 	) );
 
+	register_sidebar(array(
+		'name'=> 'Sidebar',
+		'id' => 'sidebar',
+		'before_widget' => '<article id="%1$s" class="widget %2$s">',
+		'after_widget' => '</article>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>',
+	));
 
-		register_sidebar(array(
-			'name'=> 'Sidebar',
-			'id' => 'sidebar',
-			'before_widget' => '<article id="%1$s" class="widget %2$s">',
-			'after_widget' => '</article>',
-			'before_title' => '<h3>',
-			'after_title' => '</h3>',
-		));
+
+	function excerpt_read_more( $more ) {
+		return '...'.
+				'<div class="row text-right">'.
+					'<div class="col-md-12">'.
+						'<a class="btn btn-info" href="'. get_permalink( get_the_ID() ) . '">'
+							. __('Read More', 'your-text-domain') .
+						'</a>' .
+					'</div>'.
+				'</div>';
+	}
+	add_filter( 'excerpt_more', 'excerpt_read_more' );

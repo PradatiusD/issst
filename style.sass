@@ -7,7 +7,7 @@
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: simple
- * Text Domain: mmount
+ * Text Domain: issst
  * 
  * This theme, like WordPress, is licensed under the GPL.
  * Use it to make something cool, have fun, and share what you've learned with others.
@@ -50,6 +50,8 @@
 	to
 		width: 62px
 
+// Colors
+$issstGreen: #5CB85C
 
 $body-bg: #F8F8F8
 
@@ -63,6 +65,7 @@ $headings-line-height : 1.1
 
 
 // Navbar
+$grid-float-breakpoint: 1053px
 $navbar-default-color:             #f0ecec
 $navbar-default-bg:                #16356e
 $navbar-default-border:            darken($navbar-default-bg, 6.5%)
@@ -71,6 +74,10 @@ $navbar-default-link-hover-color:          #2f9f49
 $navbar-default-link-hover-bg:             transparent
 $navbar-default-link-active-color:         #f4f4f4
 $navbar-default-link-active-bg:            lighten($navbar-default-bg, 6.5%)
+
+// Breadcrumb
+$breadcrumb-separator: "•"
+
 
 .navbar-default
 	text-transform: uppercase
@@ -95,11 +102,23 @@ $navbar-default-link-active-bg:            lighten($navbar-default-bg, 6.5%)
 
 @import 'bower_components/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap'
 
+
+.breadcrumb 
+	> li:nth-child(2):before
+		content: " "
+
+	li a
+		color: darken($issstGreen, 15%)
+
+
 h1
 	font-weight: 900
-	font-size: 3em
+	font-size: 2.6em
 	border-bottom: 4px solid rgba(51, 51, 51, 0.26)
 	padding-bottom: 0.3em
+
+	body.home &
+		font-size: 3em
 
 	a
 		color: #4B4A4A
@@ -120,7 +139,7 @@ main p
 	font-weight: bold
 
 
-body.page-template-default, body.blog, body.single, body.page-template-full-width-php, body.page-template-calendar-php
+body
 	padding-top: 52px
 
 #map-canvas
@@ -130,7 +149,7 @@ body.page-template-default, body.blog, body.single, body.page-template-full-widt
 
 
 footer
-	background: #5CB85C
+	background: $issstGreen
 	padding-top: 1em
 	color: #FFF
 	font-weight: 200
@@ -200,6 +219,12 @@ footer
 #gCal
 	.table-stacked-div
 		padding: 1em
+
+	h4 a
+		color: #333
+		@include transition(color 0.35s ease-out)
+		&:hover
+			color: #428BCA
 
 $homeBreakPt: 767px
 
