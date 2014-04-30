@@ -28,7 +28,7 @@
 
 <section class="container">
 	<div class="col-md-12">
-		<table class="table table-striped" id="gCal">
+		<table class="table table-striped hidden" id="gCal">
 			<?php
 			foreach ($entries as $entry):
 
@@ -91,38 +91,60 @@
 <script>
 	(function($){
 
-		function fixLongTable ($selector) {
-
-			console.log($selector);
-			var htm = "";
-			for (var i = 0; i < $selector.length; i++) {
-				var innerData =  $selector[i].innerHTML;
-				htm += "<div class=\"table-stacked-div bg-"+$selector[i].className+"\">" + innerData +"</div>";
-			};
-
-			htm = "<td colspan=\"4\">" + htm + "</td>";
-
-			console.log(htm);
-			$tds.eq(0).after(htm);
-			$selector.remove();
-		}
-
-		// // This component adds css classes depending on the format
+		// This component adds css classes depending on the format
 
 		$trs = $('#gCal').find('tr');
 
 		$trs.each(function(){
 
+			var $this = $(this);
+
+			$tds = $this.find('td');
+
+			$columnsInRow = $tds.length;
+
+			if ($columnsInRow>4) {
+				// Get the first td and add it to next row
+				var $newRow = $(this).clone();
+				$newRow.empty();
+				$tds.eq(0).clone().appendTo($newRow);
+
+				$tds.each(function(){
+					if($(this).text().indexOf('4Space')>-1){
+						$(this).addClass('danger').appendTo($newRow);
+					}
+				});
+
+				// Construct new row
+				$this.after($newRow);
+				console.log($newRow);
+
+			} else {
+
+				$tds.each(function(){
+					if($(this).text().indexOf('4Space')>-1){
+						$(this).addClass('danger');
+					}
+				});
+
+
+			}
+
+		});
+
+		// Reset dom query since we have new html
+		$trs = $('#gCal').find('tr');
+
+		$trs.each(function(){
 			$tds = $(this).find('td');
 
 			$columnsInRow = $tds.length;
 
 			switch ($columnsInRow) {
 				case 2:
-					$tds.eq(1).attr('colspan', 5);
+					$tds.eq(1).attr('colspan', 3).find('h4').addClass('text-center');
 				break;
 				case 3:
-
 					$tds.eq(1).attr('colspan', 2);
 					$tds.eq(2).attr('colspan', 1);
 				break;
@@ -132,21 +154,6 @@
 					$tds.eq(2).addClass('warning');
 					$tds.eq(3).addClass('info');
 				break;
-				case 5:
-					$tds.attr('colspan', 1);
-					$tds.eq(1).addClass('success');
-					$tds.eq(2).addClass('warning');
-					$tds.eq(3).addClass('info');
-					$tds.eq(4).addClass('danger');
-					fixLongTable($tds.not(':first'));
-				break;
-				case 6:
-					$tds.eq(1).addClass('success');
-					$tds.eq(2).addClass('warning');
-					$tds.eq(3).addClass('info');
-					$tds.eq(4).addClass('danger');
-					fixLongTable($tds.not(':first'));
-				break;
 			}
 
 		});
@@ -155,6 +162,8 @@
 
 		$trs.each(function(){
 
+			// Adds days in between 
+
 			var date = new Date($(this).attr('data-time'))
 
 			date = date.getOrdinalNumber();
@@ -162,7 +171,6 @@
 			if (tempDate === null || tempDate !== date) {
 				var dayString = $(this).attr('data-day');
 				$(this).before('<tr><td colspan="4"><h2>'+dayString+'</td></tr>');
-				console.log(date);
 			};
 
 			tempDate = date;
@@ -175,6 +183,8 @@
 			var $ps = $(this).parent().parent().find('p');
 			$ps.toggleClass('hidden animated fade-down-in');
 		});
+
+		$('#gCal').removeClass('hidden').addClass('animated fade-up-in');
 
 	})(jQuery);
 </script>

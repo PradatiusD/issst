@@ -4,8 +4,8 @@
 		<title><?php echo get_bloginfo(); ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<?php wp_enqueue_script("jquery"); ?>
-		<?php wp_enqueue_script("jquery-glide"); ?>
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>

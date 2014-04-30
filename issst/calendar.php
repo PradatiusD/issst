@@ -108,7 +108,6 @@ Template Name: Google Calendar Template
 			</table>
 		</div>
 	</section>
-
 	<div class="container">
 		<div class="row">
 			<section class="col-md-12 commentlist">
@@ -118,98 +117,105 @@ Template Name: Google Calendar Template
 	</div>
 
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/date.js"></script>
-<script>
-	(function($){
+	<script>
+		(function($){
 
-		function fixLongTable ($selector) {
+			// This component adds css classes depending on the format
 
-			console.log($selector);
-			var htm = "";
-			for (var i = 0; i < $selector.length; i++) {
-				var innerData =  $selector[i].innerHTML;
-				htm += "<div class=\"table-stacked-div bg-"+$selector[i].className+"\">" + innerData +"</div>";
-			};
+			$trs = $('#gCal').find('tr');
 
-			htm = "<td colspan=\"4\">" + htm + "</td>";
+			$trs.each(function(){
 
-			console.log(htm);
-			$tds.eq(0).after(htm);
-			$selector.remove();
-		}
+				var $this = $(this);
 
-		// // This component adds css classes depending on the format
+				$tds = $this.find('td');
 
-		$trs = $('#gCal').find('tr');
+				$columnsInRow = $tds.length;
 
-		$trs.each(function(){
+				if ($columnsInRow>4) {
+					// Get the first td and add it to next row
+					var $newRow = $(this).clone();
+					$newRow.empty();
+					$tds.eq(0).clone().appendTo($newRow);
 
-			$tds = $(this).find('td');
+					$tds.each(function(){
+						if($(this).text().indexOf('4Space')>-1){
+							$(this).addClass('danger').appendTo($newRow);
+						}
+					});
 
-			$columnsInRow = $tds.length;
+					// Construct new row
+					$this.after($newRow);
+					console.log($newRow);
 
-			switch ($columnsInRow) {
-				case 2:
-					$tds.eq(1).attr('colspan', 5);
-				break;
-				case 3:
+				} else {
 
-					$tds.eq(1).attr('colspan', 2);
-					$tds.eq(2).attr('colspan', 1);
-				break;
-				case 4:
-					$tds.attr('colspan', 1);
-					$tds.eq(1).addClass('success');
-					$tds.eq(2).addClass('warning');
-					$tds.eq(3).addClass('info');
-				break;
-				case 5:
-					$tds.attr('colspan', 1);
-					$tds.eq(1).addClass('success');
-					$tds.eq(2).addClass('warning');
-					$tds.eq(3).addClass('info');
-					$tds.eq(4).addClass('danger');
-					fixLongTable($tds.not(':first'));
-				break;
-				case 6:
-					$tds.eq(1).addClass('success');
-					$tds.eq(2).addClass('warning');
-					$tds.eq(3).addClass('info');
-					$tds.eq(4).addClass('danger');
-					fixLongTable($tds.not(':first'));
-				break;
-			}
-
-		});
-
-		var tempDate = null;
-
-		$trs.each(function(){
-
-			var date = new Date($(this).attr('data-time'))
-
-			date = date.getOrdinalNumber();
-
-			if (tempDate === null || tempDate !== date) {
-				var dayString = $(this).attr('data-day');
-				$(this).before('<tr><td colspan="4"><h2>'+dayString+'</td></tr>');
-				console.log(date);
-			};
-
-			tempDate = date;
-
-		});
-
-		// Show hide information on click
-		$('.show-des').click(function(e){
-			e.preventDefault();
-			var $ps = $(this).parent().parent().find('p');
-			$ps.toggleClass('hidden animated fade-down-in');
-		});
-
-	$('#gCal').removeClass('hidden').addClass('animated fade-up-in');
-
-	})(jQuery);
+					$tds.each(function(){
+						if($(this).text().indexOf('4Space')>-1){
+							$(this).addClass('danger');
+						}
+					});
 
 
+				}
+
+			});
+
+			// Reset dom query since we have new html
+			$trs = $('#gCal').find('tr');
+
+			$trs.each(function(){
+				$tds = $(this).find('td');
+
+				$columnsInRow = $tds.length;
+
+				switch ($columnsInRow) {
+					case 2:
+						$tds.eq(1).attr('colspan', 3).find('h4').addClass('text-center');
+					break;
+					case 3:
+						$tds.eq(1).attr('colspan', 2);
+						$tds.eq(2).attr('colspan', 1);
+					break;
+					case 4:
+						$tds.attr('colspan', 1);
+						$tds.eq(1).addClass('success');
+						$tds.eq(2).addClass('warning');
+						$tds.eq(3).addClass('info');
+					break;
+				}
+
+			});
+
+			var tempDate = null;
+
+			$trs.each(function(){
+
+				// Adds days in between 
+
+				var date = new Date($(this).attr('data-time'))
+
+				date = date.getOrdinalNumber();
+
+				if (tempDate === null || tempDate !== date) {
+					var dayString = $(this).attr('data-day');
+					$(this).before('<tr><td colspan="4"><h2>'+dayString+'</td></tr>');
+				};
+
+				tempDate = date;
+
+			});
+
+			// Show hide information on click
+			$('.show-des').click(function(e){
+				e.preventDefault();
+				var $ps = $(this).parent().parent().find('p');
+				$ps.toggleClass('hidden animated fade-down-in');
+			});
+
+			$('#gCal').removeClass('hidden').addClass('animated fade-up-in');
+
+		})(jQuery);
+	</script>
 </script>
 <?php get_footer(); ?>

@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 <section class="top-box" id="header-slides">
 	<div class="container">
@@ -7,7 +6,7 @@
 			<main class="col-md-11">
 				<div class="issst-opening">
 					<p>be a</p><p id="n" style="width:0px">n</p><br>
-					<span id="prefix">scien</span>
+					<span id="prefix">scient</span>
 					<img class="issst-logo" src="<?php echo get_template_directory_uri();?>/img/issst.png" alt="">
 				</div>
 			</main>

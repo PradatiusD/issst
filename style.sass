@@ -37,21 +37,36 @@
 @import 'bower_components/animate.scss/animate'
 @import 'bower_components/bourbon/app/assets/stylesheets/bourbon'
 @import 'bower_components/maximage/lib/css/jquery.maximage'
+@import 'bower_components/sass-mediaqueries/media-queries'
 
-@include keyframes(squeeze)
++keyframes(squeeze)
 	from
 		width: 62px
 	to
 		width: 0px
 
-@include keyframes(expand)
++keyframes(expand)
 	from
 		width: 0px
 	to
 		width: 62px
+
++keyframes(squeeze-mobile)
+	from
+		width: 40px
+	to
+		width: 0px
+
++keyframes(expand-mobile)
+	from
+		width: 0px
+	to
+		width: 40px
+
 
 // Colors
 $issstGreen: #5CB85C
+$issstBlue: #16356E
 
 $body-bg: #F8F8F8
 
@@ -67,7 +82,7 @@ $headings-line-height : 1.1
 // Navbar
 $grid-float-breakpoint: 1053px
 $navbar-default-color:             #f0ecec
-$navbar-default-bg:                #16356e
+$navbar-default-bg:                $issstBlue
 $navbar-default-border:            darken($navbar-default-bg, 6.5%)
 $navbar-default-link-color:                #f4f4f4
 $navbar-default-link-hover-color:          #2f9f49
@@ -85,7 +100,7 @@ $breadcrumb-separator: "•"
 
 	.logged-in &
 		padding-top: 33px
-		@media all and (max-width: 782px)
+		+max-screen(782px)
 			padding-top: 0px
 
 	.active > a
@@ -116,6 +131,9 @@ h1
 	font-size: 2.6em
 	border-bottom: 4px solid rgba(51, 51, 51, 0.26)
 	padding-bottom: 0.3em
+
+	body.blog &
+		font-size: 2em
 
 	body.home &
 		font-size: 3em
@@ -155,6 +173,7 @@ footer
 	font-weight: 200
 	font-size: 1.2em
 	margin-top: 2em
+	padding-bottom: 1em
 
 	img
 		margin: 0 auto
@@ -162,6 +181,12 @@ footer
 	body.home &
 		padding-top: 0
 		margin-top: 0
+
+
+body.blog
+	img.wp-post-image
+		margin: 0 auto
+		border-radius: 100%
 
 .commentlist
 	code
@@ -200,7 +225,7 @@ footer
 
 		td.success, td.warning, td.info
 			text-align: center
-			@include transition(all 0.8s ease-out)
+			+transition(all 0.8s ease-out)
 
 
 		td.success
@@ -222,7 +247,7 @@ footer
 
 	h4 a
 		color: #333
-		@include transition(color 0.35s ease-out)
+		+transition(color 0.35s ease-out)
 		&:hover
 			color: #428BCA
 
@@ -243,7 +268,7 @@ body.home
 	.mc-image
 		max-height: 702px
 
-	@media all and (max-width: $homeBreakPt)
+	+max-screen($homeBreakPt)
 		.mc-image
 			height: 353px !important
 			margin-top: 49px
@@ -260,7 +285,7 @@ body.home
 		position: relative
 		z-index: 1000
 
-		@media all and (max-width: 767px)
+		+max-screen(767px)
 			height: 353px !important	
 
 	.pasta
@@ -273,7 +298,7 @@ body.home
 		color: #FFF
 		margin-top: 200px
 		text-align: right
-		@media all and (max-width: $homeBreakPt)
+		+max-screen($homeBreakPt)
 			margin-top: 0
 
 		p
@@ -281,25 +306,39 @@ body.home
 			margin: 0.45em 0 0
 			line-height: 0.5em
 			display: inline-block		
-			@media all and (max-width: $homeBreakPt)
+			+max-screen($homeBreakPt)
 				font-size: 5em
 	
 		#n
 			overflow: hidden
-			height: 70px
+
+			+min-screen($homeBreakPt+1)
+				height: 70px
+
+
+			+max-screen($homeBreakPt)
+				height: 50px
 
 			&.squeeze
-				@include animation(squeeze 1.0s  ease-in)
+				+min-screen($homeBreakPt+1)
+					+animation(squeeze 1.0s  ease-in)
+
+				+max-screen($homeBreakPt)
+					+animation(squeeze-mobile 1.0s  ease-in)		
 
 			&.expand
-				@include animation(expand 1.0s  ease-in)
+				+min-screen($homeBreakPt+1)
+					+animation(expand 1.0s  ease-in)
+
+				+max-screen($homeBreakPt)
+					+animation(expand-mobile 1.0s  ease-in)		
 
 		#prefix
 			font-size: 9em
 			display: inline-block
 			vertical-align: bottom
 			line-height: 1.2em
-			@media all and (max-width: $homeBreakPt)
+			+max-screen($homeBreakPt)
 				font-size: 6em
 
 		img
@@ -308,7 +347,7 @@ body.home
 			position: relative
 			top: 5px
 			margin-right: -5px
-			@media all and (max-width: $homeBreakPt)
+			+max-screen($homeBreakPt)
 				width: 200px
 
 
@@ -335,7 +374,6 @@ body.home
 			font-size: 1.6em
 	.partners
 		background-color: white
-		margin-bottom: -47px
 		padding: 1em 0px 2em
 
 		.logos
@@ -348,3 +386,23 @@ body.home
 			+transition (all 1.5s ease-out)
 			&:hover
 				+filter(grayscale, 0%)
+
+
+.alt-footer
+	background: $issstBlue
+	border-top: 10px solid #218152
+
+	ul 
+		padding: 1em 0
+
+		li
+			padding: 0
+
+			a
+				padding: 1em 0.375em
+				font-size: 2em
+				color: white
+				+transition (color 0.5s ease-out)
+				&:hover
+					color: $issstGreen
+				
