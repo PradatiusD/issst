@@ -17,7 +17,13 @@ module.exports = (grunt) ->
 					authKey: 'key1'
 				src: 'issst'
 				dest: 'wp-content/themes/issst'
-				exclusions: ['issst/lib/*','issst/img/*', '.DS_Store','favicon.ico']
+				exclusions: [
+					'issst/lib/*'
+					'issst/img/*'
+					'.DS_Store'
+					'favicon.ico'
+					'issst/screenshot.png'
+				]
 
 		copy:
 			main:
@@ -41,13 +47,19 @@ module.exports = (grunt) ->
 			sassy:
 				files: 'style.sass'
 				tasks: ['sass','copy']
+			homepageJS:
+				files: 'issst/js/homepage/*.js'
+				tasks: ['uglify','copy']
 
 		uglify:
 			homepage:
 				files:
 					'issst/js/homepage.min.js': [
-						'bower_components/maximage/lib/js/jquery.cycle.all.js',
+						'bower_components/maximage/lib/js/jquery.cycle.all.js'
 						'bower_components/maximage/lib/js/jquery.maximage.js'
+						'issst/js/homepage/mailchimp-form.js'
+						'issst/js/homepage/google-map.js'
+						'issst/js/homepage/slider-anim.js'
 					]
 			global:
 				files:

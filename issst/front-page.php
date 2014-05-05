@@ -256,197 +256,6 @@
 							</div>
 					</form>
 				</div>
-				<script type="text/javascript">
-				var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';
-				try {
-				    var jqueryLoaded=jQuery;
-				    jqueryLoaded=true;
-				} catch(err) {
-				    var jqueryLoaded=false;
-				}
-				var head= document.getElementsByTagName('head')[0];
-				if (!jqueryLoaded) {
-				    var script = document.createElement('script');
-				    script.type = 'text/javascript';
-				    script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js';
-				    head.appendChild(script);
-				    if (script.readyState && script.onload!==null){
-				        script.onreadystatechange= function () {
-				              if (this.readyState == 'complete') mce_preload_check();
-				        }    
-				    }
-				}
-
-				var err_style = '';
-				try{
-				    err_style = mc_custom_error_style;
-				} catch(e){
-				    err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
-				}
-				var head= document.getElementsByTagName('head')[0];
-				var style= document.createElement('style');
-				style.type= 'text/css';
-				if (style.styleSheet) {
-				  style.styleSheet.cssText = err_style;
-				} else {
-				  style.appendChild(document.createTextNode(err_style));
-				}
-				head.appendChild(style);
-				setTimeout('mce_preload_check();', 250);
-
-				var mce_preload_checks = 0;
-				function mce_preload_check(){
-				    if (mce_preload_checks>40) return;
-				    mce_preload_checks++;
-				    try {
-				        var jqueryLoaded=jQuery;
-				    } catch(err) {
-				        setTimeout('mce_preload_check();', 250);
-				        return;
-				    }
-				    var script = document.createElement('script');
-				    script.type = 'text/javascript';
-				    script.src = 'http://downloads.mailchimp.com/js/jquery.form-n-validate.js';
-				    head.appendChild(script);
-				    try {
-				        var validatorLoaded=jQuery("#fake-form").validate({});
-				    } catch(err) {
-				        setTimeout('mce_preload_check();', 250);
-				        return;
-				    }
-				    mce_init_form();
-				}
-				function mce_init_form(){
-				    jQuery(document).ready( function($) {
-				      var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
-				      var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
-				      $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
-				      options = { url: 'http://wordpress.us6.list-manage.com/subscribe/post-json?u=9c4c3f7f77bdb09de3fa52e0a&id=8f5c8a5f2d&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
-				                    beforeSubmit: function(){
-				                        $('#mce_tmp_error_msg').remove();
-				                        $('.datefield','#mc_embed_signup').each(
-				                            function(){
-				                                var txt = 'filled';
-				                                var fields = new Array();
-				                                var i = 0;
-				                                $(':text', this).each(
-				                                    function(){
-				                                        fields[i] = this;
-				                                        i++;
-				                                    });
-				                                $(':hidden', this).each(
-				                                    function(){
-				                                        var bday = false;
-				                                        if (fields.length == 2){
-				                                            bday = true;
-				                                            fields[2] = {'value':1970};//trick birthdays into having years
-				                                        }
-				                                    	if ( fields[0].value=='MM' && fields[1].value=='DD' && (fields[2].value=='YYYY' || (bday && fields[2].value==1970) ) ){
-				                                    		this.value = '';
-													    } else if ( fields[0].value=='' && fields[1].value=='' && (fields[2].value=='' || (bday && fields[2].value==1970) ) ){
-				                                    		this.value = '';
-													    } else {
-													        if (/\[day\]/.test(fields[0].name)){
-				    	                                        this.value = fields[1].value+'/'+fields[0].value+'/'+fields[2].value;									        
-													        } else {
-				    	                                        this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
-					                                        }
-					                                    }
-				                                    });
-				                            });
-				                        $('.phonefield-us','#mc_embed_signup').each(
-				                            function(){
-				                                var fields = new Array();
-				                                var i = 0;
-				                                $(':text', this).each(
-				                                    function(){
-				                                        fields[i] = this;
-				                                        i++;
-				                                    });
-				                                $(':hidden', this).each(
-				                                    function(){
-				                                        if ( fields[0].value.length != 3 || fields[1].value.length!=3 || fields[2].value.length!=4 ){
-				                                    		this.value = '';
-													    } else {
-													        this.value = 'filled';
-					                                    }
-				                                    });
-				                            });
-				                        return mce_validator.form();
-				                    }, 
-				                    success: mce_success_cb
-				                };
-				      $('#mc-embedded-subscribe-form').ajaxForm(options);
-				      
-				      
-				    });
-				}
-				function mce_success_cb(resp){
-				    $('#mce-success-response').hide();
-				    $('#mce-error-response').hide();
-				    if (resp.result=="success"){
-				        $('#mce-'+resp.result+'-response').show();
-				        $('#mce-'+resp.result+'-response').html(resp.msg);
-				        $('#mc-embedded-subscribe-form').each(function(){
-				            this.reset();
-				    	});
-				    } else {
-				        var index = -1;
-				        var msg;
-				        try {
-				            var parts = resp.msg.split(' - ',2);
-				            if (parts[1]==undefined){
-				                msg = resp.msg;
-				            } else {
-				                i = parseInt(parts[0]);
-				                if (i.toString() == parts[0]){
-				                    index = parts[0];
-				                    msg = parts[1];
-				                } else {
-				                    index = -1;
-				                    msg = resp.msg;
-				                }
-				            }
-				        } catch(e){
-				            index = -1;
-				            msg = resp.msg;
-				        }
-				        try{
-				            if (index== -1){
-				                $('#mce-'+resp.result+'-response').show();
-				                $('#mce-'+resp.result+'-response').html(msg);            
-				            } else {
-				                err_id = 'mce_tmp_error_msg';
-				                html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
-				                
-				                var input_id = '#mc_embed_signup';
-				                var f = $(input_id);
-				                if (ftypes[index]=='address'){
-				                    input_id = '#mce-'+fnames[index]+'-addr1';
-				                    f = $(input_id).parent().parent().get(0);
-				                } else if (ftypes[index]=='date'){
-				                    input_id = '#mce-'+fnames[index]+'-month';
-				                    f = $(input_id).parent().parent().get(0);
-				                } else {
-				                    input_id = '#mce-'+fnames[index];
-				                    f = $().parent(input_id).get(0);
-				                }
-				                if (f){
-				                    $(f).append(html);
-				                    $(input_id).focus();
-				                } else {
-				                    $('#mce-'+resp.result+'-response').show();
-				                    $('#mce-'+resp.result+'-response').html(msg);
-				                }
-				            }
-				        } catch(e){
-				            $('#mce-'+resp.result+'-response').show();
-				            $('#mce-'+resp.result+'-response').html(msg);
-				        }
-				    }
-				}
-
-				</script>
 				<!--End mc_embed_signup-->
 			</div>
 
@@ -459,21 +268,37 @@
 					<h1>Say hello!</h1>
 					<p class="lead">To our wonderful set of partners!  Please on them click to find more about their conferences.</p>
 					<div class="logos">
-						<a href="http://www.care-electronics.net/CI2014/">
-							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-care.jpg" alt="">
-						</a>
-						<a href="http://www.egg2012.de/">
-							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-egg.jpg" alt="">							
-						</a>
-						<a href="http://earthshift.com/">
-							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-earthshift.jpg" alt="">						
-						</a>
-						<a href="http://ecodesign.or.kr/sub/overview.asp">
-							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-eco-design.jpg" alt="">						
-						</a>
-						<a href="http://gcgreencarbon.com/">
-							<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-carbon.jpg" alt="">						
-						</a>
+						<article id="nsf" data-toggle="tooltip" title="<p>This material is based upon work supported by the National Science Foundation under Grant #1432890.</p><p>Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>">
+							<a href="Javascript:void(0);">
+								<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-nsf.png" alt="">						
+							</a>
+						</article>
+						<article>
+							<a href="http://www.care-electronics.net/CI2014/">
+								<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-care.jpg" alt="">
+							</a>
+						</article>
+						<article>
+							<a href="http://www.egg2012.de/">
+								<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-egg.jpg" alt="">							
+							</a>
+						</article>
+						<article>
+							<a href="http://earthshift.com/">
+								<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-earthshift.jpg" alt="">						
+							</a>
+						</article>
+						<article>
+							<a href="http://ecodesign.or.kr/sub/overview.asp">
+								<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-eco-design.jpg" alt="">						
+							</a>
+						</article>
+						<article>
+							<a href="http://gcgreencarbon.com/">
+								<img class="img-responsive" src="<?php bloginfo('template_url'); ?>/img/partner-carbon.jpg" alt="">						
+							</a>
+						</article>
+
 					</div>
 				</div>
 			</section>
@@ -496,172 +321,23 @@
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/homepage.min.js"></script>
 <script>
-var issstHotel = new google.maps.LatLng(37.802206, -122.272897);
-var map;
-var marker;
-var MY_MAPTYPE_ID = 'custom_style';
-
-function initialize() {
-
-	var featureOpts = [{
-		stylers: [
-			{ hue: '#d5f3d9' },
-			{ visibility: 'simplified' },
-			{ gamma: 0.75 },
-			{ weight: 0.5 }
-		]},
-		{
-			elementType: 'labels',
-			stylers: [
-				{ visibility: 'on' }
-			]
-		},
-		{
-			featureType: 'water',
-			stylers: [
-				{ color: '#4245ae' }
-			]
-		}
-	];
-
-	var mapOptions = {
-		zoom: 12,
-		mapTypeControlOptions: {
-			mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
-		},
-		mapTypeId: MY_MAPTYPE_ID,
-		center: issstHotel
-	};
-
-	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-	marker = new google.maps.Marker({
-		position: issstHotel,
-		map: map,
-		title: 'Hello World!'
-	});
-
-	var contentString = 
-		'<div id="content">'+
-			'<div id="siteNotice">'+
-			'</div>'+
-			'<h4>Marriott City Center</h4>'+
-			'<div id="bodyContent">'+
-				'<b>Address</b>: 1001 Broadway, Oakland, CA 94607<br>'+
-				'<b>Phone:</b>(510) 451-4000</b><br></br>' +
-				'<a href="https://resweb.passkey.com/Resweb.do?mode=welcome_gi_new&groupID=20984319" class="btn btn-success btn-xs">Make a Reservation</a>'+
-			'</div>'+
-		'</div>';
-
-	var infowindow = new google.maps.InfoWindow({
-	content: contentString
-	});
-
-	var styledMapOptions = {
-		name: 'Custom Style'
-	};
-
-	var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
-
-	map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
-
-	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.open(map,marker);
-	});
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-<script>
 	(function redirectClickTable($){
 		$('.program-schedule td').click(function(){
-			window.location.href= 'http://issst2014.net/program/preliminary-2014-program/'
+			window.location.href = 'http://issst2014.net/program/preliminary-2014-program/'
 		});
 	})(jQuery);
 
-	(function headerISTAnimation($){
+	(function nsfTooltip($){
+		jQuery(document).ready(function($){
+			
+			var options = {
+				trigger : 'hover focus click',
+				html: true
+			}
 
-		var $n = $('#n');
-
-		function squeeze () {
-
-			$n.removeClass('expand squeeze');
-			$n.addClass('squeeze');
-
-			setTimeout(function(){
-				$n.css('width','0px')
-			}, 1000)
-
-		}
-
-		function expand () {
-
-			$n.removeClass('expand squeeze');
-			$n.addClass('expand');
-
-			setTimeout(function(){
-				$n.css('width','');
-			}, 1000)
-
-		}
-
-		$prefixSelector = $('#prefix');
-
-		function changePrefix (toText) {
-
-			setTimeout( function () {
-
-				$prefixSelector.addClass('animated fade-out');
-
-				if (toText.charAt('0') === 'a' || toText.charAt('0') === 'e' || toText.charAt('0') === 'i' || toText.charAt('0') === 'o' || toText.charAt('0') === 'u') {
-
-					expand();
-
-				} else {
-
-					squeeze();
-				}
-
-
-			}, 0);
-
-			setTimeout(function(){
-
-				$prefixSelector
-						.text(toText)
-						.removeClass('animated fade-out')
-						.addClass('animated fade-in');
-
-			}, 1000);
-
-		}
-
-		prefixArray = ['art','theor','activ','ethic', 'optim','natural','futur', 'technolog', 'scient', 'human','ecolog','special']; 
-		// 'environmental', too long
-		// Idea Altruist Biologist
-
-		var i = 0;
-
-		setInterval(function(){
-			changePrefix(prefixArray[i++ % prefixArray.length]);
-
-		},3000);
-
-
-		$('#maximage').maximage({
-			cycleOptions: {
-				fx: 'fade',
-				speed: 1000, // Set the speed for CSS transitions in jQuery.maximage.css (lines 30 - 33)
-				timeout: 1000,
-				pause: 1
-			},
-			fillElement: '#holder',
-			backgroundSize: 'contain'
-		});
-
-
-
-	})(jQuery);
+			$('#nsf').tooltip(options);
+		})
+	})(jQuery);	
 </script>
 <style>
 	html {

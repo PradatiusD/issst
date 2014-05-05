@@ -94,6 +94,8 @@ $navbar-default-link-active-bg:            lighten($navbar-default-bg, 6.5%)
 $breadcrumb-separator: "•"
 
 
+/* Common HTML Elements */
+
 .navbar-default
 	text-transform: uppercase
 	font-weight: 200
@@ -156,14 +158,45 @@ main p
 	text-align: center
 	font-weight: bold
 
-
 body
 	padding-top: 52px
 
-#map-canvas
-	height: 600px
-	margin: 0px
-	padding: 0px
+img.alignleft
+	float: left
+	@extend .img-thumbnail
+	margin-right: 1em
+
+.contact-submit, .contact-form
+	input.text, input.email, input.name, textarea
+		@extend .form-control
+
+	.pushbutton-wide
+		@extend .btn
+		@extend .btn-primary
+
+
+body.blog
+	img.wp-post-image
+		margin: 0 auto
+		border-radius: 100%
+
+
+.commentlist
+	code
+		white-space: pre-line
+
+	#submit, .comment-reply-link
+		@extend .btn
+
+	#submit
+		@extend .btn-success
+
+	.comment-reply-link
+		@extend .btn-sm
+		@extend .btn-primary
+
+	.comment-meta, .pingback
+		margin-bottom: 1em
 
 
 footer
@@ -183,27 +216,31 @@ footer
 		margin-top: 0
 
 
-body.blog
-	img.wp-post-image
-		margin: 0 auto
-		border-radius: 100%
+.alt-footer
+	background: $issstBlue
+	border-top: 10px solid #218152
 
-.commentlist
-	code
-		white-space: pre-line
+	ul 
+		padding: 1em 0
 
-	#submit, .comment-reply-link
-		@extend .btn
+		li
+			padding: 0
 
-	#submit
-		@extend .btn-success
+			a
+				padding: 1em 0.375em
+				font-size: 2em
+				color: white
+				+transition (color 0.5s ease-out)
+				&:hover
+					color: $issstGreen
+				
+/* Homepage */
 
-	.comment-reply-link
-		@extend .btn-sm
-		@extend .btn-primary
+#map-canvas
+	height: 600px
+	margin: 0px
+	padding: 0px
 
-	.comment-meta, .pingback
-		margin-bottom: 1em
 
 
 =iconTable ($colar)
@@ -240,6 +277,10 @@ body.blog
 		td:hover
 			cursor: pointer
 
+
+.tooltip-inner
+	max-width: 250px
+	text-align: center
 
 #gCal
 	.table-stacked-div
@@ -378,6 +419,14 @@ body.home
 
 		.logos
 			text-align: center
+			article
+				display: inline-block
+				width: 33%
+				padding: 1em 0
+				+screen(480px, 568px)
+					width: 49.5%
+				+max-screen(479px)
+					width: 100%
 
 		.img-responsive
 			max-height: 150px
@@ -386,23 +435,3 @@ body.home
 			+transition (all 1.5s ease-out)
 			&:hover
 				+filter(grayscale, 0%)
-
-
-.alt-footer
-	background: $issstBlue
-	border-top: 10px solid #218152
-
-	ul 
-		padding: 1em 0
-
-		li
-			padding: 0
-
-			a
-				padding: 1em 0.375em
-				font-size: 2em
-				color: white
-				+transition (color 0.5s ease-out)
-				&:hover
-					color: $issstGreen
-				

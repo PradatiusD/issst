@@ -4358,6 +4358,7 @@ div.mc-image {
   }
 }
 
+/* Common HTML Elements */
 .navbar-default {
   text-transform: uppercase;
   font-weight: 200;
@@ -4673,8 +4674,10 @@ th {
     background-color: #fff !important;
   }
 
-  .btn > .caret, .commentlist #submit > .caret, .commentlist .comment-reply-link > .caret,
+  .btn > .caret, .contact-submit .pushbutton-wide > .caret, .contact-form .pushbutton-wide > .caret, .commentlist #submit > .caret, .commentlist .comment-reply-link > .caret,
   .dropup > .btn > .caret,
+  .contact-submit .dropup > .pushbutton-wide > .caret,
+  .contact-form .dropup > .pushbutton-wide > .caret,
   .commentlist .dropup > #submit > .caret,
   .commentlist .dropup > .comment-reply-link > .caret {
     border-top-color: #000 !important;
@@ -4760,7 +4763,7 @@ img {
   border-radius: 6px;
 }
 
-.img-thumbnail {
+.img-thumbnail, img.alignleft {
   padding: 4px;
   line-height: 1.42857;
   background-color: #f8f8f8;
@@ -6399,7 +6402,7 @@ output {
   color: #555555;
 }
 
-.form-control {
+.form-control, .contact-submit input.text, .contact-submit input.email, .contact-submit input.name, .contact-submit textarea, .contact-form input.text, .contact-form input.email, .contact-form input.name, .contact-form textarea {
   display: block;
   width: 100%;
   height: 36px;
@@ -6416,29 +6419,29 @@ output {
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-.form-control:focus {
+.form-control:focus, .contact-submit input.text:focus, .contact-submit input.email:focus, .contact-submit input.name:focus, .contact-submit textarea:focus, .contact-form input.text:focus, .contact-form input.email:focus, .contact-form input.name:focus, .contact-form textarea:focus {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-.form-control::-moz-placeholder {
+.form-control::-moz-placeholder, .contact-submit input.text::-moz-placeholder, .contact-submit input.email::-moz-placeholder, .contact-submit input.name::-moz-placeholder, .contact-submit textarea::-moz-placeholder, .contact-form input.text::-moz-placeholder, .contact-form input.email::-moz-placeholder, .contact-form input.name::-moz-placeholder, .contact-form textarea::-moz-placeholder {
   color: #999999;
   opacity: 1;
 }
-.form-control:-ms-input-placeholder {
+.form-control:-ms-input-placeholder, .contact-submit input.text:-ms-input-placeholder, .contact-submit input.email:-ms-input-placeholder, .contact-submit input.name:-ms-input-placeholder, .contact-submit textarea:-ms-input-placeholder, .contact-form input.text:-ms-input-placeholder, .contact-form input.email:-ms-input-placeholder, .contact-form input.name:-ms-input-placeholder, .contact-form textarea:-ms-input-placeholder {
   color: #999999;
 }
-.form-control::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder, .contact-submit input.text::-webkit-input-placeholder, .contact-submit input.email::-webkit-input-placeholder, .contact-submit input.name::-webkit-input-placeholder, .contact-submit textarea::-webkit-input-placeholder, .contact-form input.text::-webkit-input-placeholder, .contact-form input.email::-webkit-input-placeholder, .contact-form input.name::-webkit-input-placeholder, .contact-form textarea::-webkit-input-placeholder {
   color: #999999;
 }
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+.form-control[disabled], .contact-submit input[disabled].text, .contact-submit input[disabled].email, .contact-submit input[disabled].name, .contact-submit textarea[disabled], .contact-form input[disabled].text, .contact-form input[disabled].email, .contact-form input[disabled].name, .contact-form textarea[disabled], .form-control[readonly], .contact-submit input[readonly].text, .contact-submit input[readonly].email, .contact-submit input[readonly].name, .contact-submit textarea[readonly], .contact-form input[readonly].text, .contact-form input[readonly].email, .contact-form input[readonly].name, .contact-form textarea[readonly], fieldset[disabled] .form-control, fieldset[disabled] .contact-submit input.text, .contact-submit fieldset[disabled] input.text, fieldset[disabled] .contact-submit input.email, .contact-submit fieldset[disabled] input.email, fieldset[disabled] .contact-submit input.name, .contact-submit fieldset[disabled] input.name, fieldset[disabled] .contact-submit textarea, .contact-submit fieldset[disabled] textarea, fieldset[disabled] .contact-form input.text, .contact-form fieldset[disabled] input.text, fieldset[disabled] .contact-form input.email, .contact-form fieldset[disabled] input.email, fieldset[disabled] .contact-form input.name, .contact-form fieldset[disabled] input.name, fieldset[disabled] .contact-form textarea, .contact-form fieldset[disabled] textarea {
   cursor: not-allowed;
   background-color: #eeeeee;
   opacity: 1;
 }
 
-textarea.form-control {
+textarea.form-control, .contact-submit textarea, .contact-form textarea {
   height: auto;
 }
 
@@ -6512,9 +6515,11 @@ input[type="checkbox"],
   cursor: not-allowed;
 }
 
-.input-sm, .input-group-sm > .form-control,
+.input-sm, .input-group-sm > .form-control, .contact-submit .input-group-sm > input.text, .contact-submit .input-group-sm > input.email, .contact-submit .input-group-sm > input.name, .contact-submit .input-group-sm > textarea, .contact-form .input-group-sm > input.text, .contact-form .input-group-sm > input.email, .contact-form .input-group-sm > input.name, .contact-form .input-group-sm > textarea,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn,
+.contact-submit .input-group-sm > .input-group-btn > .pushbutton-wide,
+.contact-form .input-group-sm > .input-group-btn > .pushbutton-wide,
 .commentlist .input-group-sm > .input-group-btn > #submit,
 .commentlist .input-group-sm > .input-group-btn > .comment-reply-link {
   height: 33px;
@@ -6527,29 +6532,37 @@ input[type="checkbox"],
 select.input-sm, .input-group-sm > select.form-control,
 .input-group-sm > select.input-group-addon,
 .input-group-sm > .input-group-btn > select.btn,
+.contact-submit .input-group-sm > .input-group-btn > select.pushbutton-wide,
+.contact-form .input-group-sm > .input-group-btn > select.pushbutton-wide,
 .commentlist .input-group-sm > .input-group-btn > select#submit,
 .commentlist .input-group-sm > .input-group-btn > select.comment-reply-link {
   height: 33px;
   line-height: 33px;
 }
 
-textarea.input-sm, .input-group-sm > textarea.form-control,
+textarea.input-sm, .input-group-sm > textarea.form-control, .contact-submit .input-group-sm > textarea, .contact-form .input-group-sm > textarea,
 .input-group-sm > textarea.input-group-addon,
 .input-group-sm > .input-group-btn > textarea.btn,
+.contact-submit .input-group-sm > .input-group-btn > textarea.pushbutton-wide,
+.contact-form .input-group-sm > .input-group-btn > textarea.pushbutton-wide,
 .commentlist .input-group-sm > .input-group-btn > textarea#submit,
 .commentlist .input-group-sm > .input-group-btn > textarea.comment-reply-link,
 select[multiple].input-sm,
 .input-group-sm > select[multiple].form-control,
 .input-group-sm > select[multiple].input-group-addon,
 .input-group-sm > .input-group-btn > select[multiple].btn,
+.contact-submit .input-group-sm > .input-group-btn > select[multiple].pushbutton-wide,
+.contact-form .input-group-sm > .input-group-btn > select[multiple].pushbutton-wide,
 .commentlist .input-group-sm > .input-group-btn > select[multiple]#submit,
 .commentlist .input-group-sm > .input-group-btn > select[multiple].comment-reply-link {
   height: auto;
 }
 
-.input-lg, .input-group-lg > .form-control,
+.input-lg, .input-group-lg > .form-control, .contact-submit .input-group-lg > input.text, .contact-submit .input-group-lg > input.email, .contact-submit .input-group-lg > input.name, .contact-submit .input-group-lg > textarea, .contact-form .input-group-lg > input.text, .contact-form .input-group-lg > input.email, .contact-form .input-group-lg > input.name, .contact-form .input-group-lg > textarea,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn,
+.contact-submit .input-group-lg > .input-group-btn > .pushbutton-wide,
+.contact-form .input-group-lg > .input-group-btn > .pushbutton-wide,
 .commentlist .input-group-lg > .input-group-btn > #submit,
 .commentlist .input-group-lg > .input-group-btn > .comment-reply-link {
   height: 49px;
@@ -6562,21 +6575,27 @@ select[multiple].input-sm,
 select.input-lg, .input-group-lg > select.form-control,
 .input-group-lg > select.input-group-addon,
 .input-group-lg > .input-group-btn > select.btn,
+.contact-submit .input-group-lg > .input-group-btn > select.pushbutton-wide,
+.contact-form .input-group-lg > .input-group-btn > select.pushbutton-wide,
 .commentlist .input-group-lg > .input-group-btn > select#submit,
 .commentlist .input-group-lg > .input-group-btn > select.comment-reply-link {
   height: 49px;
   line-height: 49px;
 }
 
-textarea.input-lg, .input-group-lg > textarea.form-control,
+textarea.input-lg, .input-group-lg > textarea.form-control, .contact-submit .input-group-lg > textarea, .contact-form .input-group-lg > textarea,
 .input-group-lg > textarea.input-group-addon,
 .input-group-lg > .input-group-btn > textarea.btn,
+.contact-submit .input-group-lg > .input-group-btn > textarea.pushbutton-wide,
+.contact-form .input-group-lg > .input-group-btn > textarea.pushbutton-wide,
 .commentlist .input-group-lg > .input-group-btn > textarea#submit,
 .commentlist .input-group-lg > .input-group-btn > textarea.comment-reply-link,
 select[multiple].input-lg,
 .input-group-lg > select[multiple].form-control,
 .input-group-lg > select[multiple].input-group-addon,
 .input-group-lg > .input-group-btn > select[multiple].btn,
+.contact-submit .input-group-lg > .input-group-btn > select[multiple].pushbutton-wide,
+.contact-form .input-group-lg > .input-group-btn > select[multiple].pushbutton-wide,
 .commentlist .input-group-lg > .input-group-btn > select[multiple]#submit,
 .commentlist .input-group-lg > .input-group-btn > select[multiple].comment-reply-link {
   height: auto;
@@ -6585,7 +6604,7 @@ select[multiple].input-lg,
 .has-feedback {
   position: relative;
 }
-.has-feedback .form-control {
+.has-feedback .form-control, .has-feedback .contact-submit input.text, .contact-submit .has-feedback input.text, .has-feedback .contact-submit input.email, .contact-submit .has-feedback input.email, .has-feedback .contact-submit input.name, .contact-submit .has-feedback input.name, .has-feedback .contact-submit textarea, .contact-submit .has-feedback textarea, .has-feedback .contact-form input.text, .contact-form .has-feedback input.text, .has-feedback .contact-form input.email, .contact-form .has-feedback input.email, .has-feedback .contact-form input.name, .contact-form .has-feedback input.name, .has-feedback .contact-form textarea, .contact-form .has-feedback textarea {
   padding-right: 45px;
 }
 .has-feedback .form-control-feedback {
@@ -6607,12 +6626,12 @@ select[multiple].input-lg,
 .has-success .checkbox-inline {
   color: #3c763d;
 }
-.has-success .form-control {
+.has-success .form-control, .has-success .contact-submit input.text, .contact-submit .has-success input.text, .has-success .contact-submit input.email, .contact-submit .has-success input.email, .has-success .contact-submit input.name, .contact-submit .has-success input.name, .has-success .contact-submit textarea, .contact-submit .has-success textarea, .has-success .contact-form input.text, .contact-form .has-success input.text, .has-success .contact-form input.email, .contact-form .has-success input.email, .has-success .contact-form input.name, .contact-form .has-success input.name, .has-success .contact-form textarea, .contact-form .has-success textarea {
   border-color: #3c763d;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-.has-success .form-control:focus {
+.has-success .form-control:focus, .has-success .contact-submit input.text:focus, .contact-submit .has-success input.text:focus, .has-success .contact-submit input.email:focus, .contact-submit .has-success input.email:focus, .has-success .contact-submit input.name:focus, .contact-submit .has-success input.name:focus, .has-success .contact-submit textarea:focus, .contact-submit .has-success textarea:focus, .has-success .contact-form input.text:focus, .contact-form .has-success input.text:focus, .has-success .contact-form input.email:focus, .contact-form .has-success input.email:focus, .has-success .contact-form input.name:focus, .contact-form .has-success input.name:focus, .has-success .contact-form textarea:focus, .contact-form .has-success textarea:focus {
   border-color: #2b542c;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
@@ -6634,12 +6653,12 @@ select[multiple].input-lg,
 .has-warning .checkbox-inline {
   color: #8a6d3b;
 }
-.has-warning .form-control {
+.has-warning .form-control, .has-warning .contact-submit input.text, .contact-submit .has-warning input.text, .has-warning .contact-submit input.email, .contact-submit .has-warning input.email, .has-warning .contact-submit input.name, .contact-submit .has-warning input.name, .has-warning .contact-submit textarea, .contact-submit .has-warning textarea, .has-warning .contact-form input.text, .contact-form .has-warning input.text, .has-warning .contact-form input.email, .contact-form .has-warning input.email, .has-warning .contact-form input.name, .contact-form .has-warning input.name, .has-warning .contact-form textarea, .contact-form .has-warning textarea {
   border-color: #8a6d3b;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-.has-warning .form-control:focus {
+.has-warning .form-control:focus, .has-warning .contact-submit input.text:focus, .contact-submit .has-warning input.text:focus, .has-warning .contact-submit input.email:focus, .contact-submit .has-warning input.email:focus, .has-warning .contact-submit input.name:focus, .contact-submit .has-warning input.name:focus, .has-warning .contact-submit textarea:focus, .contact-submit .has-warning textarea:focus, .has-warning .contact-form input.text:focus, .contact-form .has-warning input.text:focus, .has-warning .contact-form input.email:focus, .contact-form .has-warning input.email:focus, .has-warning .contact-form input.name:focus, .contact-form .has-warning input.name:focus, .has-warning .contact-form textarea:focus, .contact-form .has-warning textarea:focus {
   border-color: #66512c;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
@@ -6661,12 +6680,12 @@ select[multiple].input-lg,
 .has-error .checkbox-inline {
   color: #a94442;
 }
-.has-error .form-control {
+.has-error .form-control, .has-error .contact-submit input.text, .contact-submit .has-error input.text, .has-error .contact-submit input.email, .contact-submit .has-error input.email, .has-error .contact-submit input.name, .contact-submit .has-error input.name, .has-error .contact-submit textarea, .contact-submit .has-error textarea, .has-error .contact-form input.text, .contact-form .has-error input.text, .has-error .contact-form input.email, .contact-form .has-error input.email, .has-error .contact-form input.name, .contact-form .has-error input.name, .has-error .contact-form textarea, .contact-form .has-error textarea {
   border-color: #a94442;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-.has-error .form-control:focus {
+.has-error .form-control:focus, .has-error .contact-submit input.text:focus, .contact-submit .has-error input.text:focus, .has-error .contact-submit input.email:focus, .contact-submit .has-error input.email:focus, .has-error .contact-submit input.name:focus, .contact-submit .has-error input.name:focus, .has-error .contact-submit textarea:focus, .contact-submit .has-error textarea:focus, .has-error .contact-form input.text:focus, .contact-form .has-error input.text:focus, .has-error .contact-form input.email:focus, .contact-form .has-error input.email:focus, .has-error .contact-form input.name:focus, .contact-form .has-error input.name:focus, .has-error .contact-form textarea:focus, .contact-form .has-error textarea:focus {
   border-color: #843534;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
@@ -6697,12 +6716,12 @@ select[multiple].input-lg,
     margin-bottom: 0;
     vertical-align: middle;
   }
-  .form-inline .form-control, .navbar-form .form-control {
+  .form-inline .form-control, .navbar-form .form-control, .form-inline .contact-submit input.text, .contact-submit .form-inline input.text, .navbar-form .contact-submit input.text, .contact-submit .navbar-form input.text, .form-inline .contact-submit input.email, .contact-submit .form-inline input.email, .navbar-form .contact-submit input.email, .contact-submit .navbar-form input.email, .form-inline .contact-submit input.name, .contact-submit .form-inline input.name, .navbar-form .contact-submit input.name, .contact-submit .navbar-form input.name, .form-inline .contact-submit textarea, .contact-submit .form-inline textarea, .navbar-form .contact-submit textarea, .contact-submit .navbar-form textarea, .form-inline .contact-form input.text, .contact-form .form-inline input.text, .navbar-form .contact-form input.text, .contact-form .navbar-form input.text, .form-inline .contact-form input.email, .contact-form .form-inline input.email, .navbar-form .contact-form input.email, .contact-form .navbar-form input.email, .form-inline .contact-form input.name, .contact-form .form-inline input.name, .navbar-form .contact-form input.name, .contact-form .navbar-form input.name, .form-inline .contact-form textarea, .contact-form .form-inline textarea, .navbar-form .contact-form textarea, .contact-form .navbar-form textarea {
     display: inline-block;
     width: auto;
     vertical-align: middle;
   }
-  .form-inline .input-group > .form-control, .navbar-form .input-group > .form-control {
+  .form-inline .input-group > .form-control, .navbar-form .input-group > .form-control, .form-inline .contact-submit .input-group > input.text, .contact-submit .form-inline .input-group > input.text, .navbar-form .contact-submit .input-group > input.text, .contact-submit .navbar-form .input-group > input.text, .form-inline .contact-submit .input-group > input.email, .contact-submit .form-inline .input-group > input.email, .navbar-form .contact-submit .input-group > input.email, .contact-submit .navbar-form .input-group > input.email, .form-inline .contact-submit .input-group > input.name, .contact-submit .form-inline .input-group > input.name, .navbar-form .contact-submit .input-group > input.name, .contact-submit .navbar-form .input-group > input.name, .form-inline .contact-submit .input-group > textarea, .contact-submit .form-inline .input-group > textarea, .navbar-form .contact-submit .input-group > textarea, .contact-submit .navbar-form .input-group > textarea, .form-inline .contact-form .input-group > input.text, .contact-form .form-inline .input-group > input.text, .navbar-form .contact-form .input-group > input.text, .contact-form .navbar-form .input-group > input.text, .form-inline .contact-form .input-group > input.email, .contact-form .form-inline .input-group > input.email, .navbar-form .contact-form .input-group > input.email, .contact-form .navbar-form .input-group > input.email, .form-inline .contact-form .input-group > input.name, .contact-form .form-inline .input-group > input.name, .navbar-form .contact-form .input-group > input.name, .contact-form .navbar-form .input-group > input.name, .form-inline .contact-form .input-group > textarea, .contact-form .form-inline .input-group > textarea, .navbar-form .contact-form .input-group > textarea, .contact-form .navbar-form .input-group > textarea {
     width: 100%;
   }
   .form-inline .control-label, .navbar-form .control-label {
@@ -6766,7 +6785,7 @@ select[multiple].input-lg,
   right: 15px;
 }
 
-.btn, .commentlist #submit, .commentlist .comment-reply-link {
+.btn, .contact-submit .pushbutton-wide, .contact-form .pushbutton-wide, .commentlist #submit, .commentlist .comment-reply-link {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -6785,22 +6804,22 @@ select[multiple].input-lg,
   -ms-user-select: none;
   user-select: none;
 }
-.btn:focus, .commentlist #submit:focus, .commentlist .comment-reply-link:focus, .btn:active:focus, .commentlist #submit:active:focus, .commentlist .comment-reply-link:active:focus, .btn.active:focus, .commentlist .active#submit:focus, .commentlist .active.comment-reply-link:focus {
+.btn:focus, .contact-submit .pushbutton-wide:focus, .contact-form .pushbutton-wide:focus, .commentlist #submit:focus, .commentlist .comment-reply-link:focus, .btn:active:focus, .contact-submit .pushbutton-wide:active:focus, .contact-form .pushbutton-wide:active:focus, .commentlist #submit:active:focus, .commentlist .comment-reply-link:active:focus, .btn.active:focus, .contact-submit .active.pushbutton-wide:focus, .contact-form .active.pushbutton-wide:focus, .commentlist .active#submit:focus, .commentlist .active.comment-reply-link:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-.btn:hover, .commentlist #submit:hover, .commentlist .comment-reply-link:hover, .btn:focus, .commentlist #submit:focus, .commentlist .comment-reply-link:focus {
+.btn:hover, .contact-submit .pushbutton-wide:hover, .contact-form .pushbutton-wide:hover, .commentlist #submit:hover, .commentlist .comment-reply-link:hover, .btn:focus, .contact-submit .pushbutton-wide:focus, .contact-form .pushbutton-wide:focus, .commentlist #submit:focus, .commentlist .comment-reply-link:focus {
   color: #333333;
   text-decoration: none;
 }
-.btn:active, .commentlist #submit:active, .commentlist .comment-reply-link:active, .btn.active, .commentlist .active#submit, .commentlist .active.comment-reply-link {
+.btn:active, .contact-submit .pushbutton-wide:active, .contact-form .pushbutton-wide:active, .commentlist #submit:active, .commentlist .comment-reply-link:active, .btn.active, .contact-submit .active.pushbutton-wide, .contact-form .active.pushbutton-wide, .commentlist .active#submit, .commentlist .active.comment-reply-link {
   outline: 0;
   background-image: none;
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-.btn.disabled, .commentlist .disabled#submit, .commentlist .disabled.comment-reply-link, .btn[disabled], .commentlist [disabled]#submit, .commentlist [disabled].comment-reply-link, fieldset[disabled] .btn, fieldset[disabled] .commentlist #submit, .commentlist fieldset[disabled] #submit, fieldset[disabled] .commentlist .comment-reply-link, .commentlist fieldset[disabled] .comment-reply-link {
+.btn.disabled, .contact-submit .disabled.pushbutton-wide, .contact-form .disabled.pushbutton-wide, .commentlist .disabled#submit, .commentlist .disabled.comment-reply-link, .btn[disabled], .contact-submit [disabled].pushbutton-wide, .contact-form [disabled].pushbutton-wide, .commentlist [disabled]#submit, .commentlist [disabled].comment-reply-link, fieldset[disabled] .btn, fieldset[disabled] .contact-submit .pushbutton-wide, .contact-submit fieldset[disabled] .pushbutton-wide, fieldset[disabled] .contact-form .pushbutton-wide, .contact-form fieldset[disabled] .pushbutton-wide, fieldset[disabled] .commentlist #submit, .commentlist fieldset[disabled] #submit, fieldset[disabled] .commentlist .comment-reply-link, .commentlist fieldset[disabled] .comment-reply-link {
   cursor: not-allowed;
   pointer-events: none;
   opacity: 0.65;
@@ -6839,32 +6858,32 @@ select[multiple].input-lg,
   background-color: #333333;
 }
 
-.btn-primary, .commentlist .comment-reply-link {
+.btn-primary, .contact-submit .pushbutton-wide, .contact-form .pushbutton-wide, .commentlist .comment-reply-link {
   color: white;
   background-color: #428bca;
   border-color: #357ebd;
 }
-.btn-primary:hover, .commentlist .comment-reply-link:hover, .btn-primary:focus, .commentlist .comment-reply-link:focus, .btn-primary:active, .commentlist .comment-reply-link:active, .btn-primary.active, .commentlist .active.comment-reply-link {
+.btn-primary:hover, .contact-submit .pushbutton-wide:hover, .contact-form .pushbutton-wide:hover, .commentlist .comment-reply-link:hover, .btn-primary:focus, .contact-submit .pushbutton-wide:focus, .contact-form .pushbutton-wide:focus, .commentlist .comment-reply-link:focus, .btn-primary:active, .contact-submit .pushbutton-wide:active, .contact-form .pushbutton-wide:active, .commentlist .comment-reply-link:active, .btn-primary.active, .contact-submit .active.pushbutton-wide, .contact-form .active.pushbutton-wide, .commentlist .active.comment-reply-link {
   color: white;
   background-color: #3276b1;
   border-color: #285e8e;
 }
-.open .btn-primary.dropdown-toggle, .open .commentlist .dropdown-toggle.comment-reply-link, .commentlist .open .dropdown-toggle.comment-reply-link {
+.open .btn-primary.dropdown-toggle, .open .contact-submit .dropdown-toggle.pushbutton-wide, .contact-submit .open .dropdown-toggle.pushbutton-wide, .open .contact-form .dropdown-toggle.pushbutton-wide, .contact-form .open .dropdown-toggle.pushbutton-wide, .open .commentlist .dropdown-toggle.comment-reply-link, .commentlist .open .dropdown-toggle.comment-reply-link {
   color: white;
   background-color: #3276b1;
   border-color: #285e8e;
 }
-.btn-primary:active, .commentlist .comment-reply-link:active, .btn-primary.active, .commentlist .active.comment-reply-link {
+.btn-primary:active, .contact-submit .pushbutton-wide:active, .contact-form .pushbutton-wide:active, .commentlist .comment-reply-link:active, .btn-primary.active, .contact-submit .active.pushbutton-wide, .contact-form .active.pushbutton-wide, .commentlist .active.comment-reply-link {
   background-image: none;
 }
-.open .btn-primary.dropdown-toggle, .open .commentlist .dropdown-toggle.comment-reply-link, .commentlist .open .dropdown-toggle.comment-reply-link {
+.open .btn-primary.dropdown-toggle, .open .contact-submit .dropdown-toggle.pushbutton-wide, .contact-submit .open .dropdown-toggle.pushbutton-wide, .open .contact-form .dropdown-toggle.pushbutton-wide, .contact-form .open .dropdown-toggle.pushbutton-wide, .open .commentlist .dropdown-toggle.comment-reply-link, .commentlist .open .dropdown-toggle.comment-reply-link {
   background-image: none;
 }
-.btn-primary.disabled, .commentlist .disabled.comment-reply-link, .btn-primary.disabled:hover, .commentlist .disabled.comment-reply-link:hover, .btn-primary.disabled:focus, .commentlist .disabled.comment-reply-link:focus, .btn-primary.disabled:active, .commentlist .disabled.comment-reply-link:active, .btn-primary.disabled.active, .commentlist .disabled.active.comment-reply-link, .btn-primary[disabled], .commentlist [disabled].comment-reply-link, .btn-primary[disabled]:hover, .commentlist [disabled].comment-reply-link:hover, .btn-primary[disabled]:focus, .commentlist [disabled].comment-reply-link:focus, .btn-primary[disabled]:active, .commentlist [disabled].comment-reply-link:active, .btn-primary[disabled].active, .commentlist [disabled].active.comment-reply-link, fieldset[disabled] .btn-primary, fieldset[disabled] .commentlist .comment-reply-link, .commentlist fieldset[disabled] .comment-reply-link, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .commentlist .comment-reply-link:hover, .commentlist fieldset[disabled] .comment-reply-link:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .commentlist .comment-reply-link:focus, .commentlist fieldset[disabled] .comment-reply-link:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .commentlist .comment-reply-link:active, .commentlist fieldset[disabled] .comment-reply-link:active, fieldset[disabled] .btn-primary.active, fieldset[disabled] .commentlist .active.comment-reply-link, .commentlist fieldset[disabled] .active.comment-reply-link {
+.btn-primary.disabled, .contact-submit .disabled.pushbutton-wide, .contact-form .disabled.pushbutton-wide, .commentlist .disabled.comment-reply-link, .btn-primary.disabled:hover, .contact-submit .disabled.pushbutton-wide:hover, .contact-form .disabled.pushbutton-wide:hover, .commentlist .disabled.comment-reply-link:hover, .btn-primary.disabled:focus, .contact-submit .disabled.pushbutton-wide:focus, .contact-form .disabled.pushbutton-wide:focus, .commentlist .disabled.comment-reply-link:focus, .btn-primary.disabled:active, .contact-submit .disabled.pushbutton-wide:active, .contact-form .disabled.pushbutton-wide:active, .commentlist .disabled.comment-reply-link:active, .btn-primary.disabled.active, .contact-submit .disabled.active.pushbutton-wide, .contact-form .disabled.active.pushbutton-wide, .commentlist .disabled.active.comment-reply-link, .btn-primary[disabled], .contact-submit [disabled].pushbutton-wide, .contact-form [disabled].pushbutton-wide, .commentlist [disabled].comment-reply-link, .btn-primary[disabled]:hover, .contact-submit [disabled].pushbutton-wide:hover, .contact-form [disabled].pushbutton-wide:hover, .commentlist [disabled].comment-reply-link:hover, .btn-primary[disabled]:focus, .contact-submit [disabled].pushbutton-wide:focus, .contact-form [disabled].pushbutton-wide:focus, .commentlist [disabled].comment-reply-link:focus, .btn-primary[disabled]:active, .contact-submit [disabled].pushbutton-wide:active, .contact-form [disabled].pushbutton-wide:active, .commentlist [disabled].comment-reply-link:active, .btn-primary[disabled].active, .contact-submit [disabled].active.pushbutton-wide, .contact-form [disabled].active.pushbutton-wide, .commentlist [disabled].active.comment-reply-link, fieldset[disabled] .btn-primary, fieldset[disabled] .contact-submit .pushbutton-wide, .contact-submit fieldset[disabled] .pushbutton-wide, fieldset[disabled] .contact-form .pushbutton-wide, .contact-form fieldset[disabled] .pushbutton-wide, fieldset[disabled] .commentlist .comment-reply-link, .commentlist fieldset[disabled] .comment-reply-link, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .contact-submit .pushbutton-wide:hover, .contact-submit fieldset[disabled] .pushbutton-wide:hover, fieldset[disabled] .contact-form .pushbutton-wide:hover, .contact-form fieldset[disabled] .pushbutton-wide:hover, fieldset[disabled] .commentlist .comment-reply-link:hover, .commentlist fieldset[disabled] .comment-reply-link:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .contact-submit .pushbutton-wide:focus, .contact-submit fieldset[disabled] .pushbutton-wide:focus, fieldset[disabled] .contact-form .pushbutton-wide:focus, .contact-form fieldset[disabled] .pushbutton-wide:focus, fieldset[disabled] .commentlist .comment-reply-link:focus, .commentlist fieldset[disabled] .comment-reply-link:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .contact-submit .pushbutton-wide:active, .contact-submit fieldset[disabled] .pushbutton-wide:active, fieldset[disabled] .contact-form .pushbutton-wide:active, .contact-form fieldset[disabled] .pushbutton-wide:active, fieldset[disabled] .commentlist .comment-reply-link:active, .commentlist fieldset[disabled] .comment-reply-link:active, fieldset[disabled] .btn-primary.active, fieldset[disabled] .contact-submit .active.pushbutton-wide, .contact-submit fieldset[disabled] .active.pushbutton-wide, fieldset[disabled] .contact-form .active.pushbutton-wide, .contact-form fieldset[disabled] .active.pushbutton-wide, fieldset[disabled] .commentlist .active.comment-reply-link, .commentlist fieldset[disabled] .active.comment-reply-link {
   background-color: #428bca;
   border-color: #357ebd;
 }
-.btn-primary .badge, .commentlist .comment-reply-link .badge {
+.btn-primary .badge, .contact-submit .pushbutton-wide .badge, .contact-form .pushbutton-wide .badge, .commentlist .comment-reply-link .badge {
   color: #428bca;
   background-color: white;
 }
@@ -7013,21 +7032,21 @@ select[multiple].input-lg,
   text-decoration: none;
 }
 
-.btn-lg, .btn-group-lg > .btn, .commentlist .btn-group-lg > #submit, .commentlist .btn-group-lg > .comment-reply-link {
+.btn-lg, .btn-group-lg > .btn, .contact-submit .btn-group-lg > .pushbutton-wide, .contact-form .btn-group-lg > .pushbutton-wide, .commentlist .btn-group-lg > #submit, .commentlist .btn-group-lg > .comment-reply-link {
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.33;
   border-radius: 6px;
 }
 
-.btn-sm, .btn-group-sm > .btn, .commentlist .btn-group-sm > #submit, .commentlist .comment-reply-link {
+.btn-sm, .btn-group-sm > .btn, .contact-submit .btn-group-sm > .pushbutton-wide, .contact-form .btn-group-sm > .pushbutton-wide, .commentlist .btn-group-sm > #submit, .commentlist .comment-reply-link {
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }
 
-.btn-xs, .btn-group-xs > .btn, .commentlist .btn-group-xs > #submit, .commentlist .btn-group-xs > .comment-reply-link {
+.btn-xs, .btn-group-xs > .btn, .contact-submit .btn-group-xs > .pushbutton-wide, .contact-form .btn-group-xs > .pushbutton-wide, .commentlist .btn-group-xs > #submit, .commentlist .btn-group-xs > .comment-reply-link {
   padding: 1px 5px;
   font-size: 14px;
   line-height: 1.5;
@@ -8045,42 +8064,62 @@ input[type="button"].btn-block {
   display: inline-block;
   vertical-align: middle;
 }
-.btn-group > .btn, .commentlist .btn-group > #submit, .commentlist .btn-group > .comment-reply-link,
+.btn-group > .btn, .contact-submit .btn-group > .pushbutton-wide, .contact-form .btn-group > .pushbutton-wide, .commentlist .btn-group > #submit, .commentlist .btn-group > .comment-reply-link,
 .btn-group-vertical > .btn,
+.contact-submit .btn-group-vertical > .pushbutton-wide,
+.contact-form .btn-group-vertical > .pushbutton-wide,
 .commentlist .btn-group-vertical > #submit,
 .commentlist .btn-group-vertical > .comment-reply-link {
   position: relative;
   float: left;
 }
-.btn-group > .btn:hover, .commentlist .btn-group > #submit:hover, .commentlist .btn-group > .comment-reply-link:hover, .btn-group > .btn:focus, .commentlist .btn-group > #submit:focus, .commentlist .btn-group > .comment-reply-link:focus, .btn-group > .btn:active, .commentlist .btn-group > #submit:active, .commentlist .btn-group > .comment-reply-link:active, .btn-group > .btn.active, .commentlist .btn-group > .active#submit, .commentlist .btn-group > .active.comment-reply-link,
+.btn-group > .btn:hover, .contact-submit .btn-group > .pushbutton-wide:hover, .contact-form .btn-group > .pushbutton-wide:hover, .commentlist .btn-group > #submit:hover, .commentlist .btn-group > .comment-reply-link:hover, .btn-group > .btn:focus, .contact-submit .btn-group > .pushbutton-wide:focus, .contact-form .btn-group > .pushbutton-wide:focus, .commentlist .btn-group > #submit:focus, .commentlist .btn-group > .comment-reply-link:focus, .btn-group > .btn:active, .contact-submit .btn-group > .pushbutton-wide:active, .contact-form .btn-group > .pushbutton-wide:active, .commentlist .btn-group > #submit:active, .commentlist .btn-group > .comment-reply-link:active, .btn-group > .btn.active, .contact-submit .btn-group > .active.pushbutton-wide, .contact-form .btn-group > .active.pushbutton-wide, .commentlist .btn-group > .active#submit, .commentlist .btn-group > .active.comment-reply-link,
 .btn-group-vertical > .btn:hover,
+.contact-submit .btn-group-vertical > .pushbutton-wide:hover,
+.contact-form .btn-group-vertical > .pushbutton-wide:hover,
 .commentlist .btn-group-vertical > #submit:hover,
 .commentlist .btn-group-vertical > .comment-reply-link:hover,
 .btn-group-vertical > .btn:focus,
+.contact-submit .btn-group-vertical > .pushbutton-wide:focus,
+.contact-form .btn-group-vertical > .pushbutton-wide:focus,
 .commentlist .btn-group-vertical > #submit:focus,
 .commentlist .btn-group-vertical > .comment-reply-link:focus,
 .btn-group-vertical > .btn:active,
+.contact-submit .btn-group-vertical > .pushbutton-wide:active,
+.contact-form .btn-group-vertical > .pushbutton-wide:active,
 .commentlist .btn-group-vertical > #submit:active,
 .commentlist .btn-group-vertical > .comment-reply-link:active,
 .btn-group-vertical > .btn.active,
+.contact-submit .btn-group-vertical > .active.pushbutton-wide,
+.contact-form .btn-group-vertical > .active.pushbutton-wide,
 .commentlist .btn-group-vertical > .active#submit,
 .commentlist .btn-group-vertical > .active.comment-reply-link {
   z-index: 2;
 }
-.btn-group > .btn:focus, .commentlist .btn-group > #submit:focus, .commentlist .btn-group > .comment-reply-link:focus,
+.btn-group > .btn:focus, .contact-submit .btn-group > .pushbutton-wide:focus, .contact-form .btn-group > .pushbutton-wide:focus, .commentlist .btn-group > #submit:focus, .commentlist .btn-group > .comment-reply-link:focus,
 .btn-group-vertical > .btn:focus,
+.contact-submit .btn-group-vertical > .pushbutton-wide:focus,
+.contact-form .btn-group-vertical > .pushbutton-wide:focus,
 .commentlist .btn-group-vertical > #submit:focus,
 .commentlist .btn-group-vertical > .comment-reply-link:focus {
   outline: none;
 }
 
-.btn-group .btn + .btn, .btn-group .commentlist #submit + .btn, .commentlist .btn-group #submit + .btn, .btn-group .commentlist .comment-reply-link + .btn, .commentlist .btn-group .comment-reply-link + .btn, .btn-group .commentlist .btn + #submit, .commentlist .btn-group .btn + #submit, .btn-group .commentlist #submit + #submit, .commentlist .btn-group #submit + #submit, .btn-group .commentlist .comment-reply-link + #submit, .commentlist .btn-group .comment-reply-link + #submit, .btn-group .commentlist .btn + .comment-reply-link, .commentlist .btn-group .btn + .comment-reply-link, .btn-group .commentlist #submit + .comment-reply-link, .commentlist .btn-group #submit + .comment-reply-link, .btn-group .commentlist .comment-reply-link + .comment-reply-link, .commentlist .btn-group .comment-reply-link + .comment-reply-link,
+.btn-group .btn + .btn, .btn-group .contact-submit .pushbutton-wide + .btn, .contact-submit .btn-group .pushbutton-wide + .btn, .btn-group .contact-form .pushbutton-wide + .btn, .contact-form .btn-group .pushbutton-wide + .btn, .btn-group .commentlist #submit + .btn, .commentlist .btn-group #submit + .btn, .btn-group .commentlist .comment-reply-link + .btn, .commentlist .btn-group .comment-reply-link + .btn, .btn-group .contact-submit .btn + .pushbutton-wide, .contact-submit .btn-group .btn + .pushbutton-wide, .btn-group .contact-submit .pushbutton-wide + .pushbutton-wide, .contact-submit .btn-group .pushbutton-wide + .pushbutton-wide, .btn-group .commentlist .contact-submit #submit + .pushbutton-wide, .contact-submit .btn-group .commentlist #submit + .pushbutton-wide, .commentlist .btn-group .contact-submit #submit + .pushbutton-wide, .contact-submit .commentlist .btn-group #submit + .pushbutton-wide, .btn-group .commentlist .contact-submit .comment-reply-link + .pushbutton-wide, .contact-submit .btn-group .commentlist .comment-reply-link + .pushbutton-wide, .commentlist .btn-group .contact-submit .comment-reply-link + .pushbutton-wide, .contact-submit .commentlist .btn-group .comment-reply-link + .pushbutton-wide, .btn-group .contact-form .btn + .pushbutton-wide, .contact-form .btn-group .btn + .pushbutton-wide, .btn-group .contact-form .pushbutton-wide + .pushbutton-wide, .contact-form .btn-group .pushbutton-wide + .pushbutton-wide, .btn-group .commentlist .contact-form #submit + .pushbutton-wide, .contact-form .btn-group .commentlist #submit + .pushbutton-wide, .commentlist .btn-group .contact-form #submit + .pushbutton-wide, .contact-form .commentlist .btn-group #submit + .pushbutton-wide, .btn-group .commentlist .contact-form .comment-reply-link + .pushbutton-wide, .contact-form .btn-group .commentlist .comment-reply-link + .pushbutton-wide, .commentlist .btn-group .contact-form .comment-reply-link + .pushbutton-wide, .contact-form .commentlist .btn-group .comment-reply-link + .pushbutton-wide, .btn-group .commentlist .btn + #submit, .commentlist .btn-group .btn + #submit, .btn-group .contact-submit .commentlist .pushbutton-wide + #submit, .commentlist .btn-group .contact-submit .pushbutton-wide + #submit, .contact-submit .btn-group .commentlist .pushbutton-wide + #submit, .commentlist .contact-submit .btn-group .pushbutton-wide + #submit, .btn-group .contact-form .commentlist .pushbutton-wide + #submit, .commentlist .btn-group .contact-form .pushbutton-wide + #submit, .contact-form .btn-group .commentlist .pushbutton-wide + #submit, .commentlist .contact-form .btn-group .pushbutton-wide + #submit, .btn-group .commentlist #submit + #submit, .commentlist .btn-group #submit + #submit, .btn-group .commentlist .comment-reply-link + #submit, .commentlist .btn-group .comment-reply-link + #submit, .btn-group .commentlist .btn + .comment-reply-link, .commentlist .btn-group .btn + .comment-reply-link, .btn-group .contact-submit .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .btn-group .contact-submit .pushbutton-wide + .comment-reply-link, .contact-submit .btn-group .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .contact-submit .btn-group .pushbutton-wide + .comment-reply-link, .btn-group .contact-form .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .btn-group .contact-form .pushbutton-wide + .comment-reply-link, .contact-form .btn-group .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .contact-form .btn-group .pushbutton-wide + .comment-reply-link, .btn-group .commentlist #submit + .comment-reply-link, .commentlist .btn-group #submit + .comment-reply-link, .btn-group .commentlist .comment-reply-link + .comment-reply-link, .commentlist .btn-group .comment-reply-link + .comment-reply-link,
 .btn-group .btn + .btn-group,
+.btn-group .contact-submit .pushbutton-wide + .btn-group,
+.contact-submit .btn-group .pushbutton-wide + .btn-group,
+.btn-group .contact-form .pushbutton-wide + .btn-group,
+.contact-form .btn-group .pushbutton-wide + .btn-group,
 .btn-group .commentlist #submit + .btn-group,
 .commentlist .btn-group #submit + .btn-group,
 .btn-group .commentlist .comment-reply-link + .btn-group,
 .commentlist .btn-group .comment-reply-link + .btn-group,
 .btn-group .btn-group + .btn,
+.btn-group .contact-submit .btn-group + .pushbutton-wide,
+.contact-submit .btn-group .btn-group + .pushbutton-wide,
+.btn-group .contact-form .btn-group + .pushbutton-wide,
+.contact-form .btn-group .btn-group + .pushbutton-wide,
 .btn-group .commentlist .btn-group + #submit,
 .commentlist .btn-group .btn-group + #submit,
 .btn-group .commentlist .btn-group + .comment-reply-link,
@@ -8103,25 +8142,25 @@ input[type="button"].btn-block {
 .btn-toolbar .input-group {
   float: left;
 }
-.btn-toolbar > .btn, .commentlist .btn-toolbar > #submit, .commentlist .btn-toolbar > .comment-reply-link,
+.btn-toolbar > .btn, .contact-submit .btn-toolbar > .pushbutton-wide, .contact-form .btn-toolbar > .pushbutton-wide, .commentlist .btn-toolbar > #submit, .commentlist .btn-toolbar > .comment-reply-link,
 .btn-toolbar > .btn-group,
 .btn-toolbar > .input-group {
   margin-left: 5px;
 }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .commentlist .btn-group > #submit:not(:first-child):not(:last-child):not(.dropdown-toggle), .commentlist .btn-group > .comment-reply-link:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .contact-submit .btn-group > .pushbutton-wide:not(:first-child):not(:last-child):not(.dropdown-toggle), .contact-form .btn-group > .pushbutton-wide:not(:first-child):not(:last-child):not(.dropdown-toggle), .commentlist .btn-group > #submit:not(:first-child):not(:last-child):not(.dropdown-toggle), .commentlist .btn-group > .comment-reply-link:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0;
 }
 
-.btn-group > .btn:first-child, .commentlist .btn-group > #submit:first-child, .commentlist .btn-group > .comment-reply-link:first-child {
+.btn-group > .btn:first-child, .contact-submit .btn-group > .pushbutton-wide:first-child, .contact-form .btn-group > .pushbutton-wide:first-child, .commentlist .btn-group > #submit:first-child, .commentlist .btn-group > .comment-reply-link:first-child {
   margin-left: 0;
 }
-.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .commentlist .btn-group > #submit:first-child:not(:last-child):not(.dropdown-toggle), .commentlist .btn-group > .comment-reply-link:first-child:not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .contact-submit .btn-group > .pushbutton-wide:first-child:not(:last-child):not(.dropdown-toggle), .contact-form .btn-group > .pushbutton-wide:first-child:not(:last-child):not(.dropdown-toggle), .commentlist .btn-group > #submit:first-child:not(:last-child):not(.dropdown-toggle), .commentlist .btn-group > .comment-reply-link:first-child:not(:last-child):not(.dropdown-toggle) {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 
-.btn-group > .btn:last-child:not(:first-child), .commentlist .btn-group > #submit:last-child:not(:first-child), .commentlist .btn-group > .comment-reply-link:last-child:not(:first-child),
+.btn-group > .btn:last-child:not(:first-child), .contact-submit .btn-group > .pushbutton-wide:last-child:not(:first-child), .contact-form .btn-group > .pushbutton-wide:last-child:not(:first-child), .commentlist .btn-group > #submit:last-child:not(:first-child), .commentlist .btn-group > .comment-reply-link:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
@@ -8131,17 +8170,17 @@ input[type="button"].btn-block {
   float: left;
 }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .commentlist .btn-group > .btn-group:not(:first-child):not(:last-child) > #submit, .commentlist .btn-group > .btn-group:not(:first-child):not(:last-child) > .comment-reply-link {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .contact-submit .btn-group > .btn-group:not(:first-child):not(:last-child) > .pushbutton-wide, .contact-form .btn-group > .btn-group:not(:first-child):not(:last-child) > .pushbutton-wide, .commentlist .btn-group > .btn-group:not(:first-child):not(:last-child) > #submit, .commentlist .btn-group > .btn-group:not(:first-child):not(:last-child) > .comment-reply-link {
   border-radius: 0;
 }
 
-.btn-group > .btn-group:first-child > .btn:last-child, .commentlist .btn-group > .btn-group:first-child > #submit:last-child, .commentlist .btn-group > .btn-group:first-child > .comment-reply-link:last-child,
+.btn-group > .btn-group:first-child > .btn:last-child, .contact-submit .btn-group > .btn-group:first-child > .pushbutton-wide:last-child, .contact-form .btn-group > .btn-group:first-child > .pushbutton-wide:last-child, .commentlist .btn-group > .btn-group:first-child > #submit:last-child, .commentlist .btn-group > .btn-group:first-child > .comment-reply-link:last-child,
 .btn-group > .btn-group:first-child > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 
-.btn-group > .btn-group:last-child > .btn:first-child, .commentlist .btn-group > .btn-group:last-child > #submit:first-child, .commentlist .btn-group > .btn-group:last-child > .comment-reply-link:first-child {
+.btn-group > .btn-group:last-child > .btn:first-child, .contact-submit .btn-group > .btn-group:last-child > .pushbutton-wide:first-child, .contact-form .btn-group > .btn-group:last-child > .pushbutton-wide:first-child, .commentlist .btn-group > .btn-group:last-child > #submit:first-child, .commentlist .btn-group > .btn-group:last-child > .comment-reply-link:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
@@ -8151,12 +8190,12 @@ input[type="button"].btn-block {
   outline: 0;
 }
 
-.btn-group > .btn + .dropdown-toggle, .commentlist .btn-group > #submit + .dropdown-toggle, .commentlist .btn-group > .comment-reply-link + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .contact-submit .btn-group > .pushbutton-wide + .dropdown-toggle, .contact-form .btn-group > .pushbutton-wide + .dropdown-toggle, .commentlist .btn-group > #submit + .dropdown-toggle, .commentlist .btn-group > .comment-reply-link + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px;
 }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .commentlist .btn-group-lg.btn-group > #submit + .dropdown-toggle, .commentlist .btn-group-lg.btn-group > .comment-reply-link + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .contact-submit .btn-group-lg.btn-group > .pushbutton-wide + .dropdown-toggle, .contact-form .btn-group-lg.btn-group > .pushbutton-wide + .dropdown-toggle, .commentlist .btn-group-lg.btn-group > #submit + .dropdown-toggle, .commentlist .btn-group-lg.btn-group > .comment-reply-link + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -8170,22 +8209,24 @@ input[type="button"].btn-block {
   box-shadow: none;
 }
 
-.btn .caret, .commentlist #submit .caret, .commentlist .comment-reply-link .caret {
+.btn .caret, .contact-submit .pushbutton-wide .caret, .contact-form .pushbutton-wide .caret, .commentlist #submit .caret, .commentlist .comment-reply-link .caret {
   margin-left: 0;
 }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .commentlist .btn-group-lg > #submit .caret, .commentlist .btn-group-lg > .comment-reply-link .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .contact-submit .btn-group-lg > .pushbutton-wide .caret, .contact-form .btn-group-lg > .pushbutton-wide .caret, .commentlist .btn-group-lg > #submit .caret, .commentlist .btn-group-lg > .comment-reply-link .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0;
 }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .commentlist .btn-group-lg > #submit .caret, .commentlist .dropup .btn-group-lg > #submit .caret, .dropup .commentlist .btn-group-lg > .comment-reply-link .caret, .commentlist .dropup .btn-group-lg > .comment-reply-link .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .contact-submit .btn-group-lg > .pushbutton-wide .caret, .contact-submit .dropup .btn-group-lg > .pushbutton-wide .caret, .dropup .contact-form .btn-group-lg > .pushbutton-wide .caret, .contact-form .dropup .btn-group-lg > .pushbutton-wide .caret, .dropup .commentlist .btn-group-lg > #submit .caret, .commentlist .dropup .btn-group-lg > #submit .caret, .dropup .commentlist .btn-group-lg > .comment-reply-link .caret, .commentlist .dropup .btn-group-lg > .comment-reply-link .caret {
   border-width: 0 5px 5px;
 }
 
-.btn-group-vertical > .btn, .commentlist .btn-group-vertical > #submit, .commentlist .btn-group-vertical > .comment-reply-link,
+.btn-group-vertical > .btn, .contact-submit .btn-group-vertical > .pushbutton-wide, .contact-form .btn-group-vertical > .pushbutton-wide, .commentlist .btn-group-vertical > #submit, .commentlist .btn-group-vertical > .comment-reply-link,
 .btn-group-vertical > .btn-group,
 .btn-group-vertical > .btn-group > .btn,
+.contact-submit .btn-group-vertical > .btn-group > .pushbutton-wide,
+.contact-form .btn-group-vertical > .btn-group > .pushbutton-wide,
 .commentlist .btn-group-vertical > .btn-group > #submit,
 .commentlist .btn-group-vertical > .btn-group > .comment-reply-link {
   display: block;
@@ -8200,14 +8241,18 @@ input[type="button"].btn-block {
 .btn-group-vertical > .btn-group:after {
   clear: both;
 }
-.btn-group-vertical > .btn-group > .btn, .commentlist .btn-group-vertical > .btn-group > #submit, .commentlist .btn-group-vertical > .btn-group > .comment-reply-link {
+.btn-group-vertical > .btn-group > .btn, .contact-submit .btn-group-vertical > .btn-group > .pushbutton-wide, .contact-form .btn-group-vertical > .btn-group > .pushbutton-wide, .commentlist .btn-group-vertical > .btn-group > #submit, .commentlist .btn-group-vertical > .btn-group > .comment-reply-link {
   float: none;
 }
-.btn-group-vertical > .btn + .btn, .commentlist .btn-group-vertical > #submit + .btn, .commentlist .btn-group-vertical > .comment-reply-link + .btn, .commentlist .btn-group-vertical > .btn + #submit, .commentlist .btn-group-vertical > #submit + #submit, .commentlist .btn-group-vertical > .comment-reply-link + #submit, .commentlist .btn-group-vertical > .btn + .comment-reply-link, .commentlist .btn-group-vertical > #submit + .comment-reply-link, .commentlist .btn-group-vertical > .comment-reply-link + .comment-reply-link,
+.btn-group-vertical > .btn + .btn, .contact-submit .btn-group-vertical > .pushbutton-wide + .btn, .contact-form .btn-group-vertical > .pushbutton-wide + .btn, .commentlist .btn-group-vertical > #submit + .btn, .commentlist .btn-group-vertical > .comment-reply-link + .btn, .contact-submit .btn-group-vertical > .btn + .pushbutton-wide, .contact-submit .btn-group-vertical > .pushbutton-wide + .pushbutton-wide, .commentlist .contact-submit .btn-group-vertical > #submit + .pushbutton-wide, .contact-submit .commentlist .btn-group-vertical > #submit + .pushbutton-wide, .commentlist .contact-submit .btn-group-vertical > .comment-reply-link + .pushbutton-wide, .contact-submit .commentlist .btn-group-vertical > .comment-reply-link + .pushbutton-wide, .contact-form .btn-group-vertical > .btn + .pushbutton-wide, .contact-form .btn-group-vertical > .pushbutton-wide + .pushbutton-wide, .commentlist .contact-form .btn-group-vertical > #submit + .pushbutton-wide, .contact-form .commentlist .btn-group-vertical > #submit + .pushbutton-wide, .commentlist .contact-form .btn-group-vertical > .comment-reply-link + .pushbutton-wide, .contact-form .commentlist .btn-group-vertical > .comment-reply-link + .pushbutton-wide, .commentlist .btn-group-vertical > .btn + #submit, .contact-submit .commentlist .btn-group-vertical > .pushbutton-wide + #submit, .commentlist .contact-submit .btn-group-vertical > .pushbutton-wide + #submit, .contact-form .commentlist .btn-group-vertical > .pushbutton-wide + #submit, .commentlist .contact-form .btn-group-vertical > .pushbutton-wide + #submit, .commentlist .btn-group-vertical > #submit + #submit, .commentlist .btn-group-vertical > .comment-reply-link + #submit, .commentlist .btn-group-vertical > .btn + .comment-reply-link, .contact-submit .commentlist .btn-group-vertical > .pushbutton-wide + .comment-reply-link, .commentlist .contact-submit .btn-group-vertical > .pushbutton-wide + .comment-reply-link, .contact-form .commentlist .btn-group-vertical > .pushbutton-wide + .comment-reply-link, .commentlist .contact-form .btn-group-vertical > .pushbutton-wide + .comment-reply-link, .commentlist .btn-group-vertical > #submit + .comment-reply-link, .commentlist .btn-group-vertical > .comment-reply-link + .comment-reply-link,
 .btn-group-vertical > .btn + .btn-group,
+.contact-submit .btn-group-vertical > .pushbutton-wide + .btn-group,
+.contact-form .btn-group-vertical > .pushbutton-wide + .btn-group,
 .commentlist .btn-group-vertical > #submit + .btn-group,
 .commentlist .btn-group-vertical > .comment-reply-link + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
+.contact-submit .btn-group-vertical > .btn-group + .pushbutton-wide,
+.contact-form .btn-group-vertical > .btn-group + .pushbutton-wide,
 .commentlist .btn-group-vertical > .btn-group + #submit,
 .commentlist .btn-group-vertical > .btn-group + .comment-reply-link,
 .btn-group-vertical > .btn-group + .btn-group {
@@ -8215,31 +8260,31 @@ input[type="button"].btn-block {
   margin-left: 0;
 }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child), .commentlist .btn-group-vertical > #submit:not(:first-child):not(:last-child), .commentlist .btn-group-vertical > .comment-reply-link:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .contact-submit .btn-group-vertical > .pushbutton-wide:not(:first-child):not(:last-child), .contact-form .btn-group-vertical > .pushbutton-wide:not(:first-child):not(:last-child), .commentlist .btn-group-vertical > #submit:not(:first-child):not(:last-child), .commentlist .btn-group-vertical > .comment-reply-link:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
-.btn-group-vertical > .btn:first-child:not(:last-child), .commentlist .btn-group-vertical > #submit:first-child:not(:last-child), .commentlist .btn-group-vertical > .comment-reply-link:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .contact-submit .btn-group-vertical > .pushbutton-wide:first-child:not(:last-child), .contact-form .btn-group-vertical > .pushbutton-wide:first-child:not(:last-child), .commentlist .btn-group-vertical > #submit:first-child:not(:last-child), .commentlist .btn-group-vertical > .comment-reply-link:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.btn-group-vertical > .btn:last-child:not(:first-child), .commentlist .btn-group-vertical > #submit:last-child:not(:first-child), .commentlist .btn-group-vertical > .comment-reply-link:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .contact-submit .btn-group-vertical > .pushbutton-wide:last-child:not(:first-child), .contact-form .btn-group-vertical > .pushbutton-wide:last-child:not(:first-child), .commentlist .btn-group-vertical > #submit:last-child:not(:first-child), .commentlist .btn-group-vertical > .comment-reply-link:last-child:not(:first-child) {
   border-bottom-left-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .commentlist .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > #submit, .commentlist .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .comment-reply-link {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .contact-submit .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .pushbutton-wide, .contact-form .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .pushbutton-wide, .commentlist .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > #submit, .commentlist .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .comment-reply-link {
   border-radius: 0;
 }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .commentlist .btn-group-vertical > .btn-group:first-child:not(:last-child) > #submit:last-child, .commentlist .btn-group-vertical > .btn-group:first-child:not(:last-child) > .comment-reply-link:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .contact-submit .btn-group-vertical > .btn-group:first-child:not(:last-child) > .pushbutton-wide:last-child, .contact-form .btn-group-vertical > .btn-group:first-child:not(:last-child) > .pushbutton-wide:last-child, .commentlist .btn-group-vertical > .btn-group:first-child:not(:last-child) > #submit:last-child, .commentlist .btn-group-vertical > .btn-group:first-child:not(:last-child) > .comment-reply-link:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .commentlist .btn-group-vertical > .btn-group:last-child:not(:first-child) > #submit:first-child, .commentlist .btn-group-vertical > .btn-group:last-child:not(:first-child) > .comment-reply-link:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .contact-submit .btn-group-vertical > .btn-group:last-child:not(:first-child) > .pushbutton-wide:first-child, .contact-form .btn-group-vertical > .btn-group:last-child:not(:first-child) > .pushbutton-wide:first-child, .commentlist .btn-group-vertical > .btn-group:last-child:not(:first-child) > #submit:first-child, .commentlist .btn-group-vertical > .btn-group:last-child:not(:first-child) > .comment-reply-link:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
@@ -8250,18 +8295,20 @@ input[type="button"].btn-block {
   table-layout: fixed;
   border-collapse: separate;
 }
-.btn-group-justified > .btn, .commentlist .btn-group-justified > #submit, .commentlist .btn-group-justified > .comment-reply-link,
+.btn-group-justified > .btn, .contact-submit .btn-group-justified > .pushbutton-wide, .contact-form .btn-group-justified > .pushbutton-wide, .commentlist .btn-group-justified > #submit, .commentlist .btn-group-justified > .comment-reply-link,
 .btn-group-justified > .btn-group {
   float: none;
   display: table-cell;
   width: 1%;
 }
-.btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .commentlist #submit, .commentlist .btn-group-justified > .btn-group #submit, .btn-group-justified > .btn-group .commentlist .comment-reply-link, .commentlist .btn-group-justified > .btn-group .comment-reply-link {
+.btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .contact-submit .pushbutton-wide, .contact-submit .btn-group-justified > .btn-group .pushbutton-wide, .btn-group-justified > .btn-group .contact-form .pushbutton-wide, .contact-form .btn-group-justified > .btn-group .pushbutton-wide, .btn-group-justified > .btn-group .commentlist #submit, .commentlist .btn-group-justified > .btn-group #submit, .btn-group-justified > .btn-group .commentlist .comment-reply-link, .commentlist .btn-group-justified > .btn-group .comment-reply-link {
   width: 100%;
 }
 
-[data-toggle="buttons"] > .btn > input[type="radio"], .commentlist [data-toggle="buttons"] > #submit > input[type="radio"], .commentlist [data-toggle="buttons"] > .comment-reply-link > input[type="radio"],
+[data-toggle="buttons"] > .btn > input[type="radio"], .contact-submit [data-toggle="buttons"] > .pushbutton-wide > input[type="radio"], .contact-form [data-toggle="buttons"] > .pushbutton-wide > input[type="radio"], .commentlist [data-toggle="buttons"] > #submit > input[type="radio"], .commentlist [data-toggle="buttons"] > .comment-reply-link > input[type="radio"],
 [data-toggle="buttons"] > .btn > input[type="checkbox"],
+.contact-submit [data-toggle="buttons"] > .pushbutton-wide > input[type="checkbox"],
+.contact-form [data-toggle="buttons"] > .pushbutton-wide > input[type="checkbox"],
 .commentlist [data-toggle="buttons"] > #submit > input[type="checkbox"],
 .commentlist [data-toggle="buttons"] > .comment-reply-link > input[type="checkbox"] {
   display: none;
@@ -8277,7 +8324,7 @@ input[type="button"].btn-block {
   padding-left: 0;
   padding-right: 0;
 }
-.input-group .form-control {
+.input-group .form-control, .input-group .contact-submit input.text, .contact-submit .input-group input.text, .input-group .contact-submit input.email, .contact-submit .input-group input.email, .input-group .contact-submit input.name, .contact-submit .input-group input.name, .input-group .contact-submit textarea, .contact-submit .input-group textarea, .input-group .contact-form input.text, .contact-form .input-group input.text, .input-group .contact-form input.email, .contact-form .input-group input.email, .input-group .contact-form input.name, .contact-form .input-group input.name, .input-group .contact-form textarea, .contact-form .input-group textarea {
   position: relative;
   z-index: 2;
   float: left;
@@ -8287,12 +8334,44 @@ input[type="button"].btn-block {
 
 .input-group-addon,
 .input-group-btn,
-.input-group .form-control {
+.input-group .form-control,
+.input-group .contact-submit input.text,
+.contact-submit .input-group input.text,
+.input-group .contact-submit input.email,
+.contact-submit .input-group input.email,
+.input-group .contact-submit input.name,
+.contact-submit .input-group input.name,
+.input-group .contact-submit textarea,
+.contact-submit .input-group textarea,
+.input-group .contact-form input.text,
+.contact-form .input-group input.text,
+.input-group .contact-form input.email,
+.contact-form .input-group input.email,
+.input-group .contact-form input.name,
+.contact-form .input-group input.name,
+.input-group .contact-form textarea,
+.contact-form .input-group textarea {
   display: table-cell;
 }
 .input-group-addon:not(:first-child):not(:last-child),
 .input-group-btn:not(:first-child):not(:last-child),
-.input-group .form-control:not(:first-child):not(:last-child) {
+.input-group .form-control:not(:first-child):not(:last-child),
+.input-group .contact-submit input.text:not(:first-child):not(:last-child),
+.contact-submit .input-group input.text:not(:first-child):not(:last-child),
+.input-group .contact-submit input.email:not(:first-child):not(:last-child),
+.contact-submit .input-group input.email:not(:first-child):not(:last-child),
+.input-group .contact-submit input.name:not(:first-child):not(:last-child),
+.contact-submit .input-group input.name:not(:first-child):not(:last-child),
+.input-group .contact-submit textarea:not(:first-child):not(:last-child),
+.contact-submit .input-group textarea:not(:first-child):not(:last-child),
+.input-group .contact-form input.text:not(:first-child):not(:last-child),
+.contact-form .input-group input.text:not(:first-child):not(:last-child),
+.input-group .contact-form input.email:not(:first-child):not(:last-child),
+.contact-form .input-group input.email:not(:first-child):not(:last-child),
+.input-group .contact-form input.name:not(:first-child):not(:last-child),
+.contact-form .input-group input.name:not(:first-child):not(:last-child),
+.input-group .contact-form textarea:not(:first-child):not(:last-child),
+.contact-form .input-group textarea:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
 
@@ -8314,18 +8393,22 @@ input[type="button"].btn-block {
   border: 1px solid #cccccc;
   border-radius: 4px;
 }
-.input-group-addon.input-sm,
+.input-group-addon.input-sm, .contact-submit .input-group-sm > input.input-group-addon.text, .contact-submit .input-group-sm > input.input-group-addon.email, .contact-submit .input-group-sm > input.input-group-addon.name, .contact-form .input-group-sm > input.input-group-addon.text, .contact-form .input-group-sm > input.input-group-addon.email, .contact-form .input-group-sm > input.input-group-addon.name,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .input-group-addon.btn,
+.contact-submit .input-group-sm > .input-group-btn > .input-group-addon.pushbutton-wide,
+.contact-form .input-group-sm > .input-group-btn > .input-group-addon.pushbutton-wide,
 .commentlist .input-group-sm > .input-group-btn > .input-group-addon#submit,
 .commentlist .input-group-sm > .input-group-btn > .input-group-addon.comment-reply-link {
   padding: 5px 10px;
   font-size: 14px;
   border-radius: 3px;
 }
-.input-group-addon.input-lg,
+.input-group-addon.input-lg, .contact-submit .input-group-lg > input.input-group-addon.text, .contact-submit .input-group-lg > input.input-group-addon.email, .contact-submit .input-group-lg > input.input-group-addon.name, .contact-form .input-group-lg > input.input-group-addon.text, .contact-form .input-group-lg > input.input-group-addon.email, .contact-form .input-group-lg > input.input-group-addon.name,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .input-group-addon.btn,
+.contact-submit .input-group-lg > .input-group-btn > .input-group-addon.pushbutton-wide,
+.contact-form .input-group-lg > .input-group-btn > .input-group-addon.pushbutton-wide,
 .commentlist .input-group-lg > .input-group-btn > .input-group-addon#submit,
 .commentlist .input-group-lg > .input-group-btn > .input-group-addon.comment-reply-link {
   padding: 10px 16px;
@@ -8337,19 +8420,27 @@ input[type="button"].btn-block {
   margin-top: 0;
 }
 
-.input-group .form-control:first-child,
+.input-group .form-control:first-child, .input-group .contact-submit input.text:first-child, .contact-submit .input-group input.text:first-child, .input-group .contact-submit input.email:first-child, .contact-submit .input-group input.email:first-child, .input-group .contact-submit input.name:first-child, .contact-submit .input-group input.name:first-child, .input-group .contact-submit textarea:first-child, .contact-submit .input-group textarea:first-child, .input-group .contact-form input.text:first-child, .contact-form .input-group input.text:first-child, .input-group .contact-form input.email:first-child, .contact-form .input-group input.email:first-child, .input-group .contact-form input.name:first-child, .contact-form .input-group input.name:first-child, .input-group .contact-form textarea:first-child, .contact-form .input-group textarea:first-child,
 .input-group-addon:first-child,
 .input-group-btn:first-child > .btn,
+.contact-submit .input-group-btn:first-child > .pushbutton-wide,
+.contact-form .input-group-btn:first-child > .pushbutton-wide,
 .commentlist .input-group-btn:first-child > #submit,
 .commentlist .input-group-btn:first-child > .comment-reply-link,
 .input-group-btn:first-child > .btn-group > .btn,
+.contact-submit .input-group-btn:first-child > .btn-group > .pushbutton-wide,
+.contact-form .input-group-btn:first-child > .btn-group > .pushbutton-wide,
 .commentlist .input-group-btn:first-child > .btn-group > #submit,
 .commentlist .input-group-btn:first-child > .btn-group > .comment-reply-link,
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.contact-submit .input-group-btn:last-child > .pushbutton-wide:not(:last-child):not(.dropdown-toggle),
+.contact-form .input-group-btn:last-child > .pushbutton-wide:not(:last-child):not(.dropdown-toggle),
 .commentlist .input-group-btn:last-child > #submit:not(:last-child):not(.dropdown-toggle),
 .commentlist .input-group-btn:last-child > .comment-reply-link:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:last-child > .btn-group:not(:last-child) > .btn,
+.contact-submit .input-group-btn:last-child > .btn-group:not(:last-child) > .pushbutton-wide,
+.contact-form .input-group-btn:last-child > .btn-group:not(:last-child) > .pushbutton-wide,
 .commentlist .input-group-btn:last-child > .btn-group:not(:last-child) > #submit,
 .commentlist .input-group-btn:last-child > .btn-group:not(:last-child) > .comment-reply-link {
   border-bottom-right-radius: 0;
@@ -8360,19 +8451,27 @@ input[type="button"].btn-block {
   border-right: 0;
 }
 
-.input-group .form-control:last-child,
+.input-group .form-control:last-child, .input-group .contact-submit input.text:last-child, .contact-submit .input-group input.text:last-child, .input-group .contact-submit input.email:last-child, .contact-submit .input-group input.email:last-child, .input-group .contact-submit input.name:last-child, .contact-submit .input-group input.name:last-child, .input-group .contact-submit textarea:last-child, .contact-submit .input-group textarea:last-child, .input-group .contact-form input.text:last-child, .contact-form .input-group input.text:last-child, .input-group .contact-form input.email:last-child, .contact-form .input-group input.email:last-child, .input-group .contact-form input.name:last-child, .contact-form .input-group input.name:last-child, .input-group .contact-form textarea:last-child, .contact-form .input-group textarea:last-child,
 .input-group-addon:last-child,
 .input-group-btn:last-child > .btn,
+.contact-submit .input-group-btn:last-child > .pushbutton-wide,
+.contact-form .input-group-btn:last-child > .pushbutton-wide,
 .commentlist .input-group-btn:last-child > #submit,
 .commentlist .input-group-btn:last-child > .comment-reply-link,
 .input-group-btn:last-child > .btn-group > .btn,
+.contact-submit .input-group-btn:last-child > .btn-group > .pushbutton-wide,
+.contact-form .input-group-btn:last-child > .btn-group > .pushbutton-wide,
 .commentlist .input-group-btn:last-child > .btn-group > #submit,
 .commentlist .input-group-btn:last-child > .btn-group > .comment-reply-link,
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child),
+.contact-submit .input-group-btn:first-child > .pushbutton-wide:not(:first-child),
+.contact-form .input-group-btn:first-child > .pushbutton-wide:not(:first-child),
 .commentlist .input-group-btn:first-child > #submit:not(:first-child),
 .commentlist .input-group-btn:first-child > .comment-reply-link:not(:first-child),
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn,
+.contact-submit .input-group-btn:first-child > .btn-group:not(:first-child) > .pushbutton-wide,
+.contact-form .input-group-btn:first-child > .btn-group:not(:first-child) > .pushbutton-wide,
 .commentlist .input-group-btn:first-child > .btn-group:not(:first-child) > #submit,
 .commentlist .input-group-btn:first-child > .btn-group:not(:first-child) > .comment-reply-link {
   border-bottom-left-radius: 0;
@@ -8388,20 +8487,20 @@ input[type="button"].btn-block {
   font-size: 0;
   white-space: nowrap;
 }
-.input-group-btn > .btn, .commentlist .input-group-btn > #submit, .commentlist .input-group-btn > .comment-reply-link {
+.input-group-btn > .btn, .contact-submit .input-group-btn > .pushbutton-wide, .contact-form .input-group-btn > .pushbutton-wide, .commentlist .input-group-btn > #submit, .commentlist .input-group-btn > .comment-reply-link {
   position: relative;
 }
-.input-group-btn > .btn + .btn, .commentlist .input-group-btn > #submit + .btn, .commentlist .input-group-btn > .comment-reply-link + .btn, .commentlist .input-group-btn > .btn + #submit, .commentlist .input-group-btn > #submit + #submit, .commentlist .input-group-btn > .comment-reply-link + #submit, .commentlist .input-group-btn > .btn + .comment-reply-link, .commentlist .input-group-btn > #submit + .comment-reply-link, .commentlist .input-group-btn > .comment-reply-link + .comment-reply-link {
+.input-group-btn > .btn + .btn, .contact-submit .input-group-btn > .pushbutton-wide + .btn, .contact-form .input-group-btn > .pushbutton-wide + .btn, .commentlist .input-group-btn > #submit + .btn, .commentlist .input-group-btn > .comment-reply-link + .btn, .contact-submit .input-group-btn > .btn + .pushbutton-wide, .contact-submit .input-group-btn > .pushbutton-wide + .pushbutton-wide, .commentlist .contact-submit .input-group-btn > #submit + .pushbutton-wide, .contact-submit .commentlist .input-group-btn > #submit + .pushbutton-wide, .commentlist .contact-submit .input-group-btn > .comment-reply-link + .pushbutton-wide, .contact-submit .commentlist .input-group-btn > .comment-reply-link + .pushbutton-wide, .contact-form .input-group-btn > .btn + .pushbutton-wide, .contact-form .input-group-btn > .pushbutton-wide + .pushbutton-wide, .commentlist .contact-form .input-group-btn > #submit + .pushbutton-wide, .contact-form .commentlist .input-group-btn > #submit + .pushbutton-wide, .commentlist .contact-form .input-group-btn > .comment-reply-link + .pushbutton-wide, .contact-form .commentlist .input-group-btn > .comment-reply-link + .pushbutton-wide, .commentlist .input-group-btn > .btn + #submit, .contact-submit .commentlist .input-group-btn > .pushbutton-wide + #submit, .commentlist .contact-submit .input-group-btn > .pushbutton-wide + #submit, .contact-form .commentlist .input-group-btn > .pushbutton-wide + #submit, .commentlist .contact-form .input-group-btn > .pushbutton-wide + #submit, .commentlist .input-group-btn > #submit + #submit, .commentlist .input-group-btn > .comment-reply-link + #submit, .commentlist .input-group-btn > .btn + .comment-reply-link, .contact-submit .commentlist .input-group-btn > .pushbutton-wide + .comment-reply-link, .commentlist .contact-submit .input-group-btn > .pushbutton-wide + .comment-reply-link, .contact-form .commentlist .input-group-btn > .pushbutton-wide + .comment-reply-link, .commentlist .contact-form .input-group-btn > .pushbutton-wide + .comment-reply-link, .commentlist .input-group-btn > #submit + .comment-reply-link, .commentlist .input-group-btn > .comment-reply-link + .comment-reply-link {
   margin-left: -1px;
 }
-.input-group-btn > .btn:hover, .commentlist .input-group-btn > #submit:hover, .commentlist .input-group-btn > .comment-reply-link:hover, .input-group-btn > .btn:focus, .commentlist .input-group-btn > #submit:focus, .commentlist .input-group-btn > .comment-reply-link:focus, .input-group-btn > .btn:active, .commentlist .input-group-btn > #submit:active, .commentlist .input-group-btn > .comment-reply-link:active {
+.input-group-btn > .btn:hover, .contact-submit .input-group-btn > .pushbutton-wide:hover, .contact-form .input-group-btn > .pushbutton-wide:hover, .commentlist .input-group-btn > #submit:hover, .commentlist .input-group-btn > .comment-reply-link:hover, .input-group-btn > .btn:focus, .contact-submit .input-group-btn > .pushbutton-wide:focus, .contact-form .input-group-btn > .pushbutton-wide:focus, .commentlist .input-group-btn > #submit:focus, .commentlist .input-group-btn > .comment-reply-link:focus, .input-group-btn > .btn:active, .contact-submit .input-group-btn > .pushbutton-wide:active, .contact-form .input-group-btn > .pushbutton-wide:active, .commentlist .input-group-btn > #submit:active, .commentlist .input-group-btn > .comment-reply-link:active {
   z-index: 2;
 }
-.input-group-btn:first-child > .btn, .commentlist .input-group-btn:first-child > #submit, .commentlist .input-group-btn:first-child > .comment-reply-link,
+.input-group-btn:first-child > .btn, .contact-submit .input-group-btn:first-child > .pushbutton-wide, .contact-form .input-group-btn:first-child > .pushbutton-wide, .commentlist .input-group-btn:first-child > #submit, .commentlist .input-group-btn:first-child > .comment-reply-link,
 .input-group-btn:first-child > .btn-group {
   margin-right: -1px;
 }
-.input-group-btn:last-child > .btn, .commentlist .input-group-btn:last-child > #submit, .commentlist .input-group-btn:last-child > .comment-reply-link,
+.input-group-btn:last-child > .btn, .contact-submit .input-group-btn:last-child > .pushbutton-wide, .contact-form .input-group-btn:last-child > .pushbutton-wide, .commentlist .input-group-btn:last-child > #submit, .commentlist .input-group-btn:last-child > .comment-reply-link,
 .input-group-btn:last-child > .btn-group {
   margin-left: -1px;
 }
@@ -8837,11 +8936,11 @@ input[type="button"].btn-block {
   margin-top: 7px;
   margin-bottom: 7px;
 }
-.navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .commentlist .btn-group-sm > .navbar-btn#submit, .commentlist .navbar-btn.comment-reply-link {
+.navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .contact-submit .btn-group-sm > .navbar-btn.pushbutton-wide, .contact-form .btn-group-sm > .navbar-btn.pushbutton-wide, .commentlist .btn-group-sm > .navbar-btn#submit, .commentlist .navbar-btn.comment-reply-link {
   margin-top: 8.5px;
   margin-bottom: 8.5px;
 }
-.navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .commentlist .btn-group-xs > .navbar-btn#submit, .commentlist .btn-group-xs > .navbar-btn.comment-reply-link {
+.navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .contact-submit .btn-group-xs > .navbar-btn.pushbutton-wide, .contact-form .btn-group-xs > .navbar-btn.pushbutton-wide, .commentlist .btn-group-xs > .navbar-btn#submit, .commentlist .btn-group-xs > .navbar-btn.comment-reply-link {
   margin-top: 14px;
   margin-bottom: 14px;
 }
@@ -9185,7 +9284,7 @@ input[type="button"].btn-block {
 .label:empty {
   display: none;
 }
-.btn .label, .commentlist #submit .label, .commentlist .comment-reply-link .label {
+.btn .label, .contact-submit .pushbutton-wide .label, .contact-form .pushbutton-wide .label, .commentlist #submit .label, .commentlist .comment-reply-link .label {
   position: relative;
   top: -1px;
 }
@@ -9249,11 +9348,11 @@ input[type="button"].btn-block {
 .badge:empty {
   display: none;
 }
-.btn .badge, .commentlist #submit .badge, .commentlist .comment-reply-link .badge {
+.btn .badge, .contact-submit .pushbutton-wide .badge, .contact-form .pushbutton-wide .badge, .commentlist #submit .badge, .commentlist .comment-reply-link .badge {
   position: relative;
   top: -1px;
 }
-.btn-xs .badge, .btn-group-xs > .btn .badge, .commentlist .btn-group-xs > #submit .badge, .commentlist .btn-group-xs > .comment-reply-link .badge {
+.btn-xs .badge, .btn-group-xs > .btn .badge, .contact-submit .btn-group-xs > .pushbutton-wide .badge, .contact-form .btn-group-xs > .pushbutton-wide .badge, .commentlist .btn-group-xs > #submit .badge, .commentlist .btn-group-xs > .comment-reply-link .badge {
   top: 0;
   padding: 1px 5px;
 }
@@ -10143,11 +10242,11 @@ button.close {
 .modal-footer:after {
   clear: both;
 }
-.modal-footer .btn + .btn, .modal-footer .commentlist #submit + .btn, .commentlist .modal-footer #submit + .btn, .modal-footer .commentlist .comment-reply-link + .btn, .commentlist .modal-footer .comment-reply-link + .btn, .modal-footer .commentlist .btn + #submit, .commentlist .modal-footer .btn + #submit, .modal-footer .commentlist #submit + #submit, .commentlist .modal-footer #submit + #submit, .modal-footer .commentlist .comment-reply-link + #submit, .commentlist .modal-footer .comment-reply-link + #submit, .modal-footer .commentlist .btn + .comment-reply-link, .commentlist .modal-footer .btn + .comment-reply-link, .modal-footer .commentlist #submit + .comment-reply-link, .commentlist .modal-footer #submit + .comment-reply-link, .modal-footer .commentlist .comment-reply-link + .comment-reply-link, .commentlist .modal-footer .comment-reply-link + .comment-reply-link {
+.modal-footer .btn + .btn, .modal-footer .contact-submit .pushbutton-wide + .btn, .contact-submit .modal-footer .pushbutton-wide + .btn, .modal-footer .contact-form .pushbutton-wide + .btn, .contact-form .modal-footer .pushbutton-wide + .btn, .modal-footer .commentlist #submit + .btn, .commentlist .modal-footer #submit + .btn, .modal-footer .commentlist .comment-reply-link + .btn, .commentlist .modal-footer .comment-reply-link + .btn, .modal-footer .contact-submit .btn + .pushbutton-wide, .contact-submit .modal-footer .btn + .pushbutton-wide, .modal-footer .contact-submit .pushbutton-wide + .pushbutton-wide, .contact-submit .modal-footer .pushbutton-wide + .pushbutton-wide, .modal-footer .commentlist .contact-submit #submit + .pushbutton-wide, .contact-submit .modal-footer .commentlist #submit + .pushbutton-wide, .commentlist .modal-footer .contact-submit #submit + .pushbutton-wide, .contact-submit .commentlist .modal-footer #submit + .pushbutton-wide, .modal-footer .commentlist .contact-submit .comment-reply-link + .pushbutton-wide, .contact-submit .modal-footer .commentlist .comment-reply-link + .pushbutton-wide, .commentlist .modal-footer .contact-submit .comment-reply-link + .pushbutton-wide, .contact-submit .commentlist .modal-footer .comment-reply-link + .pushbutton-wide, .modal-footer .contact-form .btn + .pushbutton-wide, .contact-form .modal-footer .btn + .pushbutton-wide, .modal-footer .contact-form .pushbutton-wide + .pushbutton-wide, .contact-form .modal-footer .pushbutton-wide + .pushbutton-wide, .modal-footer .commentlist .contact-form #submit + .pushbutton-wide, .contact-form .modal-footer .commentlist #submit + .pushbutton-wide, .commentlist .modal-footer .contact-form #submit + .pushbutton-wide, .contact-form .commentlist .modal-footer #submit + .pushbutton-wide, .modal-footer .commentlist .contact-form .comment-reply-link + .pushbutton-wide, .contact-form .modal-footer .commentlist .comment-reply-link + .pushbutton-wide, .commentlist .modal-footer .contact-form .comment-reply-link + .pushbutton-wide, .contact-form .commentlist .modal-footer .comment-reply-link + .pushbutton-wide, .modal-footer .commentlist .btn + #submit, .commentlist .modal-footer .btn + #submit, .modal-footer .contact-submit .commentlist .pushbutton-wide + #submit, .commentlist .modal-footer .contact-submit .pushbutton-wide + #submit, .contact-submit .modal-footer .commentlist .pushbutton-wide + #submit, .commentlist .contact-submit .modal-footer .pushbutton-wide + #submit, .modal-footer .contact-form .commentlist .pushbutton-wide + #submit, .commentlist .modal-footer .contact-form .pushbutton-wide + #submit, .contact-form .modal-footer .commentlist .pushbutton-wide + #submit, .commentlist .contact-form .modal-footer .pushbutton-wide + #submit, .modal-footer .commentlist #submit + #submit, .commentlist .modal-footer #submit + #submit, .modal-footer .commentlist .comment-reply-link + #submit, .commentlist .modal-footer .comment-reply-link + #submit, .modal-footer .commentlist .btn + .comment-reply-link, .commentlist .modal-footer .btn + .comment-reply-link, .modal-footer .contact-submit .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .modal-footer .contact-submit .pushbutton-wide + .comment-reply-link, .contact-submit .modal-footer .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .contact-submit .modal-footer .pushbutton-wide + .comment-reply-link, .modal-footer .contact-form .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .modal-footer .contact-form .pushbutton-wide + .comment-reply-link, .contact-form .modal-footer .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .contact-form .modal-footer .pushbutton-wide + .comment-reply-link, .modal-footer .commentlist #submit + .comment-reply-link, .commentlist .modal-footer #submit + .comment-reply-link, .modal-footer .commentlist .comment-reply-link + .comment-reply-link, .commentlist .modal-footer .comment-reply-link + .comment-reply-link {
   margin-left: 5px;
   margin-bottom: 0;
 }
-.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .commentlist #submit + .btn, .commentlist .modal-footer .btn-group #submit + .btn, .modal-footer .btn-group .commentlist .comment-reply-link + .btn, .commentlist .modal-footer .btn-group .comment-reply-link + .btn, .modal-footer .btn-group .commentlist .btn + #submit, .commentlist .modal-footer .btn-group .btn + #submit, .modal-footer .btn-group .commentlist #submit + #submit, .commentlist .modal-footer .btn-group #submit + #submit, .modal-footer .btn-group .commentlist .comment-reply-link + #submit, .commentlist .modal-footer .btn-group .comment-reply-link + #submit, .modal-footer .btn-group .commentlist .btn + .comment-reply-link, .commentlist .modal-footer .btn-group .btn + .comment-reply-link, .modal-footer .btn-group .commentlist #submit + .comment-reply-link, .commentlist .modal-footer .btn-group #submit + .comment-reply-link, .modal-footer .btn-group .commentlist .comment-reply-link + .comment-reply-link, .commentlist .modal-footer .btn-group .comment-reply-link + .comment-reply-link {
+.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .contact-submit .pushbutton-wide + .btn, .contact-submit .modal-footer .btn-group .pushbutton-wide + .btn, .modal-footer .btn-group .contact-form .pushbutton-wide + .btn, .contact-form .modal-footer .btn-group .pushbutton-wide + .btn, .modal-footer .btn-group .commentlist #submit + .btn, .commentlist .modal-footer .btn-group #submit + .btn, .modal-footer .btn-group .commentlist .comment-reply-link + .btn, .commentlist .modal-footer .btn-group .comment-reply-link + .btn, .modal-footer .btn-group .contact-submit .btn + .pushbutton-wide, .contact-submit .modal-footer .btn-group .btn + .pushbutton-wide, .modal-footer .btn-group .contact-submit .pushbutton-wide + .pushbutton-wide, .contact-submit .modal-footer .btn-group .pushbutton-wide + .pushbutton-wide, .modal-footer .btn-group .commentlist .contact-submit #submit + .pushbutton-wide, .contact-submit .modal-footer .btn-group .commentlist #submit + .pushbutton-wide, .commentlist .modal-footer .btn-group .contact-submit #submit + .pushbutton-wide, .contact-submit .commentlist .modal-footer .btn-group #submit + .pushbutton-wide, .modal-footer .btn-group .commentlist .contact-submit .comment-reply-link + .pushbutton-wide, .contact-submit .modal-footer .btn-group .commentlist .comment-reply-link + .pushbutton-wide, .commentlist .modal-footer .btn-group .contact-submit .comment-reply-link + .pushbutton-wide, .contact-submit .commentlist .modal-footer .btn-group .comment-reply-link + .pushbutton-wide, .modal-footer .btn-group .contact-form .btn + .pushbutton-wide, .contact-form .modal-footer .btn-group .btn + .pushbutton-wide, .modal-footer .btn-group .contact-form .pushbutton-wide + .pushbutton-wide, .contact-form .modal-footer .btn-group .pushbutton-wide + .pushbutton-wide, .modal-footer .btn-group .commentlist .contact-form #submit + .pushbutton-wide, .contact-form .modal-footer .btn-group .commentlist #submit + .pushbutton-wide, .commentlist .modal-footer .btn-group .contact-form #submit + .pushbutton-wide, .contact-form .commentlist .modal-footer .btn-group #submit + .pushbutton-wide, .modal-footer .btn-group .commentlist .contact-form .comment-reply-link + .pushbutton-wide, .contact-form .modal-footer .btn-group .commentlist .comment-reply-link + .pushbutton-wide, .commentlist .modal-footer .btn-group .contact-form .comment-reply-link + .pushbutton-wide, .contact-form .commentlist .modal-footer .btn-group .comment-reply-link + .pushbutton-wide, .modal-footer .btn-group .commentlist .btn + #submit, .commentlist .modal-footer .btn-group .btn + #submit, .modal-footer .btn-group .contact-submit .commentlist .pushbutton-wide + #submit, .commentlist .modal-footer .btn-group .contact-submit .pushbutton-wide + #submit, .contact-submit .modal-footer .btn-group .commentlist .pushbutton-wide + #submit, .commentlist .contact-submit .modal-footer .btn-group .pushbutton-wide + #submit, .modal-footer .btn-group .contact-form .commentlist .pushbutton-wide + #submit, .commentlist .modal-footer .btn-group .contact-form .pushbutton-wide + #submit, .contact-form .modal-footer .btn-group .commentlist .pushbutton-wide + #submit, .commentlist .contact-form .modal-footer .btn-group .pushbutton-wide + #submit, .modal-footer .btn-group .commentlist #submit + #submit, .commentlist .modal-footer .btn-group #submit + #submit, .modal-footer .btn-group .commentlist .comment-reply-link + #submit, .commentlist .modal-footer .btn-group .comment-reply-link + #submit, .modal-footer .btn-group .commentlist .btn + .comment-reply-link, .commentlist .modal-footer .btn-group .btn + .comment-reply-link, .modal-footer .btn-group .contact-submit .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .modal-footer .btn-group .contact-submit .pushbutton-wide + .comment-reply-link, .contact-submit .modal-footer .btn-group .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .contact-submit .modal-footer .btn-group .pushbutton-wide + .comment-reply-link, .modal-footer .btn-group .contact-form .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .modal-footer .btn-group .contact-form .pushbutton-wide + .comment-reply-link, .contact-form .modal-footer .btn-group .commentlist .pushbutton-wide + .comment-reply-link, .commentlist .contact-form .modal-footer .btn-group .pushbutton-wide + .comment-reply-link, .modal-footer .btn-group .commentlist #submit + .comment-reply-link, .commentlist .modal-footer .btn-group #submit + .comment-reply-link, .modal-footer .btn-group .commentlist .comment-reply-link + .comment-reply-link, .commentlist .modal-footer .btn-group .comment-reply-link + .comment-reply-link {
   margin-left: -1px;
 }
 .modal-footer .btn-block + .btn-block {
@@ -10562,7 +10661,7 @@ button.close {
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
-.carousel-caption .btn, .carousel-caption .commentlist #submit, .commentlist .carousel-caption #submit, .carousel-caption .commentlist .comment-reply-link, .commentlist .carousel-caption .comment-reply-link {
+.carousel-caption .btn, .carousel-caption .contact-submit .pushbutton-wide, .contact-submit .carousel-caption .pushbutton-wide, .carousel-caption .contact-form .pushbutton-wide, .contact-form .carousel-caption .pushbutton-wide, .carousel-caption .commentlist #submit, .commentlist .carousel-caption #submit, .carousel-caption .commentlist .comment-reply-link, .commentlist .carousel-caption .comment-reply-link {
   text-shadow: none;
 }
 
@@ -10813,10 +10912,21 @@ body {
   padding-top: 52px;
 }
 
-#map-canvas {
-  height: 600px;
-  margin: 0px;
-  padding: 0px;
+img.alignleft {
+  float: left;
+  margin-right: 1em;
+}
+
+body.blog img.wp-post-image {
+  margin: 0 auto;
+  border-radius: 100%;
+}
+
+.commentlist code {
+  white-space: pre-line;
+}
+.commentlist .comment-meta, .commentlist .pingback {
+  margin-bottom: 1em;
 }
 
 footer {
@@ -10836,16 +10946,32 @@ body.home footer {
   margin-top: 0;
 }
 
-body.blog img.wp-post-image {
-  margin: 0 auto;
-  border-radius: 100%;
+.alt-footer {
+  background: #16356e;
+  border-top: 10px solid #218152;
+}
+.alt-footer ul {
+  padding: 1em 0;
+}
+.alt-footer ul li {
+  padding: 0;
+}
+.alt-footer ul li a {
+  padding: 1em 0.375em;
+  font-size: 2em;
+  color: white;
+  -webkit-transition: color 0.5s ease-out;
+  transition: color 0.5s ease-out;
+}
+.alt-footer ul li a:hover {
+  color: #5cb85c;
 }
 
-.commentlist code {
-  white-space: pre-line;
-}
-.commentlist .comment-meta, .commentlist .pingback {
-  margin-bottom: 1em;
+/* Homepage */
+#map-canvas {
+  height: 600px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .program-schedule.icon-set .fa {
@@ -10887,6 +11013,11 @@ body.blog img.wp-post-image {
 }
 .program-schedule.icon-set td:hover {
   cursor: pointer;
+}
+
+.tooltip-inner {
+  max-width: 250px;
+  text-align: center;
 }
 
 #gCal .table-stacked-div {
@@ -11062,6 +11193,21 @@ body.home .partners {
 body.home .partners .logos {
   text-align: center;
 }
+body.home .partners .logos article {
+  display: inline-block;
+  width: 33%;
+  padding: 1em 0;
+}
+@media screen and (min-width: 480px) and (max-width: 568px) {
+  body.home .partners .logos article {
+    width: 49.5%;
+  }
+}
+@media screen and (max-width: 479px) {
+  body.home .partners .logos article {
+    width: 100%;
+  }
+}
 body.home .partners .img-responsive {
   max-height: 150px;
   display: inline-block;
@@ -11079,25 +11225,4 @@ body.home .partners .img-responsive:hover {
   -ms-filter: grayscale(0%);
   -o-filter: grayscale(0%);
   filter: grayscale(0%);
-}
-
-.alt-footer {
-  background: #16356e;
-  border-top: 10px solid #218152;
-}
-.alt-footer ul {
-  padding: 1em 0;
-}
-.alt-footer ul li {
-  padding: 0;
-}
-.alt-footer ul li a {
-  padding: 1em 0.375em;
-  font-size: 2em;
-  color: white;
-  -webkit-transition: color 0.5s ease-out;
-  transition: color 0.5s ease-out;
-}
-.alt-footer ul li a:hover {
-  color: #5cb85c;
 }
