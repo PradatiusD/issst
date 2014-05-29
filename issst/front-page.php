@@ -14,6 +14,7 @@
 	</div>
 </section>
 <div class="rest-of-content">
+	<?php include('team-index.php'); ?>
 
 	<div class="container">
 		<section class="row">
@@ -266,7 +267,7 @@
 			<section class="row">
 				<div class="col-md-12">
 					<h1>Say hello!</h1>
-					<p class="lead">To our wonderful set of partners!  Please on them click to find more about their conferences.</p>
+					<p class="lead">To our wonderful set of partners!  Please click on them to find more about their conferences.</p>
 					<div class="logos">
 						<article id="nsf" data-toggle="tooltip" title="<p>This material is based upon work supported by the National Science Foundation under Grant #1432890.</p><p>Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>">
 							<a href="Javascript:void(0);">
