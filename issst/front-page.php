@@ -14,8 +14,6 @@
 	</div>
 </section>
 <div class="rest-of-content">
-	<?php include('team-index.php'); ?>
-
 	<div class="container">
 		<section class="row">
 			<div class="col-md-8">
