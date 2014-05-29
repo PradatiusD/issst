@@ -10967,6 +10967,55 @@ body.home footer {
   color: #5cb85c;
 }
 
+/* Conference Committee Grid */
+.conference-committee .item {
+  height: 185px;
+  width: 185px;
+  float: none;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  position: relative;
+  margin: 0 -2px;
+}
+.conference-committee .item img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: all 1.5s ease-out;
+  transition: all 1.5s ease-out;
+}
+.conference-committee .item img:hover, .conference-committee .item img.hovered {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+.conference-committee aside {
+  background: white;
+}
+.conference-committee aside img {
+  max-width: 80%;
+  height: auto;
+  background: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  right: 0;
+}
+.conference-committee article img {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  height: auto;
+  top: 0px;
+}
+
 /* Homepage */
 #map-canvas {
   height: 600px;
@@ -11219,7 +11268,7 @@ body.home .partners .img-responsive {
   -webkit-transition: all 1.5s ease-out;
   transition: all 1.5s ease-out;
 }
-body.home .partners .img-responsive:hover {
+body.home .partners .img-responsive:hover, body.home .partners .img-responsive.hovered {
   -webkit-filter: grayscale(0%);
   -moz-filter: grayscale(0%);
   -ms-filter: grayscale(0%);

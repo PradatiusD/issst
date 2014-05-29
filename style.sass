@@ -63,6 +63,11 @@
 	to
 		width: 40px
 
+=grayToColor
+	+filter(grayscale,100%)
+	+transition (all 1.5s ease-out)
+	&:hover, &.hovered
+		+filter(grayscale, 0%)
 
 // Colors
 $issstGreen: #5CB85C
@@ -233,7 +238,44 @@ footer
 				+transition (color 0.5s ease-out)
 				&:hover
 					color: $issstGreen
-				
+
+
+/* Conference Committee Grid */
+.conference-committee
+	.item
+		height: 185px
+		width: 185px
+		float: none
+		display: inline-block
+		overflow: hidden
+		vertical-align: top
+		position: relative
+		margin: 0 -2px
+
+		img
+			+grayToColor
+		
+	aside
+		background: white
+
+		img
+			max-width: 80%
+			height: auto
+			background: white
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			margin: auto
+			right: 0
+
+	article img
+		position: absolute
+		min-width: 100%
+		min-height: 100%
+		height: auto
+		top: 0px
+
 /* Homepage */
 
 #map-canvas
@@ -431,7 +473,4 @@ body.home
 		.img-responsive
 			max-height: 150px
 			display: inline-block
-			+filter(grayscale,100%)
-			+transition (all 1.5s ease-out)
-			&:hover
-				+filter(grayscale, 0%)
+			+grayToColor
