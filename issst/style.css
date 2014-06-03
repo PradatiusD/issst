@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic");
-/* Theme Name: ISSST 2014 Conference Theme
+/* Theme Name: ISSST 2014 Conference
  * Theme URI: http://issst2014.net
  * Author: Daniel Prada
  * Author URI: http://github.com/PradatiusD
@@ -10968,15 +10968,24 @@ body.home footer {
 }
 
 /* Conference Committee Grid */
+body.page-template-team-index-php {
+  background: url("http://issst2014.net/wp-content/uploads/2014/06/gray-blur-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.conference-committee {
+  margin-top: 3em;
+}
 .conference-committee .item {
-  height: 185px;
-  width: 185px;
+  height: 130px;
+  width: 130px;
   float: none;
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
   position: relative;
-  margin: 0 -2px;
+  margin: 4px;
 }
 .conference-committee .item img {
   -webkit-filter: grayscale(100%);
@@ -10984,8 +10993,8 @@ body.home footer {
   -ms-filter: grayscale(100%);
   -o-filter: grayscale(100%);
   filter: grayscale(100%);
-  -webkit-transition: all 1.5s ease-out;
-  transition: all 1.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 .conference-committee .item img:hover, .conference-committee .item img.hovered {
   -webkit-filter: grayscale(0%);
@@ -11008,12 +11017,57 @@ body.home footer {
   margin: auto;
   right: 0;
 }
+.conference-committee article:hover {
+  cursor: pointer;
+}
 .conference-committee article img {
   position: absolute;
   min-width: 100%;
   min-height: 100%;
   height: auto;
   top: 0px;
+  max-width: 130px;
+}
+.conference-committee article h1 {
+  font-size: 1.4em;
+  font-weight: 200;
+  padding-bottom: 3px;
+  margin-bottom: 0;
+  border-bottom-color: white;
+  border-bottom-width: 1px;
+}
+.conference-committee article div.clicked {
+  position: absolute;
+  z-index: 1000;
+  padding: 0 8px;
+  width: 100%;
+  height: 100%;
+  background: rgba(22, 53, 110, 0.42);
+  color: white;
+}
+
+.isotope, .isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -ms-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+  -moz-transition-property: height, width;
+  -ms-transition-property: height, width;
+  -o-transition-property: height, width;
+  transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -ms-transition-property: -ms-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  transition-property: transform, opacity;
 }
 
 /* Homepage */

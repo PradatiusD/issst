@@ -27,11 +27,11 @@
 					while ( $wp_query->have_posts() ) : $wp_query->the_post();?>
 
 						<article class="item item-<?php echo $j;?>">
-
-							<h1><?php the_title();?></h1>
-							<p><?php the_content();?></p>
+							<div>
+								<h1><?php the_title();?></h1>
+								<?php the_content();?>								
+							</div>
 							<?php the_post_thumbnail('medium');?>
-
 						</article>
 
 						<aside class="item item-<?php echo $j;?>">
@@ -53,11 +53,14 @@
 			</section>
 		</div>
 	</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
 <script>
-	(function($){
+	(function hoverMatchImg ($){
 
 		var $container = $('#container');
-		$container.find('.item').hover(
+		var $items     = $container.find('.item')
+
+		$items.hover(
 			function(){
 				var classes = $(this).attr('class');
 				var number = parseInt(classes.match(/[0-999]/g).join(''));
@@ -68,7 +71,23 @@
 			}
 		);
 
+		var $articles = $container.find('article');
+
+		$articles.click(function(){
+			$articles.find('div').removeClass('clicked animated fade-in');
+			$(this).find('div').addClass('clicked animated fade-in');
+		});
+
+		// Shuffle all items
+		while ($items.length) {
+			$container.append($items.splice(Math.floor(Math.random() * $items.length), 1)[0]);
+		}
+
+		// Now start isotope
+		$container.isotope();
+
 	})(jQuery);
+
 </script>
 <?php
 	$wp_query = $temp;
