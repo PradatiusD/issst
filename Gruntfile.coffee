@@ -1,3 +1,19 @@
+deployUnit = (folderName) ->
+	this.src  = folderName
+	this.dest = "wp-content/themes/#{folderName}"
+	this.auth =
+		host: 'pradadesigners.com'
+		port: 21
+		authKey: 'key1'
+	this.exclusions = [
+		'issst/lib/*'
+		'issst/img/*'
+		'.DS_Store'
+		'favicon.ico'
+		'issst/screenshot.png'
+	]
+	return this
+
 
 module.exports = (grunt) ->
 	grunt.initConfig(
@@ -10,21 +26,8 @@ module.exports = (grunt) ->
 					port: 5000
 
 		'ftp-deploy':
-			dev:
-				auth:
-					host: 'pradadesigners.com'
-					port: 21
-					authKey: 'key1'
-				src: 'issst'
-				dest: 'wp-content/themes/issst'
-				exclusions: [
-					'issst/lib/*'
-					'issst/img/*'
-					'.DS_Store'
-					'favicon.ico'
-					'issst/screenshot.png'
-				]
-
+			issst:  new deployUnit('issst')
+			issst2015: new deployUnit('issst2015')
 		copy:
 			main:
 				files: [{
@@ -44,6 +47,9 @@ module.exports = (grunt) ->
 			theme:
 				files: 'issst/*.php'
 				tasks: ['copy']
+			issst2015:
+				files: 'issst2015/**'
+				tasks: ['ftp-deploy:issst2015']
 			sassy:
 				files: 'style.sass'
 				tasks: ['sass','copy']

@@ -1,0 +1,21 @@
+/*
+ Theme Name:   ISSST 2015 Conference
+ Theme URI:    http://issst2015.net
+ Description:  The theme for the International Symposium on Sustainable Systems & Technology 2015 website.
+ Author:       Daniel Prada
+ Author URI:   http://github.com/PradatiusD
+ Template:     issst
+ Version:      1.0.0
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  issst-child
+*/
+
+
+@import url("../issst/style.css");
+
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+body.home {
+	background: #F8F8F8;
+}
