@@ -4106,6 +4106,14 @@ body.home {
   background: #f8f8f8;
 }
 
+.blue {
+  color: #26adee;
+}
+
+.green {
+  color: #6cbe45;
+}
+
 footer {
   background: #6cbe45;
   padding-top: 1em;
@@ -4167,10 +4175,6 @@ html, body {
 .site-footer, .page-wrap:after {
   /* .push must be the same height as footer */
   height: 407px;
-}
-
-.site-footer {
-  background: red;
 }
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */

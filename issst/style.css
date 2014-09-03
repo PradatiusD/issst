@@ -4569,6 +4569,14 @@ body.home .partners .img-responsive:hover, body.home .partners .img-responsive.h
   filter: grayscale(0%);
 }
 
+.blue {
+  color: #16356e;
+}
+
+.green {
+  color: #5cb85c;
+}
+
 footer {
   background: #5cb85c;
   padding-top: 1em;
@@ -4630,10 +4638,6 @@ html, body {
 .site-footer, .page-wrap:after {
   /* .push must be the same height as footer */
   height: 380px;
-}
-
-.site-footer {
-  background: red;
 }
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
