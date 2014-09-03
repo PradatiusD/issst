@@ -13,61 +13,9 @@
  * Use it to make something cool, have fun, and share what you've learned with others.
  *  */
 
-// From https://gist.github.com/GeneLocklin/2957278
-// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html 
-//
-// grayscale      ex: filter: grayscale(100%)
-// sepia          ex: filter: sepia(100%)
-// saturate       ex: filter: saturate(0%)
-// hue-rotate     ex: filter: hue-rotate(45deg)
-// invert         ex: filter: invert(100%)
-// brightness     ex: filter: brightness(15%)
-// contrast       ex: filter: contrast(200%)
-// blur           ex: filter: blur(2px)
-
-=filter($filter-type,$filter-amount)
-	-webkit-filter: $filter-type+unquote('(#{$filter-amount})')
-	-moz-filter: $filter-type+unquote('(#{$filter-amount})')
-	-ms-filter: $filter-type+unquote('(#{$filter-amount})')
-	-o-filter: $filter-type+unquote('(#{$filter-amount})')
-	filter: $filter-type+unquote('(#{$filter-amount})')
+@import "../lib/global"
 
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic")
-
-@import 'bower_components/animate.scss/animate'
-@import 'bower_components/bourbon/app/assets/stylesheets/bourbon'
-@import 'bower_components/maximage/lib/css/jquery.maximage'
-@import 'bower_components/sass-mediaqueries/media-queries'
-
-+keyframes(squeeze)
-	from
-		width: 62px
-	to
-		width: 0px
-
-+keyframes(expand)
-	from
-		width: 0px
-	to
-		width: 62px
-
-+keyframes(squeeze-mobile)
-	from
-		width: 40px
-	to
-		width: 0px
-
-+keyframes(expand-mobile)
-	from
-		width: 0px
-	to
-		width: 40px
-
-=grayToColor($time)
-	+filter(grayscale,100%)
-	+transition (all $time ease-out)
-	&:hover, &.hovered
-		+filter(grayscale, 0%)
 
 // Colors
 $issstGreen: #5CB85C
@@ -77,27 +25,7 @@ $body-bg: #F8F8F8
 
 // Typography
 $font-family-base: 'Lato', $helvetica
-$font-size-base : 16px
-$font-size-large : ceil(($font-size-base * 1.25))
-$font-size-h1 : floor(($font-size-base * 2.6))
-$headings-font-weight : 900
-$headings-line-height : 1.1
-
-
-// Navbar
-$grid-float-breakpoint: 1053px
-$navbar-default-color:             #f0ecec
-$navbar-default-bg:                $issstBlue
-$navbar-default-border:            darken($navbar-default-bg, 6.5%)
-$navbar-default-link-color:                #f4f4f4
-$navbar-default-link-hover-color:          #2f9f49
-$navbar-default-link-hover-bg:             transparent
-$navbar-default-link-active-color:         #f4f4f4
-$navbar-default-link-active-bg:            lighten($navbar-default-bg, 6.5%)
-
-// Breadcrumb
-$breadcrumb-separator: "•"
-
+$footer-height: 380px
 
 /* Common HTML Elements */
 
@@ -121,8 +49,6 @@ $breadcrumb-separator: "•"
 		width: 78px
 		margin-right: 14px !important
 		margin-left: 5px !important
-
-@import 'bower_components/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap'
 
 
 .breadcrumb 
@@ -202,43 +128,6 @@ body.blog
 
 	.comment-meta, .pingback
 		margin-bottom: 1em
-
-
-footer
-	background: $issstGreen
-	padding-top: 1em
-	color: #FFF
-	font-weight: 200
-	font-size: 1.2em
-	margin-top: 2em
-	padding-bottom: 1em
-
-	img
-		margin: 0 auto
-
-	body.home &
-		padding-top: 0
-		margin-top: 0
-
-
-.alt-footer
-	background: $issstBlue
-	border-top: 10px solid #218152
-
-	ul 
-		padding: 1em 0
-
-		li
-			padding: 0
-
-			a
-				padding: 1em 0.375em
-				font-size: 2em
-				color: white
-				+transition (color 0.5s ease-out)
-				&:hover
-					color: $issstGreen
-
 
 /* Conference Committee Grid */
 body.page-template-team-index-php
@@ -525,3 +414,6 @@ body.home
 			max-height: 150px
 			display: inline-block
 			+grayToColor(1.5s)
+
+
+@import "../lib/end"

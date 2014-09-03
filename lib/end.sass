@@ -1,0 +1,80 @@
+// Typography
+$font-size-base : 16px
+$font-size-large : ceil(($font-size-base * 1.25))
+$font-size-h1 : floor(($font-size-base * 2.6))
+$headings-font-weight : 900
+$headings-line-height : 1.1
+
+
+// Navbar
+$grid-float-breakpoint:            1053px
+$navbar-default-color:             #f0ecec
+$navbar-default-bg:                $issstBlue
+$navbar-default-border:            darken($navbar-default-bg, 6.5%)
+$navbar-default-link-color:        #f4f4f4
+$navbar-default-link-hover-color:  #2f9f49
+$navbar-default-link-hover-bg:     transparent
+$navbar-default-link-active-color: #f4f4f4
+$navbar-default-link-active-bg:    lighten($navbar-default-bg, 6.5%)
+
+// Breadcrumb
+$breadcrumb-separator: "•"
+
+// Common Footer Styling
+footer
+	background: $issstGreen
+	padding-top: 1em
+	color: #FFF
+	font-weight: 200
+	font-size: 1.2em
+	margin-top: 2em
+	padding-bottom: 1em
+
+	img
+		margin: 0 auto
+
+	body.home &
+		padding-top: 0
+		margin-top: 0
+
+
+.alt-footer
+	background: $issstBlue
+	border-top: 10px solid #218152
+
+	ul 
+		padding: 1em 0
+
+		li
+			padding: 0
+
+			a
+				padding: 1em 0.375em
+				font-size: 2em
+				color: white
+				+transition (color 0.5s ease-out)
+				&:hover
+					color: $issstGreen
+
+// For sticky footer fix
+
+*
+	margin: 0
+
+html, body
+	height: 100%
+
+.page-wrap
+	min-height: 100%
+	/* equal to footer height */
+	margin-bottom: -$footer-height 
+
+.page-wrap:after
+	content: ""
+	display: block
+
+.site-footer, .page-wrap:after
+	/* .push must be the same height as footer */
+	height: $footer-height 
+
+@import "../bower_components/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap"

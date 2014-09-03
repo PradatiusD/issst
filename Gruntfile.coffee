@@ -1,19 +1,21 @@
 deployUnit = (folderName) ->
-	this.src  = folderName
-	this.dest = "wp-content/themes/#{folderName}"
-	this.auth =
-		host: 'pradadesigners.com'
-		port: 21
-		authKey: 'key1'
-	this.exclusions = [
-		'issst/lib/*'
-		'issst/img/*'
-		'.DS_Store'
-		'favicon.ico'
-		'issst/screenshot.png'
-	]
-	return this
-
+	return {
+		'src' : folderName
+		'dest': "wp-content/themes/#{folderName}"
+		'auth':
+			'host': 'pradadesigners.com'
+			'port': 21
+			'authKey': 'key1'
+		'exclusions': [
+			"#{folderName}/lib/*"
+			"#{folderName}/img/*"
+			"#{folderName}/js/*"
+			"#{folderName}/*.sass"
+			'.DS_Store'
+			'favicon.ico'
+			"#{folderName}/screenshot.png"
+		]
+	}
 
 module.exports = (grunt) ->
 	grunt.initConfig(
@@ -26,8 +28,8 @@ module.exports = (grunt) ->
 					port: 5000
 
 		'ftp-deploy':
-			issst:  new deployUnit('issst')
-			issst2015: new deployUnit('issst2015')
+			issst:     deployUnit('issst')
+			issst2015: deployUnit('issst2015')
 		copy:
 			main:
 				files: [{
@@ -36,26 +38,27 @@ module.exports = (grunt) ->
 					dest: '../themes/'}
 				]
 
-		sass:                              
+		sass:      
 			dist:                            
-				options:                       
+				options:
 					style: 'expanded'
 				files:
-					'issst/style.css': 'style.sass'
+					'issst/style.css':     'issst/style.sass'
+					'issst2015/style.css': 'issst2015/style.sass'
 
 		watch:
-			theme:
-				files: 'issst/*.php'
-				tasks: ['copy']
+			issst:
+				files: ['issst/*.css','issst/*.php'] 
+				tasks: ['ftp-deploy:issst']
 			issst2015:
-				files: 'issst2015/**'
+				files: ['issst2015/*', '!issst2015/style.sass']
 				tasks: ['ftp-deploy:issst2015']
 			sassy:
-				files: 'style.sass'
-				tasks: ['sass','copy']
+				files: ['issst/*.sass', 'issst2015/*.sass']
+				tasks: ['sass']
 			homepageJS:
 				files: 'issst/js/homepage/*.js'
-				tasks: ['uglify','copy']
+				tasks: ['uglify']
 
 		uglify:
 			homepage:
@@ -80,4 +83,5 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks('grunt-contrib-watch')
 	grunt.loadNpmTasks('grunt-contrib-uglify')
 	grunt.registerTask('default', ['watch'])
-	grunt.registerTask('deploy', ['sass','ftp-deploy'])
+	grunt.registerTask('deployAll', ['sass','ftp-deploy'])
+	grunt.registerTask('deploy', ['sass',   'ftp-deploy:issst2015'])
