@@ -4117,31 +4117,14 @@ body.page-template-team-index-php {
   margin-top: 3em;
 }
 .conference-committee .item {
-  height: 130px;
-  width: 130px;
+  height: 160px;
+  width: 160px;
   float: none;
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
   position: relative;
-  margin: 4px;
-}
-.conference-committee .item img {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-.conference-committee .item img:hover, .conference-committee .item img.hovered {
-  -webkit-filter: grayscale(0%);
-  -moz-filter: grayscale(0%);
-  -ms-filter: grayscale(0%);
-  -o-filter: grayscale(0%);
-  filter: grayscale(0%);
+  margin: 2px;
 }
 .conference-committee aside {
   background: white;
@@ -4156,6 +4139,21 @@ body.page-template-team-index-php {
   left: 0;
   margin: auto;
   right: 0;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+.conference-committee aside img:hover, .conference-committee aside img.hovered {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
 }
 .conference-committee article:hover {
   cursor: pointer;
@@ -4176,14 +4174,21 @@ body.page-template-team-index-php {
   border-bottom-color: white;
   border-bottom-width: 1px;
 }
-.conference-committee article div.clicked {
+.conference-committee article div {
   position: absolute;
   z-index: 1000;
   padding: 0 8px;
   width: 100%;
   height: 100%;
-  background: rgba(38, 173, 238, 0.42);
+  background: rgba(38, 173, 238, 0.66);
   color: white;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+.conference-committee article div:hover {
+  opacity: 1;
 }
 
 .isotope, .isotope .isotope-item {
@@ -4201,13 +4206,20 @@ body.page-template-team-index-php {
   -o-transition-property: height, width;
   transition-property: height, width;
 }
-
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
   -ms-transition-property: -ms-transform, opacity;
   -o-transition-property: -o-transform, opacity;
   transition-property: transform, opacity;
+  border-radius: 1em;
+}
+
+.homeBlue {
+  background: #26adee;
+}
+.homeBlue h1, .homeBlue p {
+  color: #e3f4fd;
 }
 
 .blue {

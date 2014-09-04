@@ -11,7 +11,7 @@ deployUnit = (folderName) ->
 			"#{folderName}/img/*"
 			"#{folderName}/js/*"
 			"#{folderName}/*.sass"
-			# "#{folderName}/*.css"
+			"#{folderName}/*.css"
 			'.DS_Store'
 			'favicon.ico'
 			"#{folderName}/screenshot.png"
@@ -40,11 +40,15 @@ module.exports = (grunt) ->
 				]
 
 		sass:      
-			dist:                            
+			issst:                            
 				options:
 					style: 'expanded'
 				files:
-					'issst/style.css':     'issst/style.sass'
+					'issst/style.css': 'issst/style.sass'
+			issst2015:                            
+				options:
+					style: 'expanded'
+				files:
 					'issst2015/style.css': 'issst2015/style.sass'
 
 		watch:
@@ -54,9 +58,12 @@ module.exports = (grunt) ->
 			issst2015:
 				files: ['issst2015/*', '!issst2015/style.sass']
 				tasks: ['ftp-deploy:issst2015']
-			sassy:
-				files: ['issst/*.sass', 'issst2015/*.sass']
-				tasks: ['sass']
+			sassissst:
+				files: ['issst/*.sass']
+				tasks: ['sass:issst']
+			sassissst2015:
+				files: ['issst2015/*.sass']
+				tasks: ['sass:issst2015']				
 			homepageJS:
 				files: 'issst/js/homepage/*.js'
 				tasks: ['uglify']
