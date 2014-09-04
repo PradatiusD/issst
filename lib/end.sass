@@ -24,6 +24,12 @@ $navbar-default-link-hover-bg:     transparent
 $navbar-default-link-active-color: #f4f4f4
 $navbar-default-link-active-bg:    lighten($navbar-default-bg, 6.5%)
 
+.navbar-default
+	.logged-in &
+		padding-top: 33px
+		+max-screen(782px)
+			padding-top: 0px
+
 // Breadcrumb
 $breadcrumb-separator: "•"
 

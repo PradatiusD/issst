@@ -11,7 +11,7 @@ deployUnit = (folderName) ->
 			"#{folderName}/img/*"
 			"#{folderName}/js/*"
 			"#{folderName}/*.sass"
-			"#{folderName}/*.css"
+			# "#{folderName}/*.css"
 			'.DS_Store'
 			'favicon.ico'
 			"#{folderName}/screenshot.png"

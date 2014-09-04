@@ -43,7 +43,3 @@
 				'</div>';
 	}
 	add_filter( 'excerpt_more', 'excerpt_read_more' );
-
-	// Include all functions.php that is necessary
-	// for the ISSST 2014 Custom Post Type
-	include('team-cpt.php');
