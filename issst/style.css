@@ -4147,18 +4147,6 @@ h1 a {
   color: #4b4a4a;
 }
 
-a {
-  -webkit-transition: color 0.3s ease-in-out;
-  -moz-transition: color 0.3s ease-in-out;
-  transition: color 0.3s ease-in-out;
-}
-a:hover {
-  -webkit-transition: color 0.3s ease-in-out;
-  -moz-transition: color 0.3s ease-in-out;
-  transition: color 0.3s ease-in-out;
-  text-decoration: none;
-}
-
 main p {
   margin: 0 0 1.2em;
   font-size: 1.2em;
@@ -4472,6 +4460,18 @@ body.home .partners .img-responsive:hover, body.home .partners .img-responsive.h
   .logged-in .navbar-default {
     padding-top: 0px;
   }
+}
+
+a {
+  -webkit-transition: color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+a:hover {
+  -webkit-transition: color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
 }
 
 footer {

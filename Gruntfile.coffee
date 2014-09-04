@@ -9,11 +9,13 @@ deployUnit = (folderName) ->
 		'exclusions': [
 			"#{folderName}/lib/*"
 			"#{folderName}/img/*"
+			"#{folderName}/TwitterOAuth/*"
 			"#{folderName}/js/*"
 			"#{folderName}/*.sass"
-			"#{folderName}/*.css"
+			# "#{folderName}/*.css"
 			'.DS_Store'
 			'favicon.ico'
+			'.gitignore'
 			"#{folderName}/screenshot.png"
 		]
 	}

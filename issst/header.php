@@ -9,7 +9,7 @@
 		<?php wp_enqueue_script("jquery"); ?>
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class(); ?>>
+	<body ng-app="issstApp" <?php body_class(); ?>>
 	<div class="page-wrap">
 		<nav class="navbar navbar-default navbar navbar-default navbar-fixed-top" role="navigation">
 		  <div class="container-fluid">

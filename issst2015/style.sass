@@ -124,8 +124,26 @@ body.page-template-team-index-php
 
 .homeBlue
 	background: $issstBlue
-	h1, p
+
+	a
+		color: lighten($issstGreen, 20%)
+		&:hover
+			color: $issstGreen
+
+	h1, p, &
 		color: lighten($issstBlue, 40%)
+
+	.text-muted
+		color: lighten($issstBlue, 30%)
+
+	img.twit-media, img.twit-img
+		border-radius: 1em
+		border: 5px solid rgba(255, 255, 255, 0.59)
+		display: block
+		width: 100%
+
+	img.twit-img
+		max-width: 200px
 
 
 @import "../lib/end"

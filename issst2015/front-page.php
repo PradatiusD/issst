@@ -1,12 +1,15 @@
 <?php get_header(); ?>
 <section class="container">
-
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
   <div class="row">
     <div class="col-md-12">
       <img src="<?php echo get_stylesheet_directory_uri()."/img/issst-2015-header.png";?>" class="img-responsive" style="margin:6em auto 1em;">   
     </div>
 
-    <aside ng-app="CoolHomepageApp" class="cloudWrap invisible">
+    <aside class="cloudWrap invisible">
       <div ng-controller="CloudsController">
         <div ng-repeat="cloud in clouds">
           <div cloud-flying></div>        
@@ -70,24 +73,71 @@
         <br>
       </div>
     </div>
-
     <div class="row">
-      <div class="col-md-12 text-right">
+
+        <?php
+          require('twitter.php');
+          $params = array(
+              'q' => '#issst2015',
+              'count' => 10,
+              'exclude_replies' => true
+          );
+
+
+          $response = $tw->get('search/tweets', $params);
+        ?>
+      <script>
+        var twitterFeed = <?php print_r(json_encode($response));?>;
+      </script>
+
+      <!-- Twitter Feed -->
+
+      <div class="col-md-6" ng-controller="TwitterController">
+        <h1>Follow <a href="https://twitter.com/search?q=%23ISSST2015&src=typd">#ISSST2015</a>!</h1>
+        <hr>
+          <div ng-repeat="status in feed.statuses" class="row">
+
+            <aside class="col-xs-2">
+              <img src="{{status.user.profile_image_url}}" alt="" class="twit-img">
+            </aside>
+
+            <section class="col-xs-10">
+              <p class="lead">
+                <strong>{{status.user.name}}</strong> 
+                <a class="text-muted small" target="_blank"href="http://twitter.com/@{{status.user.screen_name}}">@{{status.user.screen_name}}</a><br>
+                <span ng-bind-html="status.text | linky"></span><br>
+                <a href="http://{{status.entities.media[0].expanded_url}}" ng-show="status.entities.media[0]">
+                  <img src="{{status.entities.media[0].media_url}}" alt="" class="img-responsive img-rounded twit-media">                
+                </a>
+                <small>{{fixDate(status.created_at)}}</small>
+              </p>
+            </section>
+            
+            <hr>
+          </div>
+      </div>
+
+      <!-- End Twitter Feed -->
+      <div class="col-md-6 text-right">
         <img src="<?php echo get_stylesheet_directory_uri()."/img/landscape.png";?>" class="img-responsive" style="display:inline;">   
       </div>
     </div>
   </section>
 </div>
+
 <style>
   html {
     margin-top: 0 !important;
   }
 </style>
+
+
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-sanitize.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.9/jquery.transit.min.js"></script>
 <script>
-  angular.module('CoolHomepageApp',[])
+  angular.module('issstApp',['ngSanitize'])
   
   .controller('CloudsController',['$scope', function($scope){
     $scope.clouds = [];
@@ -136,7 +186,19 @@
 
       }
     }
-  });
+  })
+
+  .controller('TwitterController',['$scope', '$filter', function($scope, $filter){
+    $scope.feed = twitterFeed;
+
+    $scope.fixDate = function(date){
+      date = Date.parse(date);
+      date = $filter('date')(date, 'MMM d, h:mma');
+      return date;
+    }
+
+    console.log($scope.feed);
+  }]);
 </script>
 <script>
   (function hoverMatchImg ($){

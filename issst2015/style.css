@@ -4218,8 +4218,26 @@ body.page-template-team-index-php {
 .homeBlue {
   background: #26adee;
 }
-.homeBlue h1, .homeBlue p {
+.homeBlue a {
+  color: #a8d891;
+}
+.homeBlue a:hover {
+  color: #6cbe45;
+}
+.homeBlue h1, .homeBlue p, .homeBlue {
   color: #e3f4fd;
+}
+.homeBlue .text-muted {
+  color: #b4e3f9;
+}
+.homeBlue img.twit-media, .homeBlue img.twit-img {
+  border-radius: 1em;
+  border: 5px solid rgba(255, 255, 255, 0.59);
+  display: block;
+  width: 100%;
+}
+.homeBlue img.twit-img {
+  max-width: 200px;
 }
 
 .blue {
@@ -4237,6 +4255,18 @@ body.page-template-team-index-php {
   .logged-in .navbar-default {
     padding-top: 0px;
   }
+}
+
+a {
+  -webkit-transition: color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+a:hover {
+  -webkit-transition: color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
 }
 
 footer {

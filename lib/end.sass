@@ -30,6 +30,14 @@ $navbar-default-link-active-bg:    lighten($navbar-default-bg, 6.5%)
 		+max-screen(782px)
 			padding-top: 0px
 
+// Links
+a
+	+transition (color 0.3s ease-in-out)
+
+	&:hover
+		+transition (color 0.3s ease-in-out)
+		text-decoration: none
+
 // Breadcrumb
 $breadcrumb-separator: "•"
 
