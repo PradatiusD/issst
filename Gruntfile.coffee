@@ -1,18 +1,18 @@
 deployUnit = (folderName) ->
 	return {
 		'src' : folderName
-		'dest': "wp-content/themes/#{folderName}"
+		'dest': folderName
 		'auth':
 			'host': 'pradadesigners.com'
 			'port': 21
 			'authKey': 'key1'
 		'exclusions': [
 			"#{folderName}/lib/*"
-			"#{folderName}/img/*"
+			# "#{folderName}/img/*"
 			"#{folderName}/TwitterOAuth/*"
 			"#{folderName}/js/*"
 			"#{folderName}/*.sass"
-			# "#{folderName}/*.css"
+			"#{folderName}/*.css"
 			'.DS_Store'
 			'favicon.ico'
 			'.gitignore'
@@ -94,4 +94,4 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks('grunt-contrib-uglify')
 	grunt.registerTask('default', ['watch'])
 	grunt.registerTask('deployAll', ['sass','ftp-deploy'])
-	grunt.registerTask('deploy', ['sass',   'ftp-deploy:issst2015'])
+	grunt.registerTask('deploy',    ['sass','ftp-deploy:issst2015'])
