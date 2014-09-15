@@ -8,7 +8,7 @@ deployUnit = (folderName) ->
 			'authKey': 'key1'
 		'exclusions': [
 			"#{folderName}/lib/*"
-			# "#{folderName}/img/*"
+			"#{folderName}/img/*"
 			"#{folderName}/TwitterOAuth/*"
 			"#{folderName}/js/*"
 			"#{folderName}/*.sass"

@@ -44,6 +44,7 @@ ini_set('display_errors', 1);
             if ( $wp_query->have_posts() ):
 
               while ( $wp_query->have_posts() ) : $wp_query->the_post();
+                $custom = get_post_custom($post->ID);
           ?>
 
                 <article class="item item-<?php echo $j;?>">
@@ -56,7 +57,6 @@ ini_set('display_errors', 1);
 
                 <aside class="item item-<?php echo $j;?>">
                   <?php
-                    $custom = get_post_custom($post->ID);
                     $member_institution = $custom["wpcf-institution-logo"][0];
                     echo "<img src='$member_institution'/>";
                   ?>
