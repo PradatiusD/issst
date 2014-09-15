@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <section class="container">
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 ?>
   <div class="row">
     <div class="col-md-12">
@@ -26,7 +26,6 @@ ini_set('display_errors', 1);
     <div class="row">
       <div class="col-md-12">
         <h1>Our Team</h1>
-        <p class="lead">Big thanks to the organizing committee hard at work making this ISSST the best one yet!</p>
         <section class="conference-committee invisible" id="container">
           
           <?php
@@ -75,6 +74,70 @@ ini_set('display_errors', 1);
     </div>
     <div class="row">
 
+      <!-- Windmills -->
+    <style>
+      .fan-holder {
+          position: relative;
+          display: inline-block;
+      }
+
+      .pole, .blades {
+        width: 100%;
+        height: auto;
+      }
+
+      .blades {
+          position: absolute;
+      }
+
+      .spinny {
+        -webkit-animation-name: spin;
+        -webkit-animation-duration: 2000ms;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        -moz-animation-name: spin;
+        -moz-animation-duration: 2000ms;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-timing-function: linear;
+        -ms-animation-name: spin;
+        -ms-animation-duration: 2000ms;
+        -ms-animation-iteration-count: infinite;
+        -ms-animation-timing-function: linear;
+        
+        animation-name: spin;
+        animation-duration: 2000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      @-ms-keyframes spin {
+          from { -ms-transform: rotate(0deg); }
+          to { -ms-transform: rotate(360deg); }
+      }
+      @-moz-keyframes spin {
+          from { -moz-transform: rotate(0deg); }
+          to { -moz-transform: rotate(360deg); }
+      }
+      @-webkit-keyframes spin {
+          from { -webkit-transform: rotate(0deg); }
+          to { -webkit-transform: rotate(360deg); }
+      }
+      @keyframes spin {
+          from {
+              transform:rotate(0deg);
+          }
+          to {
+              transform:rotate(360deg);
+          }
+      }
+      </style>
+      <div ng-controller="fanController" class="col-md-7">
+        <span ng-repeat="fan in fans">
+          <span spinning-fan></span>
+        </span>
+      </div> 
+
+      <!-- End Windmills -->
         <?php
           require('twitter.php');
           $params = array(
@@ -92,13 +155,13 @@ ini_set('display_errors', 1);
 
       <!-- Twitter Feed -->
 
-      <div class="col-md-6" ng-controller="TwitterController">
+      <div ng-controller="TwitterController" class="col-md-5">
         <h1>Follow <a href="https://twitter.com/search?q=%23ISSST2015&src=typd">#ISSST2015</a>!</h1>
         <hr>
           <div ng-repeat="status in feed.statuses" class="row">
 
             <aside class="col-xs-2">
-              <img src="{{status.user.profile_image_url}}" alt="" class="twit-img">
+              <img ng-src="{{status.user.profile_image_url}}" alt="" class="twit-img">
             </aside>
 
             <section class="col-xs-10">
@@ -107,7 +170,7 @@ ini_set('display_errors', 1);
                 <a class="text-muted small" target="_blank"href="http://twitter.com/@{{status.user.screen_name}}">@{{status.user.screen_name}}</a><br>
                 <span ng-bind-html="status.text | linky"></span><br>
                 <a href="http://{{status.entities.media[0].expanded_url}}" ng-show="status.entities.media[0]">
-                  <img src="{{status.entities.media[0].media_url}}" alt="" class="img-responsive img-rounded twit-media">                
+                  <img ng-src="{{status.entities.media[0].media_url}}" alt="" class="img-responsive img-rounded twit-media">                
                 </a>
                 <small>{{fixDate(status.created_at)}}</small>
               </p>
@@ -118,9 +181,7 @@ ini_set('display_errors', 1);
       </div>
 
       <!-- End Twitter Feed -->
-      <div class="col-md-6 text-right">
-        <img src="<?php echo get_stylesheet_directory_uri()."/img/landscape.png";?>" class="img-responsive" style="display:inline;">   
-      </div>
+
     </div>
   </section>
 </div>
@@ -186,6 +247,38 @@ ini_set('display_errors', 1);
 
       }
     }
+  })
+
+  .controller('fanController', ['$scope', function($scope) {
+    
+    $scope.fans = [];
+    var widths = [250, 200, 150];
+
+    for (var i = 0; i < widths.length; i++) {
+      $scope.fans.push({
+        width: widths[i]
+      });
+    }
+  }])
+
+  .directive('spinningFan', function() {
+    var themePath = '<?php echo get_stylesheet_directory_uri();?>';
+
+    return {
+      template: '<div class="fan-holder" style="width:{{fan.width}}px;">'+
+                  '<img src="'+themePath+'/img/blades.png" alt="" class="blades" style="top:{{.041*fan.width}}px; left:{{.011*fan.width}}px">'+
+                  '<img src="'+themePath+'/img/pole.png" class="pole" alt="">'+
+                '</div>',
+      link: function(scope, element, attrs) {
+
+        var $blades = jQuery(element).find('.blades');
+        var timeToStart = scope.fan.width * 10;
+
+        setTimeout(function(){
+          $blades.toggleClass('spinny');
+        }, timeToStart);
+      }
+    };
   })
 
   .controller('TwitterController',['$scope', '$filter', function($scope, $filter){
