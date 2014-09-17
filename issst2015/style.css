@@ -4102,8 +4102,45 @@ div.mc-image {
     width: 40px;
   }
 }
+.navbar-brand {
+  background: url("http://issst2015.net/wp-content/themes/issst2015/img/navbar-logo.png");
+  text-indent: -9999px;
+  background-size: 77% auto;
+  background-repeat: no-repeat;
+  width: 108px;
+  background-position: center;
+}
+
 body.home {
   background: #f8f8f8;
+}
+
+.header-img {
+  margin: 6em auto 0em;
+}
+
+a.register-now {
+  display: block;
+  margin: 0em auto 2em;
+  width: 194px;
+  text-align: center;
+  background: #6cbe45;
+  color: #f8f8f8;
+  padding: 0.75em 1em;
+  font-weight: 400;
+  border-radius: 2em;
+  font-size: 1.3em;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+a.register-now:hover {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  text-decoration: none;
+  background: #26adee;
+  color: white;
 }
 
 /* Conference Committee Grid */

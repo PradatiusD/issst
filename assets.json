@@ -1,0 +1,35 @@
+{
+    "issstNetwork":{
+        "javascripts": {
+            "global": [
+                "issst/lib/collapse.js",
+                "issst/lib/dropdown.js",
+                "issst/lib/tooltip.js",
+                "issst/lib/transition.js"
+            ]
+        }
+    },
+    "issst2014": {
+        "javascripts": {
+            "homepage": [
+                    "bower_components/maximage/lib/js/jquery.cycle.all.js",
+                    "bower_components/maximage/lib/js/jquery.maximage.js",
+                    "issst/js/homepage/mailchimp-form.js",
+                    "issst/js/homepage/google-map.js",
+                    "issst/js/homepage/slider-anim.js"
+                ]
+        }
+    },
+    "issst2015":{
+        "javascripts": {
+            "homepage": [
+                "bower_components/angular/angular.js",
+                "bower_components/angular-sanitize/angular-sanitize.js",
+                "bower_components/isotope/dist/isotope.pkgd.min.js",
+                "bower_components/jquery.transit/jquery.transit.js",
+                "issst2015/js/angular-animations.js",
+                "issst2015/js/face-gallery.js"
+            ]
+        }
+    }
+}

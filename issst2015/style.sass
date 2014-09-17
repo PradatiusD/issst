@@ -18,6 +18,7 @@
 $issstGreen: #6cbe45
 $issstBlue: #26adee
 $white: white
+$fadedWhite: #F8F8F8
 
 // Typography
 $font-family-base: "Roboto", $helvetica
@@ -27,8 +28,37 @@ $headings-font-family: "Roboto Condensed", $helvetica
 $footer-height: 407px
 
 
+.navbar-brand
+	background: url("http://issst2015.net/wp-content/themes/issst2015/img/navbar-logo.png")
+	text-indent: -9999px
+	background-size: 77% auto
+	background-repeat: no-repeat
+	width: 108px
+	background-position: center
+
 body.home
-	background: #F8F8F8
+	background: $fadedWhite
+
+.header-img
+	margin: 6em auto 0em
+
+a.register-now
+	display: block
+	margin: 0em auto 2em
+	width: 194px
+	text-align: center
+	background: $issstGreen
+	color: $fadedWhite
+	padding: 0.75em 1em
+	font-weight: 400
+	border-radius: 2em
+	font-size: 1.3em
+	+transition (all 0.4s ease-in-out)
+	&:hover
+		+transition (all 0.4s ease-in-out)
+		text-decoration: none
+		background: $issstBlue
+		color: $white
 
 /* Conference Committee Grid */
 body.page-template-team-index-php

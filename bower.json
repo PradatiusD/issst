@@ -21,7 +21,10 @@
     "animate.scss": "*",
     "bourbon": "~3.1.8",
     "twbs-bootstrap-sass": "~3.1.1",
-    "isotope": "~2.0.0"
+    "isotope": "~2.0.1",
+    "angular": "~1.2.25",
+    "angular-sanitize": "~1.2.25",
+    "jquery.transit": "~0.9.12"
   },
   "description": "WordPress website for the International Symposium on Sustaninable Systems & Technology",
   "main": "none"
