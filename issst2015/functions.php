@@ -1,4 +1,7 @@
 <?php
+// Debugging
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 // Remove Date and add Title/Logo columns
 function add_team_columns($columns) {
@@ -63,3 +66,6 @@ function team_backend_styles() {
   echo $content;
 }
 add_action('admin_head', 'team_backend_styles');
+
+// Require twitter script
+require_once('twitter.php');

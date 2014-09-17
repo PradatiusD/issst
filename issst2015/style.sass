@@ -18,6 +18,10 @@
 $issstGreen: #6cbe45
 $issstBlue: #26adee
 $white: white
+$fadedWhite: #F8F8F8
+
+// Buttons
+$brand-primary: $issstBlue
 
 // Typography
 $font-family-base: "Roboto", $helvetica
@@ -27,8 +31,74 @@ $headings-font-family: "Roboto Condensed", $helvetica
 $footer-height: 407px
 
 
+.navbar-brand
+	background: url("http://issst2015.net/wp-content/themes/issst2015/img/navbar-logo.png")
+	text-indent: -9999px
+	background-size: 77% auto
+	background-repeat: no-repeat
+	width: 108px
+	background-position: center
+
+body
+	padding-top: 70px
+
+	&.home
+		background: $fadedWhite
+	
+
+// For Pages & Posts
+.form-submit
+	input#submit
+		@extend .btn
+		@extend .btn-primary
+
+// For Sidebar
+section.sidebar
+	.twitterFeed
+		h1
+			font-size: 1.8em
+			color: #1B1B1B
+
+		p.lead, header
+			margin-left: 7px
+
+		p.lead
+			font-size: 1em
+			&.tweet
+				margin-bottom: 0px
+			a
+				color: $issstGreen
+
+// Homepage
+
 body.home
-	background: #F8F8F8
+
+	.header-img
+		margin: 6em auto 0em
+
+	a.register-now
+		display: block
+		margin: 0em auto 2em
+		width: 194px
+		text-align: center
+		background: $issstGreen
+		color: $fadedWhite
+		padding: 0.75em 1em
+		font-weight: 400
+		border-radius: 2em
+		font-size: 1.3em
+		+transition (all 0.4s ease-in-out)
+		&:hover
+			+transition (all 0.4s ease-in-out)
+			text-decoration: none
+			background: $issstBlue
+			color: $white
+
+	.twitterFeed
+		font-size: 1.4em
+		.tweet
+			margin-bottom: 0px
+			font-size: 1em
 
 /* Conference Committee Grid */
 body.page-template-team-index-php

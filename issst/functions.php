@@ -26,9 +26,9 @@
 		'name'=> 'Sidebar',
 		'id' => 'sidebar',
 		'before_widget' => '<article id="%1$s" class="widget %2$s">',
-		'after_widget' => '</article>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
+		'after_widget'  => '</article>',
+		'before_title'  => '<h3>',
+		'after_title'   => '</h3>',
 	));
 
 
@@ -43,3 +43,29 @@
 				'</div>';
 	}
 	add_filter( 'excerpt_more', 'excerpt_read_more' );
+
+
+	function issst_login_logo() { ?>
+	    <style type="text/css">
+
+	        @import url("http://fonts.googleapis.com/css?family=Roboto:400,500");
+
+			body {
+			    font-family: 'Roboto' !important;
+			}
+
+	        body.login div#login h1 a {
+	            background-image: url(<?php echo get_template_directory_uri(); ?>/img/issst-login-logo.png);
+				padding-bottom: 23px;
+				background-size: 100% auto;
+				width: 100%;
+	        }
+
+			input#wp-submit {
+			    background: #26adee;
+			    border: 1px solid #1A85B8;
+			}
+
+	    </style>
+	<?php }
+	add_action( 'login_enqueue_scripts', 'issst_login_logo' );

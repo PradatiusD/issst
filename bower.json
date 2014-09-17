@@ -1,6 +1,8 @@
 {
   "name": "issst",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "description": "WordPress Multisite for the annual International Symposium on Sustaninable Systems & Technology",
+  "main": "none",
   "authors": [
     "PradatiusD <danielprada2012@gmail.com>"
   ],
@@ -21,8 +23,47 @@
     "animate.scss": "*",
     "bourbon": "~3.1.8",
     "twbs-bootstrap-sass": "~3.1.1",
-    "isotope": "~2.0.0"
+    "isotope": "~2.0.1",
+    "angular": "~1.2.25",
+    "angular-sanitize": "~1.2.25",
+    "jquery.transit": "~0.9.12",
+    "bootstrap": "~3.2.0",
+    "angular-tweet-filter": "*"
   },
-  "description": "WordPress website for the International Symposium on Sustaninable Systems & Technology",
-  "main": "none"
+  "assets": {
+    "issstNetwork": {
+      "javascripts": {
+        "global": [
+          "bower_components/bootstrap/js/collapse.js",
+          "bower_components/bootstrap/js/dropdown.js",
+          "bower_components/bootstrap/js/tooltip.js",
+          "bower_components/bootstrap/js/transition.js"
+        ]
+      }
+    },
+    "issst2014": {
+      "javascripts": {
+        "homepage": [
+          "bower_components/maximage/lib/js/jquery.cycle.all.js",
+          "bower_components/maximage/lib/js/jquery.maximage.js",
+          "issst/js/homepage/mailchimp-form.js",
+          "issst/js/homepage/google-map.js",
+          "issst/js/homepage/slider-anim.js"
+        ]
+      }
+    },
+    "issst2015": {
+      "javascripts": {
+        "homepage": [
+          "bower_components/angular/angular.js",
+          "bower_components/angular-sanitize/angular-sanitize.js",
+          "bower_components/angular-tweet-filter/index.js",
+          "bower_components/isotope/dist/isotope.pkgd.min.js",
+          "bower_components/jquery.transit/jquery.transit.js",
+          "issst2015/js/angular-animations.js",
+          "issst2015/js/face-gallery.js"
+        ]
+      }
+    }
+  }
 }

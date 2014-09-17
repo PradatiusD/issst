@@ -1,28 +1,43 @@
-deployUnit = (folderName) ->
-	return {
-		'src' : folderName
-		'dest': folderName
-		'auth':
-			'host': 'pradadesigners.com'
-			'port': 21
-			'authKey': 'key1'
-		'exclusions': [
-			"#{folderName}/lib/*"
-			"#{folderName}/img/*"
-			"#{folderName}/TwitterOAuth/*"
-			"#{folderName}/js/*"
-			"#{folderName}/*.sass"
-			"#{folderName}/*.css"
-			'.DS_Store'
-			'favicon.ico'
-			'.gitignore'
-			"#{folderName}/screenshot.png"
-		]
-	}
 
 module.exports = (grunt) ->
-	grunt.initConfig(
 
+	deployUnit = (folderName) ->
+		config =
+			'src' : folderName
+			'dest': folderName
+			'auth':
+				'host': 'pradadesigners.com'
+				'port': 21
+				'authKey': 'key1'
+			'exclusions': [
+				"#{folderName}/lib/*"
+				"#{folderName}/TwitterOAuth/*"
+				"#{folderName}/*.sass"
+				'.DS_Store'
+				'favicon.ico'
+				'.gitignore'
+				"#{folderName}/screenshot.png"
+			]
+
+		if !grunt.option('css')
+			config.exclusions.push("#{folderName}/*.css")
+			config.exclusions.push("#{folderName}/*.map")
+
+		if !grunt.option('php')
+			config.exclusions.push("#{folderName}/*.php")
+
+		if !grunt.option('img')
+			config.exclusions.push("#{folderName}/img/*")
+
+		if !grunt.option('js')
+			config.exclusions.push("#{folderName}/js/*")
+
+		return config
+
+	assets = grunt.file.readJSON('bower.json').assets
+
+	grunt.initConfig(
+		pkg: grunt.file.readJSON('package.json')
 		php:
 			test:
 				options:
@@ -58,7 +73,7 @@ module.exports = (grunt) ->
 				files: ['issst/*.css','issst/*.php'] 
 				tasks: ['ftp-deploy:issst']
 			issst2015:
-				files: ['issst2015/*', '!issst2015/style.sass']
+				files: ['issst2015/*', '!issst2015/style.sass','issst2015/twitter.php']
 				tasks: ['ftp-deploy:issst2015']
 			sassissst:
 				files: ['issst/*.sass']
@@ -66,23 +81,20 @@ module.exports = (grunt) ->
 			sassissst2015:
 				files: ['issst2015/*.sass']
 				tasks: ['sass:issst2015']				
-			homepageJS:
-				files: 'issst/js/homepage/*.js'
+			javascripts:
+				files: [
+					assets.issstNetwork.javascripts.global
+					assets.issst2014.javascripts.homepage
+					assets.issst2015.javascripts.homepage
+				]
 				tasks: ['uglify']
 
 		uglify:
-			homepage:
+			combinedScripts:
 				files:
-					'issst/js/homepage.min.js': [
-						'bower_components/maximage/lib/js/jquery.cycle.all.js'
-						'bower_components/maximage/lib/js/jquery.maximage.js'
-						'issst/js/homepage/mailchimp-form.js'
-						'issst/js/homepage/google-map.js'
-						'issst/js/homepage/slider-anim.js'
-					]
-			global:
-				files:
-					'issst/js/global.min.js': ['issst/lib/*.js']
+					'issst/js/global.min.js':       assets.issstNetwork.javascripts.global # Global across all network
+					'issst/js/homepage.min.js':     assets.issst2014.javascripts.homepage  # Front-page for ISSST 2014
+					'issst2015/js/homepage.min.js': assets.issst2015.javascripts.homepage  # Front-page for ISSST 2015
 	)
 
 	grunt.loadNpmTasks('grunt-php')
@@ -93,5 +105,6 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks('grunt-contrib-watch')
 	grunt.loadNpmTasks('grunt-contrib-uglify')
 	grunt.registerTask('default', ['watch'])
-	grunt.registerTask('deployAll', ['sass','ftp-deploy'])
-	grunt.registerTask('deploy',    ['sass','ftp-deploy:issst2015'])
+	grunt.registerTask('deployAll',  ['ftp-deploy'])
+	grunt.registerTask('deployMain', ['ftp-deploy:issst'])
+	grunt.registerTask('deploy',     ['ftp-deploy:issst2015'])
