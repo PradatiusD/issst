@@ -3683,12 +3683,9 @@ div.mc-image {
   background-position: center;
 }
 
-<<<<<<< HEAD
 body {
   padding-top: 70px;
 }
-=======
->>>>>>> 8add1449d4eb8a4948467bec2d74cea3ef9cba72
 body.home {
   background: #F8F8F8;
 }
@@ -3710,6 +3707,9 @@ section.sidebar .twitterFeed p.lead a {
   color: #6cbe45;
 }
 
+body.home {
+  background: #F8F8F8;
+}
 body.home .header-img {
   margin: 6em auto 0em;
 }
@@ -3742,34 +3742,6 @@ body.home .twitterFeed {
 body.home .twitterFeed .tweet {
   margin-bottom: 0px;
   font-size: 1em;
-}
-
-.header-img {
-  margin: 6em auto 0em;
-}
-
-a.register-now {
-  display: block;
-  margin: 0em auto 2em;
-  width: 194px;
-  text-align: center;
-  background: #6cbe45;
-  color: #f8f8f8;
-  padding: 0.75em 1em;
-  font-weight: 400;
-  border-radius: 2em;
-  font-size: 1.3em;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-a.register-now:hover {
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  text-decoration: none;
-  background: #26adee;
-  color: white;
 }
 
 /* Conference Committee Grid */
