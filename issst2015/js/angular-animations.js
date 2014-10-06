@@ -78,7 +78,7 @@
       }
     };
   })
-    
+
   .controller('TwitterController',['$scope', '$filter', function($scope, $filter){
     $scope.feed = twitterFeed;
 
