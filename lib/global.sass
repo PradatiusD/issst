@@ -51,3 +51,10 @@
 	+transition (all $time ease-out)
 	&:hover, &.hovered
 		+filter(grayscale, 0%)
+
+// For Menu on Hover
+ul.nav li.dropdown:hover > ul.dropdown-menu
+	display: block
+
+nav.navbar-fixed-top a
+	+transition(color, background 0.3s ease-out)

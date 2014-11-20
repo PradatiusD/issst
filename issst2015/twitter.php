@@ -93,11 +93,7 @@ function twitter_feed() {
       </article>
     </div>
 
-    <?php if (!is_front_page()): ?>
-      <script src="<?php echo get_stylesheet_directory_uri();?>/js/homepage.min.js"></script>
-
-  <?php
-  endif; // for !is_front_page()
+<?php
 	$content = ob_get_clean();
 	echo $content;
 };

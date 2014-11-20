@@ -30,5 +30,4 @@
 			</section>
 		</div>
 	</body>
-	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/global.min.js"></script>
 </html>

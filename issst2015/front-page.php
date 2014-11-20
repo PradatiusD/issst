@@ -152,5 +152,4 @@
     margin-top: 0 !important;
   }
 </style>
-<script src="<?php echo get_stylesheet_directory_uri()."/js/homepage.min.js";?>"></script>
 <?php get_footer(); ?>

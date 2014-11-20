@@ -12,24 +12,62 @@
 
 @import "../lib/global"
 
-@import url("http://fonts.googleapis.com/css?family=Roboto:400,500,400italic,700,300|Roboto+Condensed:400,700")
-
 // Colors
 $issstGreen: #6cbe45
 $issstBlue: #26adee
-$white: white
+$issstLightBlue: lighten($issstBlue, 35%)
+$issstWhiteBlue: lighten($issstBlue, 70%)
+$issstDarkBlue:   darken($issstBlue, 15%)
+$issstBlackBlue:  darken($issstBlue, 40%)
+$issstDarKGreen:  darken($issstGreen, 20%)
 $fadedWhite: #F8F8F8
-
-// Buttons
-$brand-primary: $issstBlue
-
-// Typography
-$font-family-base: "Roboto", $helvetica
-$headings-font-family: "Roboto Condensed", $helvetica
 
 // Footer
 $footer-height: 407px
 
+// Bootstrap Modifications
+$font-family-sans-serif: "Roboto", $helvetica
+$headings-font-family:   "Roboto Condensed", $font-family-sans-serif
+$headings-font-weight:   400
+$headings-color:         $issstDarkBlue
+
+
+$text-color: $issstBlackBlue
+$link-color: $issstGreen
+$link-hover-color: $issstGreen
+$font-size-base: 17px
+
+
+$navbar-height: 66px
+$navbar-inverse-bg:             $issstBlue
+$navbar-inverse-color:          $issstWhiteBlue
+$navbar-inverse-link-color:     $issstWhiteBlue
+$navbar-inverse-border:         $issstBlue
+$navbar-inverse-link-active-bg: $issstDarkBlue
+$navbar-inverse-link-hover-bg:  $issstGreen
+
+$navbar-inverse-toggle-hover-bg:     $issstGreen
+$navbar-inverse-toggle-icon-bar-bg:  $issstWhiteBlue
+$navbar-inverse-toggle-border-color: $issstWhiteBlue
+
+
+$dropdown-bg:                    $issstGreen
+$dropdown-border:                rgba(0,0,0,.15)
+$dropdown-fallback-border:       #ccc
+$dropdown-divider-bg:            #e5e5e5
+
+$dropdown-link-color:            $issstWhiteBlue
+$dropdown-link-hover-color:      lighten($issstGreen,  25%)
+$dropdown-link-hover-bg:         darken($issstGreen,   15%)
+
+$dropdown-link-active-color:     lighten($issstGreen,  25%)
+$dropdown-link-active-bg:        darken($issstGreen,   15%)
+
+$border-radius-base:  4px
+$border-radius-large: 6px
+$border-radius-small: 3px
+
+$brand-primary: $issstBlue
 
 .navbar-brand
 	background: url("http://issst2015.net/wp-content/themes/issst2015/img/navbar-logo.png")
@@ -39,12 +77,16 @@ $footer-height: 407px
 	width: 108px
 	background-position: center
 
+.navbar-inverse .dropdown-menu
+	border: none
+
 body
 	padding-top: 70px
 
 	&.home
 		background: $fadedWhite
 	
+
 
 // For Pages & Posts
 .form-submit
@@ -93,7 +135,7 @@ body.home
 			+transition (all 0.4s ease-in-out)
 			text-decoration: none
 			background: $issstBlue
-			color: $white
+			color: $issstWhiteBlue
 
 	.twitterFeed
 		font-size: 1.4em

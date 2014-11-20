@@ -1,43 +1,15 @@
+sites = ['issst','issst2015']
+
 
 module.exports = (grunt) ->
-
-	deployUnit = (folderName) ->
-		config =
-			'src' : folderName
-			'dest': folderName
-			'auth':
-				'host': 'pradadesigners.com'
-				'port': 21
-				'authKey': 'key1'
-			'exclusions': [
-				"#{folderName}/lib/*"
-				"#{folderName}/TwitterOAuth/*"
-				"#{folderName}/*.sass"
-				'.DS_Store'
-				'favicon.ico'
-				'.gitignore'
-				"#{folderName}/screenshot.png"
-			]
-
-		if !grunt.option('css')
-			config.exclusions.push("#{folderName}/*.css")
-			config.exclusions.push("#{folderName}/*.map")
-
-		if !grunt.option('php')
-			config.exclusions.push("#{folderName}/*.php")
-
-		if !grunt.option('img')
-			config.exclusions.push("#{folderName}/img/*")
-
-		if !grunt.option('js')
-			config.exclusions.push("#{folderName}/js/*")
-
-		return config
 
 	assets = grunt.file.readJSON('bower.json').assets
 
 	grunt.initConfig(
+
 		pkg: grunt.file.readJSON('package.json')
+		
+
 		php:
 			test:
 				options:
@@ -45,42 +17,52 @@ module.exports = (grunt) ->
 					open: true
 					port: 5000
 
-		'ftp-deploy':
-			issst:     deployUnit('issst')
-			issst2015: deployUnit('issst2015')
+
+		'ftp-deploy': sites.reduce((obj, siteFolder) ->
+			obj[siteFolder] = {
+				'src': siteFolder
+				'dest': siteFolder
+				'auth':
+					'host': 'pradadesigners.com'
+					'port': 21
+					'authKey': 'key'
+			}
+			return obj
+		,{})
+
+
 		copy:
 			main:
 				files: [{
-					expand: true
-					src: ['issst/**']
-					dest: '../themes/'}
-				]
+					'expand': true
+					'src':    sites.map((site) -> "#{site}/**")
+					'dest':   '../themes/'
+				}]
 
-		sass:      
-			issst:                            
-				options:
-					style: 'expanded'
-				files:
-					'issst/style.css': 'issst/style.sass'
-			issst2015:                            
-				options:
-					style: 'expanded'
-				files:
-					'issst2015/style.css': 'issst2015/style.sass'
+
+		sass: sites.reduce((obj, siteFolder) ->
+				obj[siteFolder] = {
+					files: {}
+				}
+				obj[siteFolder].files["#{siteFolder}/style.css"] = "#{siteFolder}/style.sass"
+				return obj
+			, {})
+
 
 		watch:
-			issst:
-				files: ['issst/*.css','issst/*.php'] 
-				tasks: ['ftp-deploy:issst']
-			issst2015:
-				files: ['issst2015/*', '!issst2015/style.sass','issst2015/twitter.php']
-				tasks: ['ftp-deploy:issst2015']
-			sassissst:
-				files: ['issst/*.sass']
-				tasks: ['sass:issst']
-			sassissst2015:
-				files: ['issst2015/*.sass']
-				tasks: ['sass:issst2015']				
+			copy:
+				'files': sites.map((site) -> 
+					return ["#{site}/*","!#{site}/style.sass"]
+				)
+				'tasks': ['copy']
+				'options':
+					'livereload': true
+
+			sass:
+				files: sites.map((site) -> 
+					return "#{site}/style.sass"
+				)
+				tasks: ['sass']
 			javascripts:
 				files: [
 					assets.issstNetwork.javascripts.global
@@ -88,6 +70,7 @@ module.exports = (grunt) ->
 					assets.issst2015.javascripts.homepage
 				]
 				tasks: ['uglify']
+
 
 		uglify:
 			combinedScripts:
@@ -105,6 +88,4 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks('grunt-contrib-watch')
 	grunt.loadNpmTasks('grunt-contrib-uglify')
 	grunt.registerTask('default', ['watch'])
-	grunt.registerTask('deployAll',  ['ftp-deploy'])
-	grunt.registerTask('deployMain', ['ftp-deploy:issst'])
-	grunt.registerTask('deploy',     ['ftp-deploy:issst2015'])
+	grunt.registerTask('deploy',  ['ftp-deploy'])

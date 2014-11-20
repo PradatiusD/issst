@@ -15,8 +15,6 @@
 
 @import "../lib/global"
 
-@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic")
-
 // Colors
 $issstGreen: #5CB85C
 $issstBlue: #16356E
@@ -26,10 +24,21 @@ $body-bg: #F8F8F8
 // Typography
 $font-family-base: 'Lato', $helvetica
 $footer-height: 380px
+$headings-font-weight : 900
+$font-size-base : 16px
+
+$navbar-inverse-color:             #f0ecec
+$navbar-inverse-bg:                $issstBlue
+$navbar-inverse-border:            darken($navbar-inverse-bg, 6.5%)
+$navbar-inverse-link-color:        #f4f4f4
+$navbar-inverse-link-hover-color:  #2f9f49
+$navbar-inverse-link-hover-bg:     transparent
+$navbar-inverse-link-active-color: #f4f4f4
+$navbar-inverse-link-active-bg:    lighten($navbar-inverse-bg, 6.5%)
 
 /* Common HTML Elements */
 
-.navbar-default
+.navbar-inverse
 	text-transform: uppercase
 	font-weight: 200
 

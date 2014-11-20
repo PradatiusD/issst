@@ -1,7 +1,19 @@
 <?php
-// Debugging
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+
+// Custom fonts
+function custom_fonts() {
+    wp_dequeue_style('custom_fonts');
+    wp_enqueue_style('custom_fonts','//fonts.googleapis.com/css?family=Roboto:400,500,400italic,700,300|Roboto+Condensed:400,700', array(), '1.0');    
+}
+
+add_action('wp_enqueue_scripts','custom_fonts');
+
+// Homepage script
+function homepage_scripts() {
+    wp_enqueue_script('twitter_and_homepage_js', get_stylesheet_directory_uri()."/js/homepage.min.js", array('jquery'), '1.0.0', true);
+}
+add_action( 'wp_enqueue_scripts', 'homepage_scripts');
+
 
 // Remove Date and add Title/Logo columns
 function add_team_columns($columns) {

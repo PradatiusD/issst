@@ -6,25 +6,20 @@
 	color: $issstGreen
 
 // Typography
-$font-size-base : 16px
 $font-size-large : ceil(($font-size-base * 1.25))
 $font-size-h1 : floor(($font-size-base * 2.6))
-$headings-font-weight : 900
 $headings-line-height : 1.1
 
 
-// Navbar
-$grid-float-breakpoint:            1053px
-$navbar-default-color:             #f0ecec
-$navbar-default-bg:                $issstBlue
-$navbar-default-border:            darken($navbar-default-bg, 6.5%)
-$navbar-default-link-color:        #f4f4f4
-$navbar-default-link-hover-color:  #2f9f49
-$navbar-default-link-hover-bg:     transparent
-$navbar-default-link-active-color: #f4f4f4
-$navbar-default-link-active-bg:    lighten($navbar-default-bg, 6.5%)
+// Breakpoint
+$grid-float-breakpoint: 1053px
 
-.navbar-default
+.navbar-inverse
+	.dropdown-menu
+		margin-top: -1px !important
+		> li > a
+			padding: 1em
+
 	.logged-in &
 		padding-top: 33px
 		+max-screen(782px)

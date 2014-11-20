@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title><?php echo get_bloginfo(); ?></title>
+		<title><?php wp_title(get_bloginfo('name') .' |',true,'left');?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<meta charset="<?php bloginfo('charset'); ?>">
 		<link rel="icon" href="<?php echo get_stylesheet_directory_uri();?>/favicon.ico" type="image/x-icon" />
-		<?php wp_enqueue_script("jquery"); ?>
+		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		<?php wp_head(); ?>
 	</head>
 	<body ng-app="issstApp" <?php body_class(); ?>>
 	<div class="page-wrap">
-		<nav class="navbar navbar-default navbar navbar-default navbar-fixed-top" role="navigation">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		  <div class="container-fluid">
 
 			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -33,7 +32,7 @@
 						'depth'             => 2,
 						'container'         => 'div',
 						'container_class'   => 'collapse navbar-collapse',
-						'container_id'      => 'bs-example-navbar-collapse-1',
+						'container_id'      => 'main-nav-collapse',
 						'menu_class'        => 'nav navbar-nav',
 						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
 						'walker'            => new wp_bootstrap_navwalker())
