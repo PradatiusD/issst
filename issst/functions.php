@@ -55,15 +55,57 @@
 		'primary' => __( 'Primary Menu', 'ISSST' ),
 	) );
 
-	register_sidebar(array(
-		'name'=> 'Sidebar',
-		'id' => 'sidebar',
-		'before_widget' => '<article id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</article>',
-		'before_title'  => '<h3>',
-		'after_title'   => '</h3>',
-	));
 
+
+	function register_widget_areas () {
+
+		register_sidebar(array(
+			'name'=> 'Sidebar',
+			'id' => 'sidebar',
+			'before_widget' => '<article id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</article>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		));
+
+		register_sidebar(array(
+			'name'=> 'Footer Widget',
+			'id' => 'footer-widget',
+			'before_widget' => '<article id="%1$s" class="widget col-md-8 %2$s">',
+			'after_widget'  => '</article>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		));
+	}
+
+	add_action('init','register_widget_areas');
+
+	function add_sidebar_widget(){
+		dynamic_sidebar('sidebar');
+	}
+
+	add_action('sidebar', 'add_sidebar_widget');
+
+	function add_footer_widget (){
+		dynamic_sidebar('footer-widget');
+	}
+
+	add_action('main_footer', 'add_footer_widget');
+
+	function add_footer_logo (){
+		ob_start(); ?>
+
+			<div class="col-md-4">
+				<img src="<?php bloginfo('template_url'); ?>/img/issst.png" class="img-responsive" alt="ISSST logo">
+			</div>
+
+		<?php
+
+		$output = ob_get_clean();
+		echo $output;
+	}
+
+	add_action('main_footer','add_footer_logo');
 
 	function excerpt_read_more( $more ) {
 		return '...'.

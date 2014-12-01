@@ -214,25 +214,13 @@ body.page-template-team-index-php
 				opacity: 1
 
 .isotope, .isotope .isotope-item
-	-webkit-transition-duration: 0.8s
-	-moz-transition-duration: 0.8s
-	-ms-transition-duration: 0.8s
-	-o-transition-duration: 0.8s
-	transition-duration: 0.8s
+	+transition-duration(0.8s)
 
 .isotope
-	-webkit-transition-property: height, width
-	-moz-transition-property: height, width
-	-ms-transition-property: height, width
-	-o-transition-property: height, width
-	transition-property: height, width
+	+transition-property(height, width)
 
 	.isotope-item
-		-webkit-transition-property: -webkit-transform, opacity
-		-moz-transition-property:    -moz-transform, opacity
-		-ms-transition-property:     -ms-transform, opacity
-		-o-transition-property:      -o-transform, opacity
-		transition-property:         transform, opacity
+		+transition-property(transform, opacity)
 		border-radius: 1em
 
 .homeBlue
@@ -258,5 +246,8 @@ body.page-template-team-index-php
 	img.twit-img
 		max-width: 200px
 
+.site-footer
+	h3
+		color: white
 
 @import "../lib/end"

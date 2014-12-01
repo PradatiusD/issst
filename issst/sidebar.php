@@ -1,1 +1,1 @@
-<?php if ( dynamic_sidebar('Sidebar') ) : else : endif; ?>
+<?php do_action('sidebar'); ?>
