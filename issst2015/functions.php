@@ -15,6 +15,17 @@ function homepage_scripts() {
 add_action( 'wp_enqueue_scripts', 'homepage_scripts');
 
 
+// Google webmaster tools
+function add_google_webmaster_tools(){
+    ob_start();
+    ?>
+    <meta name="google-site-verification" content="k8zbotjikXd1m6e1-bjkuMudhoDTRq3vOMzm5oodcC8" />
+    <?php
+    $output = ob_get_clean();
+    echo $output;
+}
+add_action('wp_head','add_google_webmaster_tools');
+
 // Remove Date and add Title/Logo columns
 function add_team_columns($columns) {
     unset($columns['date']);
