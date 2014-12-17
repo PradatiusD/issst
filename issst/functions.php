@@ -26,6 +26,24 @@
 
 
 
+
+// Google webmaster tools
+function add_google_webmaster_tools_for_primary(){
+
+    ob_start();
+    ?>
+		<?php if (get_current_blog_id() == 1): ?>
+			<meta name="google-site-verification" content="TuoiKklsxKFWYuFPza5E7XRlk7Wy1UL79glMf26eNJE" />			
+		<?php endif ?>
+    <?php
+    $output = ob_get_clean();
+    echo $output;
+}
+add_action('wp_head','add_google_webmaster_tools_for_primary');
+
+
+
+
 	// Header Scripts
 	function header_scripts () {
 		wp_enqueue_script('jquery');

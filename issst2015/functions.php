@@ -16,7 +16,7 @@ add_action( 'wp_enqueue_scripts', 'homepage_scripts');
 
 
 // Google webmaster tools
-function add_google_webmaster_tools(){
+function add_google_webmaster_tools_for_2015(){
     ob_start();
     ?>
     <meta name="google-site-verification" content="k8zbotjikXd1m6e1-bjkuMudhoDTRq3vOMzm5oodcC8" />
@@ -24,7 +24,7 @@ function add_google_webmaster_tools(){
     $output = ob_get_clean();
     echo $output;
 }
-add_action('wp_head','add_google_webmaster_tools');
+add_action('wp_head','add_google_webmaster_tools_for_2015');
 
 // Remove Date and add Title/Logo columns
 function add_team_columns($columns) {
