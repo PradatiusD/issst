@@ -1,0 +1,15 @@
+{
+    "name": "PradaDesigners/issst2015",
+    "authors": [
+        {
+            "name": "PradatiusD",
+            "email": "danielprada2012@gmail.com"
+        }
+    ],
+    "require": {
+        "lusitanian/oauth": "~0.3"
+    },
+    "config": {
+        "vendor-dir": "lib"
+    }
+}
