@@ -24,8 +24,21 @@
   <section class="container">
 
     <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="h1">Get the Conference App</p>
+        <p class="h4">Choose Your Platform</p>
+        <a href="https://guidebook.com/g/ISSST2015/" class="guidebook-icon"><i class="fa fa-android"></i></a>
+        <a href="https://guidebook.com/g/ISSST2015/" class="guidebook-icon"><i class="fa fa-apple"></i></a>
+        <a href="https://guidebook.com/guide/36858/" class="guidebook-icon"><i class="fa fa-laptop"></i></a>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-12">
-        <h1>Our Team</h1>
+
+
+        <!-- Our team listing -->
+        <p class="h1 text-center">Our Team</p>
         <section class="conference-committee invisible" id="container">
           
           <?php

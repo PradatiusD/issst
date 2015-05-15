@@ -37,8 +37,10 @@ module.exports = function (grunt) {
       auth: {
         host: 'pradadesigners.com',
         port: 21,
-        authKey: key
-      }
+        authKey: 'key'
+      },
+      forceVerbose: true,
+      exclusions:['.DS_Store', 'favicon.ico','screenshot.png', 'img', 'lib','.gitignore']
     };
 
     return obj;
@@ -103,7 +105,3 @@ module.exports = function (grunt) {
   grunt.registerTask('deploy',  ['ftp-deploy']);
 
 };
-
-
-
-

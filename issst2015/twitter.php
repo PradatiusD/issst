@@ -42,9 +42,7 @@ function twitter_feed() {
  */
 
 	$params = array(
-	  'q' => '#issst2015',
-	  'count' => 10,
-	  'exclude_replies' => true
+	  'q' => '#issst2015'
 	);
 
 	$response = $tw->get('search/tweets', $params);

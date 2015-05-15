@@ -2846,6 +2846,31 @@ body.page-template-team-index-php {
 .site-footer h3 {
   color: white; }
 
+.guidebook-icon {
+  display: inline-block;
+  background: #0e82b9;
+  width: 175px;
+  height: 175px;
+  line-height: 175px;
+  font-size: 5em;
+  border-radius: 100%;
+  margin: 0.3em 10px 0.4em 10px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+  .guidebook-icon:hover {
+    background-color: #0d71a1;
+    -webkit-transform: translate3d(0, -5px, 0);
+    -moz-transform: translate3d(0, -5px, 0);
+    -ms-transform: translate3d(0, -5px, 0);
+    -o-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+  .guidebook-icon i {
+    color: rgba(255, 255, 255, 0.85); }
+
 .blue {
   color: #26adee; }
 
