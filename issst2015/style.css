@@ -2685,6 +2685,8 @@ nav.navbar-fixed-top a {
   width: 108px;
   background-position: center; }
 
+.navbar-inverse a {
+  font-size: 0.9em; }
 .navbar-inverse .dropdown-menu {
   border: none; }
 
@@ -2870,6 +2872,14 @@ body.page-template-team-index-php {
     transition: all 0.5s ease-in-out; }
   .guidebook-icon i {
     color: rgba(255, 255, 255, 0.85); }
+
+img.guidebook-qr-code {
+  margin: 0 auto; }
+
+table.issst-2015-program > tbody > tr:nth-child(odd) {
+  background: rgba(249, 249, 249, 0.2); }
+table.issst-2015-program tr {
+  border-top-color: rgba(210, 209, 243, 0.33); }
 
 .blue {
   color: #26adee; }

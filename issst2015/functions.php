@@ -92,3 +92,6 @@ add_action('admin_head', 'team_backend_styles');
 
 // Require twitter script
 require_once('twitter.php');
+
+// Require Program Calendar
+require_once('program-calendar.php');

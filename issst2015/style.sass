@@ -77,8 +77,12 @@ $brand-primary: $issstBlue
 	width: 108px
 	background-position: center
 
-.navbar-inverse .dropdown-menu
-	border: none
+.navbar-inverse 
+	a
+		font-size: 0.9em
+
+	.dropdown-menu
+		border: none
 
 body
 	padding-top: 70px
@@ -273,5 +277,15 @@ $guidebook-icon-size: 175px
 	i
 		color: rgba(white, 0.85)
 
+img.guidebook-qr-code
+	margin: 0 auto
+
+table.issst-2015-program
+	> tbody
+		> tr:nth-child(odd)
+			background: rgba(249, 249, 249, 0.2)
+
+	tr
+		border-top-color: rgba(210, 209, 243, 0.33)
 
 @import "../lib/end"

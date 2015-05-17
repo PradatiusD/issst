@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         authKey: 'key'
       },
       forceVerbose: true,
-      exclusions:['.DS_Store', 'favicon.ico','screenshot.png', 'img', 'lib','.gitignore']
+      exclusions:['.DS_Store', 'favicon.ico','screenshot.png', 'img', 'lib','.gitignore', 'TwitterOAuth.php','TwitterException.php']
     };
 
     return obj;
@@ -103,5 +103,8 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.registerTask('default', ['watch']);
   grunt.registerTask('deploy',  ['ftp-deploy']);
+  grunt.registerTask('2014',    ['ftp-deploy:issst']);
+  grunt.registerTask('2015',    ['ftp-deploy:issst2015']);
+  grunt.registerTask('2015sass',    ['sass:issst2015','ftp-deploy:issst2015']);
 
 };

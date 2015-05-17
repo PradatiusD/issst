@@ -30,11 +30,15 @@
         <a href="https://guidebook.com/g/ISSST2015/" class="guidebook-icon"><i class="fa fa-android"></i></a>
         <a href="https://guidebook.com/g/ISSST2015/" class="guidebook-icon"><i class="fa fa-apple"></i></a>
         <a href="https://guidebook.com/guide/36858/" class="guidebook-icon"><i class="fa fa-laptop"></i></a>
+        <p class="h4">Or Download Guidebook & then the ISSST App</p>
+        <img src="<?php echo get_stylesheet_directory_uri()."/img/issst-2015-qr-code-guidebook.png";?>" class="img-responsive guidebook-qr-code">
       </div>
     </div>
 
+    <?php program_calendar();?>
+
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-8">
 
 
         <!-- Our team listing -->
@@ -79,83 +83,84 @@
           else:
             echo '<h2>No Team Members found/h2>';
           endif;
-          ?>
-          
+          ?>        
         </section>
         <br>
+
+
+          <!-- Windmills -->
+        <style>
+          .fan-holder {
+              position: relative;
+              display: inline-block;
+          }
+
+          .pole, .blades {
+            width: 100%;
+            height: auto;
+          }
+
+          .blades {
+              position: absolute;
+          }
+
+          .spinny {
+            -webkit-animation-name: spin;
+            -webkit-animation-duration: 2000ms;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+            -moz-animation-name: spin;
+            -moz-animation-duration: 2000ms;
+            -moz-animation-iteration-count: infinite;
+            -moz-animation-timing-function: linear;
+            -ms-animation-name: spin;
+            -ms-animation-duration: 2000ms;
+            -ms-animation-iteration-count: infinite;
+            -ms-animation-timing-function: linear;
+            
+            animation-name: spin;
+            animation-duration: 2000ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+          }
+
+          @-ms-keyframes spin {
+              from { -ms-transform: rotate(0deg); }
+              to { -ms-transform: rotate(360deg); }
+          }
+          @-moz-keyframes spin {
+              from { -moz-transform: rotate(0deg); }
+              to { -moz-transform: rotate(360deg); }
+          }
+          @-webkit-keyframes spin {
+              from { -webkit-transform: rotate(0deg); }
+              to { -webkit-transform: rotate(360deg); }
+          }
+          @keyframes spin {
+              from {
+                  transform:rotate(0deg);
+              }
+              to {
+                  transform:rotate(360deg);
+              }
+          }
+          </style>
+          <div ng-controller="fanController" class="col-md-12">
+            <span ng-repeat="fan in fans">
+              <span spinning-fan></span>
+            </span>
+          </div> 
+
+          <!-- End Windmills -->
+
+
       </div>
-    </div>
-    <div class="row">
-
-      <!-- Windmills -->
-    <style>
-      .fan-holder {
-          position: relative;
-          display: inline-block;
-      }
-
-      .pole, .blades {
-        width: 100%;
-        height: auto;
-      }
-
-      .blades {
-          position: absolute;
-      }
-
-      .spinny {
-        -webkit-animation-name: spin;
-        -webkit-animation-duration: 2000ms;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-        -moz-animation-name: spin;
-        -moz-animation-duration: 2000ms;
-        -moz-animation-iteration-count: infinite;
-        -moz-animation-timing-function: linear;
-        -ms-animation-name: spin;
-        -ms-animation-duration: 2000ms;
-        -ms-animation-iteration-count: infinite;
-        -ms-animation-timing-function: linear;
-        
-        animation-name: spin;
-        animation-duration: 2000ms;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-      }
-
-      @-ms-keyframes spin {
-          from { -ms-transform: rotate(0deg); }
-          to { -ms-transform: rotate(360deg); }
-      }
-      @-moz-keyframes spin {
-          from { -moz-transform: rotate(0deg); }
-          to { -moz-transform: rotate(360deg); }
-      }
-      @-webkit-keyframes spin {
-          from { -webkit-transform: rotate(0deg); }
-          to { -webkit-transform: rotate(360deg); }
-      }
-      @keyframes spin {
-          from {
-              transform:rotate(0deg);
-          }
-          to {
-              transform:rotate(360deg);
-          }
-      }
-      </style>
-      <div ng-controller="fanController" class="col-md-7">
-        <span ng-repeat="fan in fans">
-          <span spinning-fan></span>
-        </span>
-      </div> 
-
-      <!-- End Windmills -->
       <!-- Begin Twitter Feed -->
-      <div class="col-md-5">
+      <div class="col-md-4">
         <?php twitter_feed();?>      
       </div>
       <!-- End Twitter Feed -->
+
     </div>
   </section>
 </div>
