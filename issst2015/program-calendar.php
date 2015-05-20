@@ -1,9 +1,9 @@
 <?php
 
-function get_start_time($post_id) {
+function get_start_timestamp($post_id) {
   $meta = get_post_meta($post_id);
-  $start_time = $meta['wpcf-event-start-time'][0];
-  return $start_time;
+  $start_timestamp = $meta['wpcf-event-start-time'][0];
+  return $start_timestamp;
 }
 
 function split_posts_by_day_of_start_time($posts) {
@@ -13,7 +13,7 @@ function split_posts_by_day_of_start_time($posts) {
   for ($i=0; $i < count($posts); $i++) {
     $post = $posts[$i];
 
-    $start_time = get_start_time($post->ID);
+    $start_time = get_start_timestamp($post->ID);
 
     $day = strtotime("midnight", $start_time);
     $day_exists = array_key_exists($day, $program);
@@ -43,11 +43,14 @@ function remove_redundant_am_pm ($timestring) {
   return $timestring;
 }
 
+
 function display_event_of_day($day) {
+
   ob_start();
     foreach ($day as $event) {
 
-      $meta = get_post_meta($event->ID);
+      $event_id = $event->ID;
+      $meta = get_post_meta($event_id);
 
       $start_timestamp = $meta['wpcf-event-start-time'][0];
       $start_time = format_time_into_human_readable_hour_time($start_timestamp);
@@ -58,18 +61,37 @@ function display_event_of_day($day) {
 
       $time = remove_redundant_am_pm($start_time . "–" . $end_time);
 
-      $title = get_the_title($event->ID);
+      $title = get_the_title($event_id);
       $authors = $event->post_content;
       $location = $meta['wpcf-event-location'][0];
 
+      $track_name = wp_get_post_terms($event_id, 'event-track');
+      $track_name = $track_name[0]->name;
+
+      $paper_link = $meta['wpcf-paper-pdf-link'][0];
+
+      $post_terms = wp_get_post_terms( $event_id, 'topic');
+      $taxonomy = $post_terms[0]->name;
+      $icon = $post_terms[0]->description;
+
       ?>
 
-      <tr>
+      <tr class="track-<?php echo $track_name;?>">
         <td data-start-time="<?php echo $start_timestamp;?>" data-end-time="<?php echo $end_timestamp;?>">
           <?php echo $time;?>
+          <aside class="hidden">
+            <div class="text-center">
+              <i class="fa fa-<?php echo $icon;?>"></i>
+            </div>
+            <p class="h3" style="margin-top: 0.5em;"><?php echo $taxonomy;?></p>
+            <p class="h5">Track <?php echo $track_name;?></p>
+          </aside>
         </td>
         <td>
-          <span class="h4" style="color: rgba(255, 255, 255, 0.8);"><?php echo $title;?></span><br>
+          <a class="h4" style="color: rgba(255, 255, 255, 0.8);" href="<?php echo $paper_link;?>" target="_blank">
+          <?php echo $title;?>
+          </a>
+          <br>
           <small style="color:rgba(255, 255, 255, 0.61);"><?php echo $authors;?></small>
         </td>
         <td><?php echo $location;?></td>
@@ -125,7 +147,7 @@ function program_calendar() {
 
   <!-- End Custom Events Calendar -->
 
-
   <?php
   echo ob_get_clean();
+  wp_enqueue_script('calendar-formatter',  get_stylesheet_directory_uri()."/js/calendar-formatter.js", array('jquery'), '1.0.0', $true);
 }

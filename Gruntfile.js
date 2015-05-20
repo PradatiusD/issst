@@ -1,4 +1,4 @@
-var sites = ['issst','issst2015'];
+var sites = ['issst','issst2015','issst2016'];
 
 module.exports = function (grunt) {
   var assets = grunt.file.readJSON('bower.json').assets;
@@ -104,7 +104,14 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['watch']);
   grunt.registerTask('deploy',  ['ftp-deploy']);
   grunt.registerTask('2014',    ['ftp-deploy:issst']);
-  grunt.registerTask('2015',    ['ftp-deploy:issst2015']);
-  grunt.registerTask('2015sass',    ['sass:issst2015','ftp-deploy:issst2015']);
+
+  for (var i = 1; i < sites.length; i++) {
+
+    var withoutISSST = sites[i].replace('issst','');
+    var deploySequence = 'ftp-deploy:'+sites[i];
+
+    grunt.registerTask(withoutISSST,    [deploySequence]);
+    grunt.registerTask(withoutISSST+'sass',['sass:'+sites[i],deploySequence]);
+  }
 
 };

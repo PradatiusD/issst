@@ -13,13 +13,13 @@
 @import "../lib/global"
 
 // Colors
-$issstGreen: #6cbe45
-$issstBlue: #26adee
-$issstLightBlue: lighten($issstBlue, 35%)
-$issstWhiteBlue: lighten($issstBlue, 70%)
-$issstDarkBlue:   darken($issstBlue, 15%)
-$issstBlackBlue:  darken($issstBlue, 40%)
-$issstDarKGreen:  darken($issstGreen, 20%)
+$issstPrimary: #6cbe45 // light green
+$issstSecondary: #26adee // light blue
+$issstLightBlue: lighten($issstPrimary, 35%)
+$issstWhiteBlue: lighten($issstPrimary, 70%)
+$issstDarkBlue:   darken($issstPrimary, 15%)
+$issstBlackBlue:  darken($issstPrimary, 40%)
+$issstDarKGreen:  darken($issstPrimary, 20%)
 $fadedWhite: #F8F8F8
 
 // Footer
@@ -33,41 +33,41 @@ $headings-color:         $issstDarkBlue
 
 
 $text-color: $issstBlackBlue
-$link-color: $issstGreen
-$link-hover-color: $issstGreen
+$link-color: $issstPrimary
+$link-hover-color: $issstPrimary
 $font-size-base: 17px
 
 
 $navbar-height: 66px
-$navbar-inverse-bg:             $issstBlue
+$navbar-inverse-bg:             $issstPrimary
 $navbar-inverse-color:          $issstWhiteBlue
 $navbar-inverse-link-color:     $issstWhiteBlue
-$navbar-inverse-border:         $issstBlue
+$navbar-inverse-border:         $issstPrimary
 $navbar-inverse-link-active-bg: $issstDarkBlue
-$navbar-inverse-link-hover-bg:  $issstGreen
+$navbar-inverse-link-hover-bg:  $issstPrimary
 
-$navbar-inverse-toggle-hover-bg:     $issstGreen
+$navbar-inverse-toggle-hover-bg:     $issstPrimary
 $navbar-inverse-toggle-icon-bar-bg:  $issstWhiteBlue
 $navbar-inverse-toggle-border-color: $issstWhiteBlue
 
 
-$dropdown-bg:                    $issstGreen
+$dropdown-bg:                    $issstPrimary
 $dropdown-border:                rgba(0,0,0,.15)
 $dropdown-fallback-border:       #ccc
 $dropdown-divider-bg:            #e5e5e5
 
 $dropdown-link-color:            $issstWhiteBlue
-$dropdown-link-hover-color:      lighten($issstGreen,  25%)
-$dropdown-link-hover-bg:         darken($issstGreen,   15%)
+$dropdown-link-hover-color:      lighten($issstPrimary,  25%)
+$dropdown-link-hover-bg:         darken($issstPrimary,   15%)
 
-$dropdown-link-active-color:     lighten($issstGreen,  25%)
-$dropdown-link-active-bg:        darken($issstGreen,   15%)
+$dropdown-link-active-color:     lighten($issstPrimary,  25%)
+$dropdown-link-active-bg:        darken($issstPrimary,   15%)
 
 $border-radius-base:  4px
 $border-radius-large: 6px
 $border-radius-small: 3px
 
-$brand-primary: $issstBlue
+$brand-primary: $issstPrimary
 
 .navbar-brand
 	background: url("http://issst2015.net/wp-content/themes/issst2015/img/navbar-logo.png")
@@ -113,7 +113,7 @@ section.sidebar
 			&.tweet
 				margin-bottom: 0px
 			a
-				color: $issstGreen
+				color: $issstPrimary
 
 // Homepage
 
@@ -128,7 +128,7 @@ body.home
 		margin: 0em auto 2em
 		width: 194px
 		text-align: center
-		background: $issstGreen
+		background: $issstPrimary
 		color: $fadedWhite
 		padding: 0.75em 1em
 		font-weight: 400
@@ -138,7 +138,7 @@ body.home
 		&:hover
 			+transition (all 0.4s ease-in-out)
 			text-decoration: none
-			background: $issstBlue
+			background: $issstPrimary
 			color: $issstWhiteBlue
 
 	.twitterFeed
@@ -210,7 +210,7 @@ body.page-template-team-index-php
 			padding: 0 8px
 			width: 100%
 			height: 100%
-			background: rgba($issstBlue, 0.66)
+			background: rgba($issstPrimary, 0.66)
 			color: #FFF
 			opacity: 0
 			+transition (opacity 0.3s ease-in-out)
@@ -228,18 +228,18 @@ body.page-template-team-index-php
 		border-radius: 1em
 
 .homeBlue
-	background: $issstBlue
+	background: $issstPrimary
 
 	a
-		color: lighten($issstGreen, 20%)
+		color: lighten($issstPrimary, 20%)
 		&:hover
-			color: $issstGreen
+			color: $issstPrimary
 
 	h1, p, &
-		color: lighten($issstBlue, 40%)
+		color: lighten($issstPrimary, 40%)
 
 	.text-muted
-		color: lighten($issstBlue, 30%)
+		color: lighten($issstPrimary, 30%)
 
 	img.twit-media, img.twit-img
 		border-radius: 1em
@@ -281,11 +281,27 @@ img.guidebook-qr-code
 	margin: 0 auto
 
 table.issst-2015-program
-	> tbody
-		> tr:nth-child(odd)
-			background: rgba(249, 249, 249, 0.2)
 
 	tr
 		border-top-color: rgba(210, 209, 243, 0.33)
 
+		&.track-1 //green
+			background-color: rgba(31, 161, 31, 0.63)
+		&.track-2 //blue
+			background-color: rgba(45, 31, 176, 0.35)
+		&.track-3 //red
+			background-color: rgba(190, 26, 26, 0.59)
+		&.track-Fourspace //orange
+			background-color: rgba(169, 112, 6, 0.7)
+
+	.fa
+		display: inline-block
+		text-align: center
+		font-size: 50px
+		background: rgba(255, 255, 255, 0.2)
+		line-height: 100px
+		margin-top: 10px
+		width: 100px
+		height: 100px
+		border-radius: 100%
 @import "../lib/end"

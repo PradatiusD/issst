@@ -2936,10 +2936,10 @@ body.home {
         filter: grayscale(0%); }
 
 .blue {
-  color: #16356E; }
+  color: #5CB85C; }
 
 .green {
-  color: #5CB85C; }
+  color: #16356E; }
 
 .navbar-inverse .dropdown-menu {
   margin-top: -1px !important; }
@@ -2962,7 +2962,7 @@ a {
     text-decoration: none; }
 
 footer {
-  background: #5CB85C;
+  background: #16356E;
   padding-top: 1em;
   color: #FFF;
   font-weight: 200;
@@ -2976,7 +2976,7 @@ footer {
     margin-top: 0; }
 
 .alt-footer {
-  background: #16356E;
+  background: #5CB85C;
   border-top: 10px solid #218152; }
   .alt-footer ul {
     padding: 1em 0; }
@@ -2990,7 +2990,7 @@ footer {
         -moz-transition: color 0.5s ease-out;
         transition: color 0.5s ease-out; }
         .alt-footer ul li a:hover {
-          color: #5CB85C; }
+          color: #16356E; }
 
 * {
   margin: 0; }
