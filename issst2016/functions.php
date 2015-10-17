@@ -1,6 +1,8 @@
 <?php
-//* Start the engine
+//* Start the Genesis engine
+
 include_once( get_template_directory() . '/lib/init.php' );
+
 if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
   // For Debugging on Localhost
   error_reporting(E_ALL);
@@ -13,6 +15,7 @@ if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
   }
   add_action( 'wp_enqueue_scripts', 'local_livereload');
 }
+
 //* Add HTML5 markup structure
 add_theme_support('html5', array('search-form','comment-form','comment-list'));
 
@@ -33,6 +36,8 @@ wp_enqueue_script('bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bo
 
 
 add_filter( 'wp_nav_menu_items', 'navigation_social_links', 10, 2 );
+
+
 //* Add button to open and close social links
 function bootstrap_hamburger_icon() {
     ob_start();?>
@@ -45,6 +50,8 @@ function bootstrap_hamburger_icon() {
   <?php
   echo ob_get_clean();
 }
+
+
 add_action( 'genesis_site_description', 'bootstrap_hamburger_icon', 10, 2 );
 function add_bootstrap_mobile_classes($nav_output, $nav, $args) {
 	$output = str_replace('nav-primary', 'nav-primary navbar-collapse collapse', $nav_output);
@@ -58,6 +65,15 @@ add_action( 'genesis_header_right',    'genesis_do_nav' );
 
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Miami Science Barge Child Theme' );
-define( 'CHILD_THEME_URL', 'http://github.com/PradatiusD/scienceBarge' );
+define( 'CHILD_THEME_NAME', 'ISSST 2016 Conference Height' );
+define( 'CHILD_THEME_URL', 'http://github.com/PradatiusD/issst' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
+
+
+// Custom fonts
+function custom_fonts() {
+  wp_enqueue_style('custom_fonts','//fonts.googleapis.com/css?family=Droid+Sans:400,700|Oswald:400,700', array(), '1.0');
+  wp_enqueue_style('ion_icons',   'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',  array(), '2.0.1');
+}
+
+add_action('wp_enqueue_scripts','custom_fonts');

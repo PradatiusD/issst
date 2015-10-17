@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         '.DS_Store',
         'favicon.ico',
         'screenshot.png',
-        'img',
+        // 'img',
         'lib',
         '.gitignore',
         'TwitterOAuth.php',
@@ -74,10 +74,13 @@ module.exports = function (grunt) {
     };
 
     var styleFilePath = siteFolder+"/style";
+    obj[siteFolder].options = {sourcemap: "none"};
     obj[siteFolder].files[styleFilePath+".css"] = styleFilePath+".sass";
 
     return obj;
   }, {});
+
+  config.sass = {};
 
 
   config.watch = {};
@@ -110,7 +113,10 @@ module.exports = function (grunt) {
 
   grunt.initConfig(config);
 
-  require('load-grunt-tasks')(grunt);
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.registerTask('default', ['watch']);
   grunt.registerTask('deploy',  ['ftp-deploy']);
   grunt.registerTask('2014',    ['ftp-deploy:issst']);

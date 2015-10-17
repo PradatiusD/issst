@@ -10,31 +10,71 @@
  * Text Domain:  issst-child
  */
 
-// @import "../bower_components/animate.scss/animate"
-// @import "../bower_components/bourbon/app/assets/stylesheets/bourbon"
-// @import "../bower_components/maximage/lib/css/jquery.maximage"
-// @import "../bower_components/sass-mediaqueries/media-queries"
+// sass --watch issst2016/style.sass:issst2016/style.css
+
+@import "../bower_components/animate.scss/animate"
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon"
+@import "../bower_components/sass-mediaqueries/media-queries"
 
 
-// // Colors
-// $issstPrimary: #402168 // purple
-// $issstSecondary: #C22C8C // pink
-// $issstLightBlue: lighten($issstPrimary, 35%)
-// $issstWhiteBlue: lighten($issstPrimary, 70%)
-// $issstDarkBlue:   darken($issstPrimary, 15%)
-// $issstBlackBlue:  darken($issstPrimary, 40%)
-// $issstDarKGreen:  darken($issstPrimary, 20%)
-// $fadedWhite: #F8F8F8
+// Colors
+$brand-primary: #402168   // purple
+$secondary: #C22C8C // pink
 
-// // Footer
-// $footer-height: 100px
+// Bootstrap Modifications
+$font-family-sans-serif: "Droid Sans", $helvetica
+$headings-font-family:   "Oswald", $font-family-sans-serif
+$headings-font-weight:   400
 
-// // Bootstrap Modifications
-// $font-family-sans-serif: "Droid Sans", $helvetica
-// $headings-font-family:   "Oswald", $font-family-sans-serif
-// $headings-font-weight:   400
-// $headings-color:         $issstDarkBlue
 
+/* Homepage */
+.home
+  .site-header
+    display: none
+
+$arizona-state: 500px
+
+.conference-header
+  position: relative
+  background: url('img/2015_slices.jpg')
+  background-position: center
+  background-size: cover
+  min-height: 800px
+
+  .arizona-state
+    position: absolute
+    top: 50%
+    left: 50%
+    height: $arizona-state
+    width:  $arizona-state
+    margin-top:  -$arizona-state/2
+    margin-left: -$arizona-state/2
+    background: url("img/arizona-state.png")
+    background-position: center
+    background-size: 100% auto
+
+  article
+    position: relative
+    height: 80%
+    top: 10%
+    width: 50%
+    left: 29%
+    color: $brand-primary
+    text-align: right
+
+    h1
+      font-size: 7em
+
+.call-for-papers
+  padding: 3em 0
+  background: url('img/call_paper_pattern.png')
+
+  .ion-earth
+    text-align: center
+    display: block
+    font-size: 19em
+    color: $brand-primary
+    @include radial-gradient(rgba(255, 255, 255, 0.76),  rgba(236, 235, 232, 0.06))
 
 // $text-color: $issstBlackBlue
 // $link-color: $issstPrimary
@@ -72,13 +112,22 @@
 // $border-radius-small: 3px
 
 // body
-// 	padding-top: 70px
+//  padding-top: 70px
 
 // .alt-footer
-// 	border-top-color: #812121 !important
+//  border-top-color: #812121 !important
 
-// .site-footer
-// 	img
-// 		display: none
+.site-footer
+  @include linear-gradient(40deg, $brand-primary, $secondary)
+  text-align: center
+  color: white
+  border-top: 3px solid #DCDCDC
+
+  p
+    padding: 1em
+  a
+    color: white
+    text-decoration: underline
+
 
 @import "../bower_components/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap"
