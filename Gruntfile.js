@@ -40,7 +40,16 @@ module.exports = function (grunt) {
         authKey: 'key'
       },
       forceVerbose: true,
-      exclusions:['.DS_Store', 'favicon.ico','screenshot.png', 'img', 'lib','.gitignore', 'TwitterOAuth.php','TwitterException.php']
+      exclusions:[
+        '.DS_Store',
+        'favicon.ico',
+        'screenshot.png',
+        'img',
+        'lib',
+        '.gitignore',
+        'TwitterOAuth.php',
+        'TwitterException.php'
+       ]
     };
 
     return obj;
@@ -69,6 +78,7 @@ module.exports = function (grunt) {
 
     return obj;
   }, {});
+
 
   config.watch = {};
 
@@ -105,13 +115,11 @@ module.exports = function (grunt) {
   grunt.registerTask('deploy',  ['ftp-deploy']);
   grunt.registerTask('2014',    ['ftp-deploy:issst']);
 
-  for (var i = 1; i < sites.length; i++) {
-
-    var withoutISSST = sites[i].replace('issst','');
-    var deploySequence = 'ftp-deploy:'+sites[i];
+  sites.forEach(function (site) {
+    var withoutISSST = site.replace('issst','');
+    var deploySequence = 'ftp-deploy:'+site;
 
     grunt.registerTask(withoutISSST,    [deploySequence]);
-    grunt.registerTask(withoutISSST+'sass',['sass:'+sites[i],deploySequence]);
-  }
-
+    grunt.registerTask(withoutISSST+'sass',['sass:'+site,deploySequence]);
+  });
 };
