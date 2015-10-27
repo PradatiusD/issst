@@ -18,40 +18,66 @@
 
 
 // Colors
-$brand-primary: #402168   // purple
-$secondary: #C22C8C // pink
+$brand-primary: #402168 // purple
+$secondary:     #C22C8C // pink
 
 // Bootstrap Modifications
-$font-family-sans-serif: "Droid Sans", $helvetica
-$headings-font-family:   "Oswald", $font-family-sans-serif
+$font-family-sans-serif: "Merriweather", $helvetica
+$headings-font-family:   "Montserrat", $font-family-sans-serif
 $headings-font-weight:   400
 
-
 /* Homepage */
+
 .home
   .site-header
     display: none
 
-$arizona-state: 500px
-
 .conference-header
   position: relative
-  background: url('img/2015_slices.jpg')
-  background-position: center
-  background-size: cover
-  min-height: 800px
+  background: url('img/issst-people-header.jpg')
+  background-size: 100% auto
+  background-position: top center
+  background-attachment: fixed
+  background-repeat: no-repeat
+  min-height: 1000px
 
-  .arizona-state
+  .message
     position: absolute
-    top: 50%
-    left: 50%
-    height: $arizona-state
-    width:  $arizona-state
-    margin-top:  -$arizona-state/2
-    margin-left: -$arizona-state/2
-    background: url("img/arizona-state.png")
-    background-position: center
-    background-size: 100% auto
+    left: 6.75%
+    top: 50%    
+    +transform(translateY(-50%))
+
+  .headline, .tagline
+    color: white
+    display: inline-block
+
+  .headline
+    background: rgba($brand-primary,0.8)
+    padding: 0.125em 0.25em
+    font-size: 8em
+
+  .tagline
+    background: rgba($secondary,0.8)
+    font-style: italic
+    font-weight: 300
+    padding: 0.35em 1em 0.35em 0.85em
+    font-size: 3em  
+
+
+
+$arizona-state: 500px
+
+.arizona-state
+  position: absolute
+  top: 50%
+  left: 50%
+  height: $arizona-state
+  width:  $arizona-state
+  margin-top:  -$arizona-state/2
+  margin-left: -$arizona-state/2
+  background: url("img/arizona-state.png")
+  background-position: center
+  background-size: 100% auto
 
   article
     position: relative
@@ -62,8 +88,8 @@ $arizona-state: 500px
     color: $brand-primary
     text-align: right
 
-    h1
-      font-size: 7em
+  h1
+    font-size: 7em
 
 .call-for-papers
   padding: 3em 0

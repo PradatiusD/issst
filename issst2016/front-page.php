@@ -3,15 +3,11 @@
 function homepage_header (){
   ?>
   <section class="conference-header">
-    <div class="arizona-state">
-      <article>
-        <h1>ISSST 2016</h1>
-        <h3>17-19 May in Phoenix, AZ</h3>
-        <address>
-          <strong>Rennaisance Hotel</strong><br>
-          50 E Adams St, Phoenix, AZ 85004
-        </address>
-      </article>        
+    <div class="message">
+      <h1 class="headline">ISSST</h1><br>
+      <p class="tagline">
+        where experts co-create knowledge<br>
+        of sustainable technology systems</p>      
     </div>
   </section>
   <?php
@@ -26,7 +22,7 @@ function call_for_papers () {
         <aside class="col-md-3">
           <i class="ion-earth"></i>
         </aside>
-        <article class="col-md-9" style="font-size:1.3em;">
+        <article class="col-md-9">
           <p class="h1">Call for Contributions</p>
           <p class="lead"> Please submit abstracts for presentations, posters, papers, panels and workshops describing research, applications, tools, and case studies.</p>
           <p>Students are especially encouraged to attend and to participate in student paper and poster competitions with monetary awards, judged by leading academics and researchers.</p>
@@ -43,6 +39,7 @@ function call_for_papers () {
               Contact ISSSTNetwork@gmail.com
             </a>
           </p>
+
         </article>
       </div>
     </div>

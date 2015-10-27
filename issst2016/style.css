@@ -2547,22 +2547,47 @@
 
 .conference-header {
   position: relative;
-  background: url("img/2015_slices.jpg");
-  background-position: center;
-  background-size: cover;
-  min-height: 800px; }
-  .conference-header .arizona-state {
+  background: url("img/issst-people-header.jpg");
+  background-size: 100% auto;
+  background-position: top center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 1000px; }
+  .conference-header .message {
     position: absolute;
+    left: 6.75%;
     top: 50%;
-    left: 50%;
-    height: 500px;
-    width: 500px;
-    margin-top: -250px;
-    margin-left: -250px;
-    background: url("img/arizona-state.png");
-    background-position: center;
-    background-size: 100% auto; }
-  .conference-header article {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .conference-header .headline, .conference-header .tagline {
+    color: white;
+    display: inline-block; }
+  .conference-header .headline {
+    background: rgba(64, 33, 104, 0.8);
+    padding: 0.125em 0.25em;
+    font-size: 8em; }
+  .conference-header .tagline {
+    background: rgba(194, 44, 140, 0.8);
+    font-style: italic;
+    font-weight: 300;
+    padding: 0.35em 1em 0.35em 0.85em;
+    font-size: 3em; }
+
+.arizona-state {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 500px;
+  width: 500px;
+  margin-top: -250px;
+  margin-left: -250px;
+  background: url("img/arizona-state.png");
+  background-position: center;
+  background-size: 100% auto; }
+  .arizona-state article {
     position: relative;
     height: 80%;
     top: 10%;
@@ -2570,8 +2595,8 @@
     left: 29%;
     color: #402168;
     text-align: right; }
-    .conference-header article h1 {
-      font-size: 7em; }
+  .arizona-state h1 {
+    font-size: 7em; }
 
 .call-for-papers {
   padding: 3em 0;
@@ -2865,7 +2890,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Merriweather", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -2937,7 +2962,7 @@ hr {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Oswald", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "Merriweather", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.1;
   color: inherit; }

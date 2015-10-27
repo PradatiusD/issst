@@ -72,7 +72,7 @@ define( 'CHILD_THEME_VERSION', '1.0.0' );
 
 // Custom fonts
 function custom_fonts() {
-  wp_enqueue_style('custom_fonts','//fonts.googleapis.com/css?family=Droid+Sans:400,700|Oswald:400,700', array(), '1.0');
+  wp_enqueue_style('custom_fonts','https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,300,300italic|Montserrat:400,700', array(), '1.0');
   wp_enqueue_style('ion_icons',   'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',  array(), '2.0.1');
 }
 
