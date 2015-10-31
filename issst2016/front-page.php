@@ -13,53 +13,47 @@ function homepage_header (){
   <?php
 }
 
-function call_for_papers () {
+function conference_video () {
   ?>
-  <section class="call-for-papers">
-    <div class="container">
-
-      <div class="row">
-        <aside class="col-md-3">
-          <i class="ion-earth"></i>
-        </aside>
-        <article class="col-md-9">
-          <p class="h1">Call for Contributions</p>
-          <p class="lead"> Please submit abstracts for presentations, posters, papers, panels and workshops describing research, applications, tools, and case studies.</p>
-          <p>Students are especially encouraged to attend and to participate in student paper and poster competitions with monetary awards, judged by leading academics and researchers.</p>
-          <p class="h3">Submit Abstract</p>
-          <p>Abstracts should be about <strong>500 words</strong> and will be reviewed relative to 3 criteria:</p>
-          <ol>
-            <li>Originality.</li>
-            <li>Relevance.</li>
-            <li>Results.</li>
-          </ol>
-
-          <p class="text-center" style="margin-bottom:3em;">
-            <a class="btn btn-primary btn-lg" href="mailto:ISSSTNetwork@gmail.com" target="_blank">
-              Contact ISSSTNetwork@gmail.com
-            </a>
-          </p>
-
-        </article>
+  <div class="skyline-container">
+    <div class="black-overlay">
+      <div class="message">
+        <div class="purple-bg">        
+          <h2>16-18 May 2016<small>Phoenix, AZ</small></h2>
+          <a href="https://www.conftool.net/issst2016/" target="_blank" class="btn btn-primary">
+            <i class="ion-compose"></i> Register for ISSST
+          </a>
+        </div>
       </div>
     </div>
-  </section>
-
+    <video id="my-video" class="video-js" autoplay loop preload width="1278" height="720" poster="<?php echo get_stylesheet_directory_uri();?>/img/video-poster.jpg" data-setup="{}">
+      
+      <source src="<?php echo get_stylesheet_directory_uri();?>/assets/phoenix_skyline.mp4" type='video/mp4'>
+      <!-- <source src="MY_VIDEO.webm" type='video/webm'> -->
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
   <?php
 }
 
 
 
+function register_homepage_video_scripts() {
+  wp_enqueue_script('video-js-ie8' , "http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js", array(), '1.1.0', false);
+  wp_enqueue_style( 'video-js-css' , "http://vjs.zencdn.net/5.0.2/video-js.css"          , array(), '5.0.2', 'all');
+  wp_enqueue_script('video-js-main', "http://vjs.zencdn.net/5.0.2/video.js"              , array(), '5.0.2', true);
+}
 
 
 
-
+add_action('wp_enqueue_scripts', 'register_homepage_video_scripts');
 add_action('genesis_before_loop','homepage_header');
-add_action('genesis_before_loop','call_for_papers');
-
-
-
+add_action('genesis_before_loop','conference_video');
 remove_action( 'genesis_loop', 'genesis_do_loop');
+
 add_filter('genesis_pre_get_option_site_layout','__genesis_return_full_width_content');
 
 

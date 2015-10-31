@@ -19,7 +19,7 @@
 
 // Colors
 $brand-primary: #402168 // purple
-$secondary:     #C22C8C // pink
+$brand-info:    #C22C8C // pink
 
 // Bootstrap Modifications
 $font-family-sans-serif: "Merriweather", $helvetica
@@ -39,7 +39,7 @@ $headings-font-weight:   400
   background-position: top center
   background-attachment: fixed
   background-repeat: no-repeat
-  min-height: 1000px
+  min-height: 768px
 
   .message
     position: absolute
@@ -57,12 +57,48 @@ $headings-font-weight:   400
     font-size: 8em
 
   .tagline
-    background: rgba($secondary,0.8)
+    background: rgba($brand-info,0.8)
     font-style: italic
     font-weight: 300
     padding: 0.35em 1em 0.35em 0.85em
     font-size: 3em  
 
+/* Skyline Video */
+
+.skyline-container
+  position: relative
+
+  .black-overlay
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: 10000
+    background: rgba(0, 0, 0, 0.40)
+
+    .message
+      position: absolute
+      top: 50%
+      left: 25%
+      +transform(translate(-50%, -50%))
+
+    .purple-bg
+      background: rgba($brand-primary, 0.4)
+      padding: 1em 2em
+
+    h2, small
+      color: white
+    h2
+      font-size: 5em
+    small
+      display: block
+
+    .btn
+      @extend .btn-info
+      font-style: italic
+      font-size: 1.5em
+      padding-left: 1em
+      padding-right: 1em
+      border-radius: 0
 
 
 $arizona-state: 500px
@@ -144,7 +180,7 @@ $arizona-state: 500px
 //  border-top-color: #812121 !important
 
 .site-footer
-  @include linear-gradient(40deg, $brand-primary, $secondary)
+  @include linear-gradient(40deg, $brand-primary, $brand-info)
   text-align: center
   color: white
   border-top: 3px solid #DCDCDC

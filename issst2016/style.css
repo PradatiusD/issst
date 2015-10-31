@@ -2552,7 +2552,7 @@
   background-position: top center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  min-height: 1000px; }
+  min-height: 768px; }
   .conference-header .message {
     position: absolute;
     left: 6.75%;
@@ -2575,6 +2575,40 @@
     font-weight: 300;
     padding: 0.35em 1em 0.35em 0.85em;
     font-size: 3em; }
+
+/* Skyline Video */
+.skyline-container {
+  position: relative; }
+  .skyline-container .black-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.4); }
+    .skyline-container .black-overlay .message {
+      position: absolute;
+      top: 50%;
+      left: 25%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+    .skyline-container .black-overlay .purple-bg {
+      background: rgba(64, 33, 104, 0.4);
+      padding: 1em 2em; }
+    .skyline-container .black-overlay h2, .skyline-container .black-overlay small {
+      color: white; }
+    .skyline-container .black-overlay h2 {
+      font-size: 5em; }
+    .skyline-container .black-overlay small {
+      display: block; }
+    .skyline-container .black-overlay .btn {
+      font-style: italic;
+      font-size: 1.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      border-radius: 0; }
 
 .arizona-state {
   position: absolute;
@@ -4615,27 +4649,27 @@ select[multiple].input-lg,
     color: #5cb85c;
     background-color: #fff; }
 
-.btn-info {
+.btn-info, .skyline-container .black-overlay .btn {
   color: #fff;
-  background-color: #5bc0de;
-  border-color: #46b8da; }
-  .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active {
+  background-color: #C22C8C;
+  border-color: #ad277d; }
+  .btn-info:hover, .skyline-container .black-overlay .btn:hover, .btn-info:focus, .skyline-container .black-overlay .btn:focus, .btn-info:active, .skyline-container .black-overlay .btn:active, .btn-info.active, .skyline-container .black-overlay .active.btn {
     color: #fff;
-    background-color: #39b3d7;
-    border-color: #269abc; }
-  .open .btn-info.dropdown-toggle {
+    background-color: #a12474;
+    border-color: #7b1c59; }
+  .open .btn-info.dropdown-toggle, .open .skyline-container .black-overlay .dropdown-toggle.btn, .skyline-container .black-overlay .open .dropdown-toggle.btn {
     color: #fff;
-    background-color: #39b3d7;
-    border-color: #269abc; }
-  .btn-info:active, .btn-info.active {
+    background-color: #a12474;
+    border-color: #7b1c59; }
+  .btn-info:active, .skyline-container .black-overlay .btn:active, .btn-info.active, .skyline-container .black-overlay .active.btn {
     background-image: none; }
-  .open .btn-info.dropdown-toggle {
+  .open .btn-info.dropdown-toggle, .open .skyline-container .black-overlay .dropdown-toggle.btn, .skyline-container .black-overlay .open .dropdown-toggle.btn {
     background-image: none; }
-  .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled]:active, .btn-info[disabled].active, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info.active {
-    background-color: #5bc0de;
-    border-color: #46b8da; }
-  .btn-info .badge {
-    color: #5bc0de;
+  .btn-info.disabled, .skyline-container .black-overlay .disabled.btn, .btn-info.disabled:hover, .skyline-container .black-overlay .disabled.btn:hover, .btn-info.disabled:focus, .skyline-container .black-overlay .disabled.btn:focus, .btn-info.disabled:active, .skyline-container .black-overlay .disabled.btn:active, .btn-info.disabled.active, .skyline-container .black-overlay .disabled.active.btn, .btn-info[disabled], .skyline-container .black-overlay [disabled].btn, .btn-info[disabled]:hover, .skyline-container .black-overlay [disabled].btn:hover, .btn-info[disabled]:focus, .skyline-container .black-overlay [disabled].btn:focus, .btn-info[disabled]:active, .skyline-container .black-overlay [disabled].btn:active, .btn-info[disabled].active, .skyline-container .black-overlay [disabled].active.btn, fieldset[disabled] .btn-info, fieldset[disabled] .skyline-container .black-overlay .btn, .skyline-container .black-overlay fieldset[disabled] .btn, fieldset[disabled] .btn-info:hover, fieldset[disabled] .skyline-container .black-overlay .btn:hover, .skyline-container .black-overlay fieldset[disabled] .btn:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .skyline-container .black-overlay .btn:focus, .skyline-container .black-overlay fieldset[disabled] .btn:focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .skyline-container .black-overlay .btn:active, .skyline-container .black-overlay fieldset[disabled] .btn:active, fieldset[disabled] .btn-info.active, fieldset[disabled] .skyline-container .black-overlay .active.btn, .skyline-container .black-overlay fieldset[disabled] .active.btn {
+    background-color: #C22C8C;
+    border-color: #ad277d; }
+  .btn-info .badge, .skyline-container .black-overlay .btn .badge {
+    color: #C22C8C;
     background-color: #fff; }
 
 .btn-warning {
@@ -6370,9 +6404,9 @@ input[type="button"].btn-block {
     background-color: #449d44; }
 
 .label-info {
-  background-color: #5bc0de; }
+  background-color: #C22C8C; }
   .label-info[href]:hover, .label-info[href]:focus {
-    background-color: #31b0d5; }
+    background-color: #98236e; }
 
 .label-warning {
   background-color: #f0ad4e; }
@@ -6581,7 +6615,7 @@ a.thumbnail.active {
     background-image: linear, 45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent; }
 
 .progress-bar-info {
-  background-color: #5bc0de; }
+  background-color: #C22C8C; }
   .progress-striped .progress-bar-info {
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear, 45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent; }

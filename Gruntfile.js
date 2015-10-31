@@ -45,6 +45,7 @@ module.exports = function (grunt) {
         'favicon.ico',
         'screenshot.png',
         'img',
+        'assets',
         'lib',
         '.gitignore',
         'TwitterOAuth.php',
