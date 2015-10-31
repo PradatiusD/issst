@@ -3,18 +3,10 @@
 
 include_once( get_template_directory() . '/lib/init.php' );
 
-if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
-  // For Debugging on Localhost
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
-  
-  // For live reloading
-  function local_livereload(){
-    wp_register_script('livereload', 'http://localhost:35729/livereload.js', null, false, true);
-    wp_enqueue_script('livereload');    
-  }
-  add_action( 'wp_enqueue_scripts', 'local_livereload');
-}
+//* Child theme definition (do not remove)
+define( 'CHILD_THEME_NAME', 'ISSST 2016 Conference' );
+define( 'CHILD_THEME_URL', 'http://github.com/PradatiusD/issst' );
+define( 'CHILD_THEME_VERSION', '1.0.0' );
 
 //* Add HTML5 markup structure
 add_theme_support('html5', array('search-form','comment-form','comment-list'));
@@ -35,7 +27,28 @@ remove_action('genesis_entry_footer', 'genesis_post_meta');
 wp_enqueue_script('bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-transition-collapse.js', array('jquery'), '3.3.4', true);
 
 
-add_filter( 'wp_nav_menu_items', 'navigation_social_links', 10, 2 );
+// Custom fonts
+function custom_fonts() {
+  wp_enqueue_style('custom_fonts','https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,300,300italic|Montserrat:400,700', array(), '1.0');
+  wp_enqueue_style('ion_icons',   'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',  array(), '2.0.1');
+}
+
+add_action('wp_enqueue_scripts','custom_fonts');
+
+
+
+if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
+  // For Debugging on Localhost
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  
+  // For live reloading
+  function local_livereload(){
+    wp_register_script('livereload', 'http://localhost:35729/livereload.js', null, false, true);
+    wp_enqueue_script('livereload');    
+  }
+  add_action( 'wp_enqueue_scripts', 'local_livereload');
+}
 
 
 //* Add button to open and close social links
@@ -50,30 +63,24 @@ function bootstrap_hamburger_icon() {
   <?php
   echo ob_get_clean();
 }
-
-
 add_action( 'genesis_site_description', 'bootstrap_hamburger_icon', 10, 2 );
+
 function add_bootstrap_mobile_classes($nav_output, $nav, $args) {
 	$output = str_replace('nav-primary', 'nav-primary navbar-collapse collapse', $nav_output);
 	$output = str_replace('<nav','<nav id="navbar"',$output);
 	return $output;
 }
 add_filter( 'genesis_do_nav', 'add_bootstrap_mobile_classes', 10, 3 );
+
 //* Reposition the primary navigation menu
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
 add_action( 'genesis_header_right',    'genesis_do_nav' );
 
 
-//* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'ISSST 2016 Conference Height' );
-define( 'CHILD_THEME_URL', 'http://github.com/PradatiusD/issst' );
-define( 'CHILD_THEME_VERSION', '1.0.0' );
 
 
-// Custom fonts
-function custom_fonts() {
-  wp_enqueue_style('custom_fonts','https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,300,300italic|Montserrat:400,700', array(), '1.0');
-  wp_enqueue_style('ion_icons',   'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',  array(), '2.0.1');
+
+add_filter('genesis_footer_creds_text', 'remove_credits');
+function remove_credits($creds) {
+  return '';
 }
-
-add_action('wp_enqueue_scripts','custom_fonts');

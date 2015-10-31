@@ -2,7 +2,7 @@
 
 function homepage_header (){
   ?>
-  <section class="conference-header">
+  <section id="conf-header" class="conference-header">
     <div class="message">
       <h1 class="headline">ISSST</h1><br>
       <p class="tagline">
@@ -26,8 +26,7 @@ function conference_video () {
         </div>
       </div>
     </div>
-    <video id="my-video" class="video-js" autoplay loop preload width="1278" height="720" poster="<?php echo get_stylesheet_directory_uri();?>/img/video-poster.jpg" data-setup="{}">
-      
+    <video id="my-video" class="video-js" autoplay loop preload poster="<?php echo get_stylesheet_directory_uri();?>/img/video-poster.jpg" data-setup="{}">
       <source src="<?php echo get_stylesheet_directory_uri();?>/assets/phoenix_skyline.mp4" type='video/mp4'>
       <!-- <source src="MY_VIDEO.webm" type='video/webm'> -->
       <p class="vjs-no-js">
@@ -41,15 +40,20 @@ function conference_video () {
 
 
 
-function register_homepage_video_scripts() {
+function homepage_scripts() {
+
+  // For Video
   wp_enqueue_script('video-js-ie8' , "http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js", array(), '1.1.0', false);
   wp_enqueue_style( 'video-js-css' , "http://vjs.zencdn.net/5.0.2/video-js.css"          , array(), '5.0.2', 'all');
   wp_enqueue_script('video-js-main', "http://vjs.zencdn.net/5.0.2/video.js"              , array(), '5.0.2', true);
+
+  // For Resizing
+  wp_enqueue_script('homepage-js',  get_stylesheet_directory_uri() . '/js/homepage.js' , array('jquery'), '1.0.0', true);  
 }
 
 
 
-add_action('wp_enqueue_scripts', 'register_homepage_video_scripts');
+add_action('wp_enqueue_scripts', 'homepage_scripts');
 add_action('genesis_before_loop','homepage_header');
 add_action('genesis_before_loop','conference_video');
 remove_action( 'genesis_loop', 'genesis_do_loop');

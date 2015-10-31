@@ -21,15 +21,67 @@
 $brand-primary: #402168 // purple
 $brand-info:    #C22C8C // pink
 
+$navbar-inverse-bg: $brand-primary
+$navbar-inverse-color: white
+$navbar-inverse-link-color: white
+
 // Bootstrap Modifications
 $font-family-sans-serif: "Merriweather", $helvetica
 $headings-font-family:   "Montserrat", $font-family-sans-serif
 $headings-font-weight:   400
 
+/* Grid */
+
+.site-inner, .title-area
+  @extend .container
+
+  .content-sidebar-wrap
+    @extend .row
+
+    .content
+      @extend .col-md-9
+
+    .sidebar
+      @extend .col-md-3
+
+
+/* Navigation */
+.nav-primary
+  @extend .navbar-inverse
+
+  .wrap
+    @extend .container
+
+  .genesis-nav-menu
+    @extend .nav
+    @extend .navbar-nav
+
+
+h1.site-title
+  font-size: 4.5em
+
+h2.site-description
+  font-family: $font-family-sans-serif
+  font-style: italic
+  font-size: 1.5em
+  margin-top: 0
+  @extend .text-muted
+
+/* Main Posts */
+
+.entry-content
+  font-size: 1.1em
+
 /* Homepage */
 
 .home
-  .site-header
+  .site-inner, .content-sidebar-wrap, .content, .sidebar
+    float: none
+    width: 100% !important
+    margin: 0 !important
+    padding: 0 !important
+
+  .site-header, .nav-secondary, .nav-primary 
     display: none
 
 .conference-header
@@ -46,6 +98,11 @@ $headings-font-weight:   400
     left: 6.75%
     top: 50%    
     +transform(translateY(-50%))
+
+    +screen(481px,813px)
+      font-size: 0.66em
+    +max-screen(480px)
+      font-size: 0.4em
 
   .headline, .tagline
     color: white
@@ -68,6 +125,10 @@ $headings-font-weight:   400
 .skyline-container
   position: relative
 
+  .vjs-tech
+    width: 100% !important
+    height: 100% !important
+
   .black-overlay
     position: absolute
     width: 100%
@@ -78,12 +139,17 @@ $headings-font-weight:   400
     .message
       position: absolute
       top: 50%
-      left: 25%
-      +transform(translate(-50%, -50%))
+      +transform(translateY(-50%))
+      +screen(480px, 640px)
+        font-size: 0.66em
+      +max-screen(480px)
+        font-size: 0.5em
+
 
     .purple-bg
       background: rgba($brand-primary, 0.4)
       padding: 1em 2em
+      margin-left: 2em
 
     h2, small
       color: white
@@ -138,46 +204,40 @@ $arizona-state: 500px
     color: $brand-primary
     @include radial-gradient(rgba(255, 255, 255, 0.76),  rgba(236, 235, 232, 0.06))
 
-// $text-color: $issstBlackBlue
-// $link-color: $issstPrimary
-// $link-hover-color: $issstPrimary
-// $font-size-base: 17px
 
+/* Image Alignment Classes */
 
-// $navbar-height: 66px
-// $navbar-inverse-bg:             $issstPrimary
-// $navbar-inverse-color:          $issstWhiteBlue
-// $navbar-inverse-link-color:     $issstWhiteBlue
-// $navbar-inverse-border:         $issstPrimary
-// $navbar-inverse-link-active-bg: $issstDarkBlue
-// $navbar-inverse-link-hover-bg:  $issstPrimary
+.aligncenter img
+  display: block
+  margin: 0 auto
 
-// $navbar-inverse-toggle-hover-bg:     $issstPrimary
-// $navbar-inverse-toggle-icon-bar-bg:  $issstWhiteBlue
-// $navbar-inverse-toggle-border-color: $issstWhiteBlue
+.alignnone
+  display: inline-block
 
+.alignleft
+  float: left
+  text-align: left
 
-// $dropdown-bg:                    $issstPrimary
-// $dropdown-border:                rgba(0,0,0,.15)
-// $dropdown-fallback-border:       #ccc
-// $dropdown-divider-bg:            #e5e5e5
+.alignleft, img.alignleft, .wp-caption.alignleft
+  margin: 0 24px 24px 0
 
-// $dropdown-link-color:            $issstWhiteBlue
-// $dropdown-link-hover-color:      lighten($issstPrimary,  25%)
-// $dropdown-link-hover-bg:         darken($issstPrimary,   15%)
+.alignright
+  float: right
+  text-align: right
 
-// $dropdown-link-active-color:     lighten($issstPrimary,  25%)
-// $dropdown-link-active-bg:        darken($issstPrimary,   15%)
+.alignright, img.alignright, .wp-caption.alignright
+  margin: 0 0 24px 24px
 
-// $border-radius-base:  4px
-// $border-radius-large: 6px
-// $border-radius-small: 3px
+.alignleft, .alignnone, .alignright
+  max-width: 100%
 
-// body
-//  padding-top: 70px
+img.centered, .aligncenter
+  display: block
+  margin: 0 auto 24px
 
-// .alt-footer
-//  border-top-color: #812121 !important
+img.alignnone, .alignnone
+  margin-bottom: 12px
+
 
 .site-footer
   @include linear-gradient(40deg, $brand-primary, $brand-info)
