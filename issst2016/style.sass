@@ -6,7 +6,7 @@
  * Author URI:   http://github.com/PradatiusD
  * Template:     genesis  
  * Version:      1.0.0
- * Tags:         red, orange, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ * Tags:         purple, pink two-columns, right-sidebar, responsive-layout
  * Text Domain:  issst-child
  */
 
@@ -56,21 +56,53 @@ $headings-font-weight:   400
     @extend .nav
     @extend .navbar-nav
 
+    a
+      font-family: $headings-font-family
+      +transition(background-color 0.25s ease-in-out)
+      &:hover
+        background: lighten($brand-primary, 12.5%) !important
+
+
+  .current-menu-item a span
+    border-bottom: 3px solid $brand-info
+
+
 
 h1.site-title
   font-size: 4.5em
+  margin-top: 2em
+  background: rgba($brand-primary, 0.75)
+  display: inline-block
+  padding: 0.2em
+  a
+    color: white
 
 h2.site-description
+  background: rgba($brand-info, 0.75)
+  display: block
+  max-width: 500px
+  color: #FFF
+  padding: 1em
+
   font-family: $font-family-sans-serif
   font-style: italic
   font-size: 1.5em
   margin-top: 0
-  @extend .text-muted
+
+  a
+    color: white
 
 /* Main Posts */
 
 .entry-content
-  font-size: 1.1em
+  font-size: 1.2em
+
+.entry-title
+  font-size: 3em
+  margin-top: 0.85em
+  margin-bottom: 0.5em
+  border-bottom: 5px solid rgba(110, 33, 104, 0.11)
+  padding-bottom: 0.125em
 
 /* Homepage */
 
@@ -240,16 +272,41 @@ img.alignnone, .alignnone
 
 
 .site-footer
+  padding: 2em 0
   @include linear-gradient(40deg, $brand-primary, $brand-info)
-  text-align: center
   color: white
-  border-top: 3px solid #DCDCDC
-
-  p
-    padding: 1em
+  border-top: 2px solid #F5F5F5
   a
     color: white
     text-decoration: underline
 
+$footer-social-size: 60px
+
+.footer-social
+  margin: 0
+  a
+    width:       $footer-social-size
+    height:      $footer-social-size
+    font-size:   $footer-social-size * 0.55
+    line-height: $footer-social-size
+    display: inline-block
+    border: 2px solid #F5F5F5
+    border-radius: 100%
+    margin: 0 3px
+    +transition(all 0.25s ease-in-out)
+    &:hover
+      background: white
+      color: $brand-primary
+
+
+.page-id-2
+
+  .site-header 
+    background: url('img/kara-hall-presenting.jpg')
+    background-position: center
+    background-size: cover
+
+    > .wrap
+      +linear-gradient(rgba(255, 255, 255, 0) 50%,  rgba(0, 0, 0, 0.8))
 
 @import "../bower_components/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap"

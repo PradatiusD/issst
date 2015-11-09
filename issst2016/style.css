@@ -6,7 +6,7 @@
  * Author URI:   http://github.com/PradatiusD
  * Template:     genesis  
  * Version:      1.0.0
- * Tags:         red, orange, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ * Tags:         purple, pink two-columns, right-sidebar, responsive-layout
  * Text Domain:  issst-child
  */
 .animated {
@@ -2543,18 +2543,48 @@
 
 /* Grid */
 /* Navigation */
+.nav-primary .genesis-nav-menu a {
+  font-family: "Montserrat", "Merriweather", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-transition: background-color 0.25s ease-in-out;
+  -moz-transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out; }
+  .nav-primary .genesis-nav-menu a:hover {
+    background: #5e3098 !important; }
+.nav-primary .current-menu-item a span {
+  border-bottom: 3px solid #C22C8C; }
+
 h1.site-title {
-  font-size: 4.5em; }
+  font-size: 4.5em;
+  margin-top: 2em;
+  background: rgba(64, 33, 104, 0.75);
+  display: inline-block;
+  padding: 0.2em; }
+  h1.site-title a {
+    color: white; }
 
 h2.site-description {
+  background: rgba(194, 44, 140, 0.75);
+  display: block;
+  max-width: 500px;
+  color: #FFF;
+  padding: 1em;
   font-family: "Merriweather", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
   font-size: 1.5em;
   margin-top: 0; }
+  h2.site-description a {
+    color: white; }
 
 /* Main Posts */
 .entry-content {
-  font-size: 1.1em; }
+  font-size: 1.2em; }
+
+.entry-title {
+  font-size: 3em;
+  margin-top: 0.85em;
+  margin-bottom: 0.5em;
+  border-bottom: 5px solid rgba(110, 33, 104, 0.11);
+  padding-bottom: 0.125em; }
 
 /* Homepage */
 .home .site-inner, .home .content-sidebar-wrap, .home .content, .home .sidebar {
@@ -2713,18 +2743,44 @@ img.alignnone, .alignnone {
   margin-bottom: 12px; }
 
 .site-footer {
+  padding: 2em 0;
   background-color: #402168;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #402168), color-stop(100%, #C22C8C));
   background-image: -webkit-linear-gradient(-310deg, #402168, #C22C8C);
   background-image: linear-gradient(40deg,#402168, #C22C8C);
-  text-align: center;
   color: white;
-  border-top: 3px solid #DCDCDC; }
-  .site-footer p {
-    padding: 1em; }
+  border-top: 2px solid #F5F5F5; }
   .site-footer a {
     color: white;
     text-decoration: underline; }
+
+.footer-social {
+  margin: 0; }
+  .footer-social a {
+    width: 60px;
+    height: 60px;
+    font-size: 33px;
+    line-height: 60px;
+    display: inline-block;
+    border: 2px solid #F5F5F5;
+    border-radius: 100%;
+    margin: 0 3px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out; }
+    .footer-social a:hover {
+      background: white;
+      color: #402168; }
+
+.page-id-2 .site-header {
+  background: url("img/kara-hall-presenting.jpg");
+  background-position: center;
+  background-size: cover; }
+  .page-id-2 .site-header > .wrap {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.8)));
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.8));
+    background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.8)); }
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
@@ -3166,7 +3222,7 @@ cite {
 .text-justify {
   text-align: justify; }
 
-.text-muted, h2.site-description {
+.text-muted {
   color: #999999; }
 
 .text-primary {

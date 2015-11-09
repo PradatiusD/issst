@@ -77,10 +77,23 @@ remove_action( 'genesis_after_header', 'genesis_do_nav' );
 add_action( 'genesis_header_right',    'genesis_do_nav' );
 
 
+// add_filter('genesis_seo_title', 'sp_seo_title', 10, 3);
+// function sp_seo_title($title, $inside, $wrap) {
+//   $inside = sprintf( '<a href="http://www.yourdomain.com" title="%s">%s</a>', esc_attr( get_bloginfo('name') ), get_bloginfo('name') );
+//   $title  = sprintf('<%s id="title">%s</%s>', $wrap, $inside, $wrap);
+//   return $title;
+// }
 
 
 
-add_filter('genesis_footer_creds_text', 'remove_credits');
-function remove_credits($creds) {
-  return '';
+remove_action('genesis_footer', 'genesis_do_footer');
+add_action( 'genesis_footer', 'social_footer_links' );
+function social_footer_links() {
+  ?>
+  <p class="text-center footer-social">
+    <a href="https://twitter.com/issstnetwork" target="_blank"><i class="ion-social-twitter"></i></a>
+    <a href="https://www.facebook.com/issstconference/" target="_blank"><i class="ion-social-facebook"></i></a>
+    <a href="https://www.linkedin.com/grps?home=&gid=4149460" target="_blank"><i class="ion-social-linkedin"></i></a>
+  </p>
+  <?php
 }
