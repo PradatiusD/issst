@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* Theme Name:   ISSST 2016 Conference
  * Theme URI:    http://issst2016.net
- * Description:  The theme for the International Symposium on Sustainable Systems & Technology 2016 website.
+ * Description:  The theme for the International Symposium on Sustainable Systems & Technology 2016 WordPress website.
  * Author:       Daniel Prada
  * Author URI:   http://github.com/PradatiusD
  * Template:     genesis  
@@ -2541,7 +2541,7 @@
   -o-animation-name: wobble;
   animation-name: wobble; }
 
-/* Grid */
+/* Bootstrap + Genesis Grid */
 /* Navigation */
 .nav-primary .genesis-nav-menu a {
   font-family: "Montserrat", "Merriweather", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -2575,7 +2575,7 @@ h2.site-description {
   h2.site-description a {
     color: white; }
 
-/* Main Posts */
+/* Main Post Styling */
 .entry-content {
   font-size: 1.2em; }
 
@@ -2592,8 +2592,30 @@ h2.site-description {
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important; }
-.home .site-header, .home .nav-secondary, .home .nav-primary {
+.home .site-header .title-area {
   display: none; }
+.home .site-header .nav-primary {
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  width: 100%; }
+
+.neural-network {
+  position: relative; }
+  .neural-network h2 {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: left;
+    padding: 1em;
+    font-size: 4em;
+    background: rgba(255, 255, 255, 0.58); }
+  .neural-network .node {
+    stroke: #fff;
+    stroke-width: 1.5px; }
+  .neural-network .link {
+    stroke: #999;
+    stroke-opacity: 0.6; }
 
 .conference-header {
   position: relative;

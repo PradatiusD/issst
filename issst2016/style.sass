@@ -1,7 +1,7 @@
 /*
  * Theme Name:   ISSST 2016 Conference
  * Theme URI:    http://issst2016.net
- * Description:  The theme for the International Symposium on Sustainable Systems & Technology 2016 website.
+ * Description:  The theme for the International Symposium on Sustainable Systems & Technology 2016 WordPress website.
  * Author:       Daniel Prada
  * Author URI:   http://github.com/PradatiusD
  * Template:     genesis  
@@ -30,7 +30,8 @@ $font-family-sans-serif: "Merriweather", $helvetica
 $headings-font-family:   "Montserrat", $font-family-sans-serif
 $headings-font-weight:   400
 
-/* Grid */
+
+/* Bootstrap + Genesis Grid */
 
 .site-inner, .title-area
   @extend .container
@@ -92,7 +93,8 @@ h2.site-description
   a
     color: white
 
-/* Main Posts */
+
+/* Main Post Styling */
 
 .entry-content
   font-size: 1.2em
@@ -113,8 +115,37 @@ h2.site-description
     margin: 0 !important
     padding: 0 !important
 
-  .site-header, .nav-secondary, .nav-primary 
-    display: none
+  .site-header
+
+    .title-area
+      display: none
+
+    .nav-primary
+      position: fixed
+      top: 0
+      z-index: 10000
+      width: 100%
+
+
+.neural-network
+  position: relative
+
+  h2
+    position: absolute
+    top: 40%
+    width: 100%
+    text-align: left
+    padding: 1em
+    font-size: 4em
+    background: rgba(255, 255, 255, 0.58)
+
+  .node
+    stroke: #fff
+    stroke-width: 1.5px
+
+  .link
+    stroke: #999
+    stroke-opacity: .6
 
 .conference-header
   position: relative

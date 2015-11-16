@@ -1,51 +1,33 @@
-(function adjustElements ($) {
+We are a network
 
-	var $confHeader = $('#conf-header');
-	$confHeader.idealRatio = 768/1283;
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
 
-	var $win = $(window);
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
 
-	function adjustHeaderAndVideoSizing (e) {
-		var width = e.target.innerWidth;
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
 
-		$confHeader.css('min-height', width * $confHeader.idealRatio);
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
 
-		var $phoenixSkyline = $('#my-video');
-		$phoenixSkyline.idealRatio = 0.56338028169;  // or 240/426;
+(function () {
 
-		$phoenixSkyline.css({
-			width: width,
-			height: width * $phoenixSkyline.idealRatio
-		});
-	}
+var width = 960,
+    height = 960;
 
+var color = d3.scale.category20();
 
-	// On Initialization
-	adjustHeaderAndVideoSizing({
-		target: {
-			innerWidth: $win.width()
-		}
-	});
-
-	// On Reize
-	$win.resize(adjustHeaderAndVideoSizing);
-
-})(jQuery);
-
-
-
-
-
-(function neuralNetwork() {
-
-var width  = 1283;
-var height = 768;
-
-var colors = d3.scale.category20();
-
-var nodes = [];
-var links = [];
-
+var nodes = [],
+    links = [];
 
 var force = d3.layout.force()
     .nodes(nodes)
@@ -55,11 +37,9 @@ var force = d3.layout.force()
     .size([width, height])
     .on("tick", tick);
 
-var svg = d3.select("#neural-network")
+var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
-
-console.log("yay",svg);
 
 var node = svg.selectAll(".node"),
     link = svg.selectAll(".link");
@@ -95,7 +75,7 @@ function main () {
     };
   }
 
-  if (nodes.length === 45) {
+  if (nodes.length === 40) {
     clearInterval(intervalID);
   }
   
@@ -122,7 +102,7 @@ function start() {
     .append("circle")
     .attr("class", function(d) { return "node " + d.id; })
     .attr("r", 8)
-    .style("fill", function(d) { return colors(d.group); })
+    .style("fill", function(d) { return color(d.group); })
   ;
 
   node.exit().remove();
@@ -141,3 +121,6 @@ function tick() {
 }
 
 })()
+
+
+</script>
