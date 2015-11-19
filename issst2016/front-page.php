@@ -20,7 +20,7 @@ function conference_video () {
       <div class="message">
         <div class="purple-bg">        
           <h2>16-18 May 2016<small>Phoenix, AZ</small></h2>
-          <a href="https://www.conftool.net/issst2016/" target="_blank" class="btn btn-primary">
+          <a href="https://www.regonline.com/ISSST2016" target="_blank" class="btn btn-primary">
             <i class="ion-compose"></i> Register for ISSST
           </a>
         </div>
@@ -43,8 +43,11 @@ function neural_network() {
   <div class="neural-network">
     <svg id="neural-network"></svg>
     <h2>
-      ISSST Builds a growing family<br>
-      of scientists committed to sustainabilty<br>
+      <span>ISSST</span> is a network<br>
+      of <span>scientists</span>, <span>engineers</span>,<br> 
+      <span>artists</span>, & <span>humanists</span><br>
+      committed to creating and sharing<br>
+      knowledge of sustainability
     </h2>
   </div>
   <?php

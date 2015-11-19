@@ -51,19 +51,6 @@ if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
 }
 
 
-//* Add button to open and close social links
-function bootstrap_hamburger_icon() {
-    ob_start();?>
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  <?php
-  echo ob_get_clean();
-}
-add_action( 'genesis_site_description', 'bootstrap_hamburger_icon', 10, 2 );
 
 function add_bootstrap_mobile_classes($nav_output, $nav, $args) {
 	$output = str_replace('nav-primary', 'nav-primary navbar-collapse collapse', $nav_output);
@@ -72,9 +59,28 @@ function add_bootstrap_mobile_classes($nav_output, $nav, $args) {
 }
 add_filter( 'genesis_do_nav', 'add_bootstrap_mobile_classes', 10, 3 );
 
+
+//* Add button to open and close social links
+function genesis_bootstrap_nav() {
+    ob_start();?>
+    <section class="navbar navbar-inverse">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <?php genesis_do_nav();?>      
+    </section>
+  <?php
+  echo ob_get_clean();
+}
+
 //* Reposition the primary navigation menu
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
-add_action( 'genesis_header_right',    'genesis_do_nav' );
+add_action( 'genesis_header_right',    'genesis_bootstrap_nav' );
 
 
 // add_filter('genesis_seo_title', 'sp_seo_title', 10, 3);

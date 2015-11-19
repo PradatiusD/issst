@@ -2594,22 +2594,26 @@ h2.site-description {
   padding: 0 !important; }
 .home .site-header .title-area {
   display: none; }
-.home .site-header .nav-primary {
-  position: fixed;
-  top: 0;
-  z-index: 10000;
-  width: 100%; }
 
 .neural-network {
   position: relative; }
   .neural-network h2 {
     position: absolute;
-    top: 40%;
+    top: 50%;
     width: 100%;
     text-align: left;
     padding: 1em;
-    font-size: 4em;
-    background: rgba(255, 255, 255, 0.58); }
+    font-size: 3em;
+    background: rgba(255, 255, 255, 0.66);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%); }
+    @media screen and (max-width: 480px) {
+      .neural-network h2 {
+        font-size: 1.5em;
+        background: rgba(255, 255, 255, 0.85); } }
   .neural-network .node {
     stroke: #fff;
     stroke-width: 1.5px; }
@@ -2625,6 +2629,9 @@ h2.site-description {
   background-attachment: fixed;
   background-repeat: no-repeat;
   min-height: 768px; }
+  @media screen and (max-width: 480px) {
+    .conference-header {
+      background-position: center 6%; } }
   .conference-header .message {
     position: absolute;
     left: 6.75%;
@@ -4935,8 +4942,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("bootstrap/glyphicons-halflings-regular.eot");
-  src: url("bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("fonts/glyphicons-halflings-regular.eot");
+  src: url("fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("fonts/glyphicons-halflings-regular.woff") format("woff"), url("fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;

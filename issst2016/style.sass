@@ -24,6 +24,7 @@ $brand-info:    #C22C8C // pink
 $navbar-inverse-bg: $brand-primary
 $navbar-inverse-color: white
 $navbar-inverse-link-color: white
+$icon-font-path: "fonts/"
 
 // Bootstrap Modifications
 $font-family-sans-serif: "Merriweather", $helvetica
@@ -120,24 +121,23 @@ h2.site-description
     .title-area
       display: none
 
-    .nav-primary
-      position: fixed
-      top: 0
-      z-index: 10000
-      width: 100%
-
-
 .neural-network
   position: relative
 
   h2
     position: absolute
-    top: 40%
+    top: 50%
     width: 100%
     text-align: left
     padding: 1em
-    font-size: 4em
-    background: rgba(255, 255, 255, 0.58)
+    font-size: 3em
+    background: rgba(white, 0.66)
+    +transform(translateY(-50%))
+
+
+    +max-screen(480px)
+      font-size: 1.5em
+      background: rgba(white, 0.85)
 
   .node
     stroke: #fff
@@ -151,7 +151,11 @@ h2.site-description
   position: relative
   background: url('img/issst-people-header.jpg')
   background-size: 100% auto
+
   background-position: top center
+  +max-screen(480px)
+    background-position: center 6%
+
   background-attachment: fixed
   background-repeat: no-repeat
   min-height: 768px
@@ -166,6 +170,7 @@ h2.site-description
       font-size: 0.66em
     +max-screen(480px)
       font-size: 0.4em
+
 
   .headline, .tagline
     color: white

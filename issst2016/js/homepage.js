@@ -36,16 +36,29 @@
 
 
 
-(function neuralNetwork() {
+(function neuralNetwork($) {
 
-var width  = 1283;
-var height = 768;
+var $body = $('body');
 
-var colors = d3.scale.category20();
+var width  = $body.width();
+var height = parseInt($body.width() * 768/1283);
+
+// If height is less than 480 make the svg square
+height = (height >= 480) ? height: width;
+
+var counter = 0;
+var intervalID;
+
+var colors = ["#402168","#C22C8C","#ECC354","#4571B9","#9F351F"]; // d3.scale.category20();
+
+// Make all <span> in neural network match color
+
+$('.neural-network').find('span').each(function (i){
+  $(this).css('color',colors[i]);
+});
 
 var nodes = [];
 var links = [];
-
 
 var force = d3.layout.force()
     .nodes(nodes)
@@ -59,18 +72,10 @@ var svg = d3.select("#neural-network")
     .attr("width", width)
     .attr("height", height);
 
-console.log("yay",svg);
 
-var node = svg.selectAll(".node"),
-    link = svg.selectAll(".link");
+var node = svg.selectAll(".node")
+var link = svg.selectAll(".link");
 
-// 1. Add three nodes and three links.
-
-
-// file:///Applications/MAMP/htdocs/issst/wp-content/issst/test.html
-
-var counter = 0;
-var intervalID;
 
 function main () {
   counter++;
@@ -107,22 +112,22 @@ intervalID = setInterval(main, 3000);
 
 
 function start() {
-  link = link.data(force.links(), function(d) { return d.source.id + "-" + d.target.id; });
+  link = link.data(force.links(), function (d) { return d.source.id + "-" + d.target.id; });
   link
     .enter()
     .insert("line", ".node")
     .attr("class", "link")
-    .style("stroke-width", function(d) { return Math.sqrt(d.value); })
+    .style("stroke-width", function (d) { return Math.sqrt(d.value); })
   ;
   link.exit().remove();
 
-  node = node.data(force.nodes(), function(d) { return d.id;});
+  node = node.data(force.nodes(), function (d) { return d.id;});
   node
     .enter()
     .append("circle")
-    .attr("class", function(d) { return "node " + d.id; })
-    .attr("r", 8)
-    .style("fill", function(d) { return colors(d.group); })
+    .attr("class", function (d) { return "node " + d.id; })
+    .attr("r",     function (d) { return 8 + d.value;    })
+    .style("fill", function (d) { return colors[d.group];})
   ;
 
   node.exit().remove();
@@ -131,13 +136,13 @@ function start() {
 }
 
 function tick() {
-  node.attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; })
+  node.attr("cx", function (d) { return d.x; })
+      .attr("cy", function (d) { return d.y; })
 
-  link.attr("x1", function(d) { return d.source.x; })
-      .attr("y1", function(d) { return d.source.y; })
-      .attr("x2", function(d) { return d.target.x; })
-      .attr("y2", function(d) { return d.target.y; });
+  link.attr("x1", function (d) { return d.source.x; })
+      .attr("y1", function (d) { return d.source.y; })
+      .attr("x2", function (d) { return d.target.x; })
+      .attr("y2", function (d) { return d.target.y; });
 }
 
-})()
+})(jQuery);

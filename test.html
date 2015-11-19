@@ -24,7 +24,8 @@ We are a network
 var width = 960,
     height = 960;
 
-var color = d3.scale.category20();
+  color = ["#402168","#C22C8C","#ECC354","#4571B9","#9F351F"];
+// var color = d3.scale.category20();
 
 var nodes = [],
     links = [];
@@ -101,8 +102,11 @@ function start() {
     .enter()
     .append("circle")
     .attr("class", function(d) { return "node " + d.id; })
-    .attr("r", 8)
-    .style("fill", function(d) { return color(d.group); })
+    .attr("r", function (d) { console.log(d);return 8 + d.value;})
+    .style("fill", function(d) {
+    console.log(d.group); 
+      return color[d.group]; 
+    })
   ;
 
   node.exit().remove();
