@@ -2543,6 +2543,9 @@
 
 /* Bootstrap + Genesis Grid */
 /* Navigation */
+.header-widget-area .navbar {
+  border-radius: 0; }
+
 .nav-primary .genesis-nav-menu a {
   font-family: "Montserrat", "Merriweather", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-transition: background-color 0.25s ease-in-out;
@@ -2550,9 +2553,14 @@
   transition: background-color 0.25s ease-in-out; }
   .nav-primary .genesis-nav-menu a:hover {
     background: #5e3098 !important; }
-.nav-primary .current-menu-item a span {
+
+.navbar-brand {
+  font-family: "Montserrat", "Merriweather", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.nav-primary .current-menu-item a span, .navbar-brand.current-menu-item span {
   border-bottom: 3px solid #C22C8C; }
 
+/* Page Titel & Description */
 h1.site-title {
   font-size: 4.5em;
   margin-top: 2em;
@@ -2661,83 +2669,11 @@ h2.site-description {
     padding: 0.35em 1em 0.35em 0.85em;
     font-size: 3em; }
 
-/* Skyline Video */
-.skyline-container {
-  position: relative; }
-  .skyline-container .vjs-tech {
-    width: 100% !important;
-    height: 100% !important; }
-  .skyline-container .black-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10000;
-    background: rgba(0, 0, 0, 0.4); }
-    .skyline-container .black-overlay .message {
-      position: absolute;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%); }
-      @media screen and (min-width: 480px) and (max-width: 640px) {
-        .skyline-container .black-overlay .message {
-          font-size: 0.66em; } }
-      @media screen and (max-width: 480px) {
-        .skyline-container .black-overlay .message {
-          font-size: 0.5em; } }
-    .skyline-container .black-overlay .purple-bg {
-      background: rgba(64, 33, 104, 0.4);
-      padding: 1em 2em;
-      margin-left: 2em; }
-    .skyline-container .black-overlay h2, .skyline-container .black-overlay small {
-      color: white; }
-    .skyline-container .black-overlay h2 {
-      font-size: 5em; }
-    .skyline-container .black-overlay small {
-      display: block; }
-    .skyline-container .black-overlay .btn {
-      font-style: italic;
-      font-size: 1.5em;
-      padding-left: 1em;
-      padding-right: 1em;
-      border-radius: 0; }
-
-.arizona-state {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 500px;
-  width: 500px;
-  margin-top: -250px;
-  margin-left: -250px;
-  background: url("img/arizona-state.png");
-  background-position: center;
-  background-size: 100% auto; }
-  .arizona-state article {
-    position: relative;
-    height: 80%;
-    top: 10%;
-    width: 50%;
-    left: 29%;
-    color: #402168;
-    text-align: right; }
-  .arizona-state h1 {
-    font-size: 7em; }
-
-.call-for-papers {
-  padding: 3em 0;
-  background: url("img/call_paper_pattern.png"); }
-  .call-for-papers .ion-earth {
-    text-align: center;
-    display: block;
-    font-size: 19em;
-    color: #402168;
-    background-color: rgba(255, 255, 255, 0.76);
-    background-image: -webkit-gradient(radial, center center, 0, center center, 460, color-stop(0%, rgba(255, 255, 255, 0.76)), color-stop(100%, rgba(236, 235, 232, 0.06)));
-    background-image: -webkit-radial-gradient(rgba(255, 255, 255, 0.76), rgba(236, 235, 232, 0.06));
-    background-image: radial-gradient(  rgba(255, 255, 255, 0.76), rgba(236, 235, 232, 0.06)); }
+.hotel-info {
+  padding: 4em 0;
+  background: url("img/hotel-phoenix.jpg");
+  background-size: cover;
+  background-position: center; }
 
 /* Image Alignment Classes */
 .aligncenter img {
@@ -4801,26 +4737,26 @@ select[multiple].input-lg,
     color: #5cb85c;
     background-color: #fff; }
 
-.btn-info, .skyline-container .black-overlay .btn {
+.btn-info {
   color: #fff;
   background-color: #C22C8C;
   border-color: #ad277d; }
-  .btn-info:hover, .skyline-container .black-overlay .btn:hover, .btn-info:focus, .skyline-container .black-overlay .btn:focus, .btn-info:active, .skyline-container .black-overlay .btn:active, .btn-info.active, .skyline-container .black-overlay .active.btn {
+  .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active {
     color: #fff;
     background-color: #a12474;
     border-color: #7b1c59; }
-  .open .btn-info.dropdown-toggle, .open .skyline-container .black-overlay .dropdown-toggle.btn, .skyline-container .black-overlay .open .dropdown-toggle.btn {
+  .open .btn-info.dropdown-toggle {
     color: #fff;
     background-color: #a12474;
     border-color: #7b1c59; }
-  .btn-info:active, .skyline-container .black-overlay .btn:active, .btn-info.active, .skyline-container .black-overlay .active.btn {
+  .btn-info:active, .btn-info.active {
     background-image: none; }
-  .open .btn-info.dropdown-toggle, .open .skyline-container .black-overlay .dropdown-toggle.btn, .skyline-container .black-overlay .open .dropdown-toggle.btn {
+  .open .btn-info.dropdown-toggle {
     background-image: none; }
-  .btn-info.disabled, .skyline-container .black-overlay .disabled.btn, .btn-info.disabled:hover, .skyline-container .black-overlay .disabled.btn:hover, .btn-info.disabled:focus, .skyline-container .black-overlay .disabled.btn:focus, .btn-info.disabled:active, .skyline-container .black-overlay .disabled.btn:active, .btn-info.disabled.active, .skyline-container .black-overlay .disabled.active.btn, .btn-info[disabled], .skyline-container .black-overlay [disabled].btn, .btn-info[disabled]:hover, .skyline-container .black-overlay [disabled].btn:hover, .btn-info[disabled]:focus, .skyline-container .black-overlay [disabled].btn:focus, .btn-info[disabled]:active, .skyline-container .black-overlay [disabled].btn:active, .btn-info[disabled].active, .skyline-container .black-overlay [disabled].active.btn, fieldset[disabled] .btn-info, fieldset[disabled] .skyline-container .black-overlay .btn, .skyline-container .black-overlay fieldset[disabled] .btn, fieldset[disabled] .btn-info:hover, fieldset[disabled] .skyline-container .black-overlay .btn:hover, .skyline-container .black-overlay fieldset[disabled] .btn:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .skyline-container .black-overlay .btn:focus, .skyline-container .black-overlay fieldset[disabled] .btn:focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .skyline-container .black-overlay .btn:active, .skyline-container .black-overlay fieldset[disabled] .btn:active, fieldset[disabled] .btn-info.active, fieldset[disabled] .skyline-container .black-overlay .active.btn, .skyline-container .black-overlay fieldset[disabled] .active.btn {
+  .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled]:active, .btn-info[disabled].active, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info.active {
     background-color: #C22C8C;
     border-color: #ad277d; }
-  .btn-info .badge, .skyline-container .black-overlay .btn .badge {
+  .btn-info .badge {
     color: #C22C8C;
     background-color: #fff; }
 

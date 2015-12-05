@@ -7,16 +7,7 @@
 
 	function adjustHeaderAndVideoSizing (e) {
 		var width = e.target.innerWidth;
-
 		$confHeader.css('min-height', width * $confHeader.idealRatio);
-
-		var $phoenixSkyline = $('#my-video');
-		$phoenixSkyline.idealRatio = 0.56338028169;  // or 240/426;
-
-		$phoenixSkyline.css({
-			width: width,
-			height: width * $phoenixSkyline.idealRatio
-		});
 	}
 
 
@@ -33,10 +24,28 @@
 })(jQuery);
 
 
+// (function setPriceAndCountdown (){
+var countdown = document.getElementById("countdown");
+
+var interval = setInterval(function () {
+
+  var newAmount = countdown.innerText - 3;
+  countdown.innerText = newAmount;
+
+  if (newAmount === parseInt(149)) {
+    clearInterval(interval);
+  }
+}, 10);
+
+var today    = moment();
+var confDate = moment("2016-05-16");
+
+document.getElementById("days-left").innerText = Math.abs(confDate.diff(today,'days'));
 
 
 
-(function neuralNetwork($) {
+
+(function neuralNetwork ($) {
 
 var $body = $('body');
 
@@ -73,7 +82,7 @@ var svg = d3.select("#neural-network")
     .attr("height", height);
 
 
-var node = svg.selectAll(".node")
+var node = svg.selectAll(".node");
 var link = svg.selectAll(".link");
 
 
@@ -84,7 +93,7 @@ function main () {
     id: counter,
     group: Math.floor(Math.random() * 5),
     value: Math.floor(Math.random() * 3)
-  })
+  });
 
   if (nodes.length >= 2) {
 

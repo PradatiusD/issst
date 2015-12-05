@@ -13,30 +13,7 @@ function homepage_header (){
   <?php
 }
 
-function conference_video () {
-  ?>
-  <div class="skyline-container">
-    <div class="black-overlay">
-      <div class="message">
-        <div class="purple-bg">        
-          <h2>16-18 May 2016<small>Phoenix, AZ</small></h2>
-          <a href="https://www.regonline.com/ISSST2016" target="_blank" class="btn btn-primary">
-            <i class="ion-compose"></i> Register for ISSST
-          </a>
-        </div>
-      </div>
-    </div>
-    <video id="my-video" class="video-js" autoplay loop preload poster="<?php echo get_stylesheet_directory_uri();?>/img/video-poster.jpg" data-setup="{}">
-      <source src="<?php echo get_stylesheet_directory_uri();?>/assets/phoenix_skyline.mp4" type='video/mp4'>
-      <!-- <source src="MY_VIDEO.webm" type='video/webm'> -->
-      <p class="vjs-no-js">
-        To view this video please enable JavaScript, and consider upgrading to a web browser that
-        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-      </p>
-    </video>
-  </div>
-  <?php
-}
+
 
 function neural_network() {
   ?>
@@ -53,28 +30,70 @@ function neural_network() {
   <?php
 }
 
+function hotel_info () {
+  ?>
+  <section class="hotel-info">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">  
+        <p class="h1 text-center">16-18 May 2016<br><small>Phoenix, AZ</small></p>
+        <p class="lead" style="margin-bottom:0;">Ensure your room at the Renaissance Phoenix Downtown Hotel now, at less than half the standard rate, before it overbooks due to the city-wide convention competing on the same week!</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row text-center">
+      <div class="col-sm-5 col-xs-6">
+        <p class="h2" style="margin-top: 0;">
+          <small>Regular Rate</small><br>
+          $<span>329</span> per night
+        </p>
+      </div>
+      <div class="col-sm-2 hidden-xs">
+        <p class="h1 text-muted" style="margin-top: 0;">
+          <span id="days-left"></span><br>
+          <small class="text-uppercase">days left</small>
+        </p>
+      </div>
+
+      <div class="col-sm-5 col-xs-6">
+        <p class="h2" style="margin-top: 0;">
+          <small>Our Rate</small><br>
+          <span class="text-success">$<span id="countdown">329</span></span> per night
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="btn-group">
+          <a href="https://resweb.passkey.com/go/SSST2016" target="_blank" class="btn btn-primary btn-lg">Book Hotel</a>
+          <a href="https://www.regonline.com/ISSST2016" target="_blank" class="btn btn-primary btn-lg">Register for ISSST</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <?php
+}
+
 
 function homepage_scripts() {
-
-  // For Video
-  wp_enqueue_script('video-js-ie8' , "http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js", array(), '1.1.0', false);
-  wp_enqueue_style( 'video-js-css' , "http://vjs.zencdn.net/5.0.2/video-js.css"          , array(), '5.0.2', 'all');
-  wp_enqueue_script('video-js-main', "http://vjs.zencdn.net/5.0.2/video.js"              , array(), '5.0.2', true);
 
   // For D3
   wp_enqueue_script('d3js', "http://d3js.org/d3.v3.min.js", array(), '1.0.0', true);
 
-  // For Resizing
-  wp_enqueue_script('homepage-js',  get_stylesheet_directory_uri() . '/js/homepage.js' , array('jquery'), '1.0.0', true);  
+  // For Moment.js
+  wp_enqueue_script('momentjs', get_stylesheet_directory_uri() . '/js/moment.js', array(), '2.10.0', true);
+
+  // Homepage Main Script
+  wp_enqueue_script('homepage-js',  get_stylesheet_directory_uri() . '/js/homepage.js' , array('jquery','d3js','momentjs'), '1.0.0', true);  
+
+
 }
-
-
 
 add_action('wp_enqueue_scripts', 'homepage_scripts');
 
 add_action('genesis_before_loop','homepage_header');
-add_action('genesis_before_loop','conference_video');
 add_action('genesis_before_loop','neural_network');
+add_action('genesis_before_loop','hotel_info');
 
 remove_action( 'genesis_loop', 'genesis_do_loop');
 

@@ -26,6 +26,19 @@ remove_action('genesis_entry_footer', 'genesis_post_meta');
 //* Add Bootstrap powered navigation JavaScript
 wp_enqueue_script('bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-transition-collapse.js', array('jquery'), '3.3.4', true);
 
+//* Change Favicon
+remove_action('wp_head', 'genesis_load_favicon');
+
+function custom_child_favicon () {
+  $base = get_stylesheet_directory_uri()."/img";
+  ?>
+  <link rel="icon" type="image/png" href="<?php echo $base;?>/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="<?php echo $base;?>/favicon-16x16.png" sizes="16x16" />
+  <?
+}
+
+add_action('wp_head', 'custom_child_favicon');
+
 
 // Custom fonts
 function custom_fonts() {
@@ -61,16 +74,22 @@ add_filter( 'genesis_do_nav', 'add_bootstrap_mobile_classes', 10, 3 );
 
 
 //* Add button to open and close social links
+
 function genesis_bootstrap_nav() {
     ob_start();?>
+
     <section class="navbar navbar-inverse">
       <div class="navbar-header">
+        <!-- Mobile Navigation -->
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand <? echo (is_home()) ? "current-menu-item":"";?>" href="/">
+          <span>ISSST <sup>16</sup></span>
+        </a>
       </div>
       <?php genesis_do_nav();?>      
     </section>
