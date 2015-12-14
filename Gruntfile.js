@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         '.DS_Store',
         'favicon.ico',
         'screenshot.png',
-        // 'img',
+        'img', 
         'assets',
         'lib',
         '.gitignore',

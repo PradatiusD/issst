@@ -24,13 +24,12 @@
 })(jQuery);
 
 
-// (function setPriceAndCountdown (){
 var countdown = document.getElementById("countdown");
 
 var interval = setInterval(function () {
 
-  var newAmount = countdown.innerText - 3;
-  countdown.innerText = newAmount;
+  var newAmount = countdown.textContent - 3;
+  countdown.textContent = newAmount;
 
   if (newAmount === parseInt(149)) {
     clearInterval(interval);
@@ -40,7 +39,7 @@ var interval = setInterval(function () {
 var today    = moment();
 var confDate = moment("2016-05-16");
 
-document.getElementById("days-left").innerText = Math.abs(confDate.diff(today,'days'));
+document.getElementById("days-left").textContent = Math.abs(confDate.diff(today,'days'));
 
 
 
