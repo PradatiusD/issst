@@ -1,5 +1,8 @@
 # ISSST network
 
+## ISSST Aesthetic
+
+
 https://app.box.com/notes/39189029665
 
 # ISSST2016.net Website Instructions
@@ -30,13 +33,7 @@ The homepage will feature:
 - Link page for call for papers and submission instructions
 - Link to softconf
 
-#### Conference Location
 
-- Background full-screen video of Phoenix skyline (https://www.shutterstock.com/video/clip-5794214-stock-footage-skyline-phoenix-arizona-great-view-of-the-phoenix-arizona-skyline-with-the-us-airways-center-and.html?src=search/35kA_6q4o2RHrGZ7AAq9sg:1:8/3p)
-- Call to action to visit hotel website
-
-Tasks I need help with:
-- Have hotel set up registration code
 
 #### Social Feeds
 

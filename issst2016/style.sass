@@ -24,12 +24,13 @@ $brand-info:    #C22C8C // pink
 $navbar-inverse-bg: $brand-primary
 $navbar-inverse-color: white
 $navbar-inverse-link-color: white
-$icon-font-path: "fonts/"
 
 // Bootstrap Modifications
 $font-family-sans-serif: "Merriweather", $helvetica
 $headings-font-family:   "Montserrat", $font-family-sans-serif
 $headings-font-weight:   400
+
+// $icon-font-path: "/wp-content/themes/issst2016/fonts/"
 
 
 /* Bootstrap + Genesis Grid */
@@ -60,15 +61,16 @@ $headings-font-weight:   400
     @extend .container
 
   .genesis-nav-menu
-    @extend .nav
-    @extend .navbar-nav
-
     a
       font-family: $headings-font-family
+
+    > li > a
       +transition(background-color 0.25s ease-in-out)
       &:hover
         background: lighten($brand-primary, 12.5%) !important
 
+  .dropdown:hover .dropdown-menu
+    display: block
 
 
 .navbar-brand

@@ -24,7 +24,8 @@ add_theme_support('genesis-footer-widgets', 3);
 remove_action('genesis_entry_footer', 'genesis_post_meta');
 
 //* Add Bootstrap powered navigation JavaScript
-wp_enqueue_script('bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-transition-collapse.js', array('jquery'), '3.3.4', true);
+wp_enqueue_script('bootstrap-dropdown',   get_stylesheet_directory_uri() . '/js/bootstrap-dropdown.js',            array('jquery'), '3.3.4', true);
+wp_enqueue_script('bootstrap-transition', get_stylesheet_directory_uri() . '/js/bootstrap-transition-collapse.js', array('jquery'), '3.3.4', true);
 
 //* Change Favicon
 remove_action('wp_head', 'genesis_load_favicon');
@@ -66,10 +67,20 @@ if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
 
 
 function add_bootstrap_mobile_classes($nav_output, $nav, $args) {
+
+  // Add Mobile Menu Classes
 	$output = str_replace('nav-primary', 'nav-primary navbar-collapse collapse', $nav_output);
+  $output = str_replace('genesis-nav-menu', 'genesis-nav-menu genesis-nav-menu nav navbar-nav', $output);
 	$output = str_replace('<nav','<nav id="navbar"',$output);
+
+
+  // Add Dropdown Classes
+  $output = str_replace('sub-menu', 'dropdown-menu', $output);
+  $output = str_replace('menu-item-has-children', 'menu-item-has-children dropdown', $output);
+  $output = str_replace("</a>\n<ul class=\"dropdown-menu\">",'<span class="caret"></span></a><ul class="dropdown-menu">', $output);
 	return $output;
 }
+
 add_filter( 'genesis_do_nav', 'add_bootstrap_mobile_classes', 10, 3 );
 
 
