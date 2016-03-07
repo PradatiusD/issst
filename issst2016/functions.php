@@ -109,16 +109,34 @@ function genesis_bootstrap_nav() {
 }
 
 //* Reposition the primary navigation menu
-remove_action( 'genesis_after_header', 'genesis_do_nav' );
-add_action( 'genesis_header_right',    'genesis_bootstrap_nav' );
+remove_action('genesis_after_header', 'genesis_do_nav');
+add_action('genesis_header_right',    'genesis_bootstrap_nav');
 
 
-// add_filter('genesis_seo_title', 'sp_seo_title', 10, 3);
-// function sp_seo_title($title, $inside, $wrap) {
-//   $inside = sprintf( '<a href="http://www.yourdomain.com" title="%s">%s</a>', esc_attr( get_bloginfo('name') ), get_bloginfo('name') );
-//   $title  = sprintf('<%s id="title">%s</%s>', $wrap, $inside, $wrap);
-//   return $title;
-// }
+function custom_header() {
+
+  global $wp_query;
+
+  if (is_singular()) {
+    $ID        = $wp_query->posts[0]->ID;
+    $has_image = has_post_thumbnail($ID);
+
+    if ($has_image) {
+      $image_id = get_post_thumbnail_id($ID);
+      $image    = wp_get_attachment_url($image_id);
+    }
+  }
+
+  if (!isset($image)) {
+    $image = get_stylesheet_directory_uri()."/img/kara-hall-presenting.jpg";
+  }
+
+  echo "<style>\n";
+  echo ".site-header { background:url('".$image."');background-size: cover; background-position: center center; }\n";
+  echo "</style>\n";
+}
+
+add_action('wp_enqueue_scripts','custom_header');
 
 
 
