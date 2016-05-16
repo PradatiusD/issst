@@ -38,9 +38,9 @@ function schedule () {
       <hr>
       <section ng-repeat="(day, events) in days">
         <h2>{{day}}</h2>
-        <article ng-repeat="event in events track by $index">
+        <article ng-repeat="event in events | orderBy:eventOrder">
           <h3>
-            {{event["Session Title"]}}  <i class="ion-information-circled" ng-if="event.Description.length > 10" ng-click="event.display = !event.display"></i><br>
+            {{event["Session Title"]}}  <i class="ion-information-circled text-small" ng-if="event.Description.length > 10" ng-click="event.display = !event.display"></i><br>
             <small class="text-muted">{{event["Time Start"]}} - {{event["Time End"]}}</small>
           </h3>
 

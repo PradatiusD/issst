@@ -142,6 +142,21 @@ angular.module('ScheduleApp', []).controller("ScheduleController",function ($sco
     return $sce.trustAsHtml(data);
   };
 
+  $scope.eventOrder = function (d) {
+
+    var title = d["Session Title"];
+    var prefix = ['A:', 'B:','C:','4Space:'];
+
+    for (var i = 0; i < prefix.length; i++) {
+      if (title.indexOf(prefix[i])) {
+        d.startTime += i;    
+      }
+    }
+
+    return d.startTime;
+  }
+
+
   var url   = 'http://localhost/issst/2016/wp-content/themes/2016/schedule.csv';
   var query = $http.get(url);
 
@@ -186,6 +201,17 @@ angular.module('ScheduleApp', []).controller("ScheduleController",function ($sco
         o[headers[index]] = cell;
       });
 
+
+      var startTime = o.Date +" ";
+
+      if (o["Time Start"].indexOf('PM') > -1) {
+        startTime += o["Time Start"].replace(/(.*):/, (parseInt(o["Time Start"].match(/(.*):/)[1]) + 12) + ":").replace('PM','');
+      } else {
+        startTime += o["Time Start"].replace('AM','')
+      }
+
+      o.startTime = new Date(startTime).getTime();
+
       return o;
     });
 
@@ -210,5 +236,7 @@ angular.module('ScheduleApp', []).controller("ScheduleController",function ($sco
     }
 
     $scope.days = days;
+
+    console.log(days);
   });
 });
