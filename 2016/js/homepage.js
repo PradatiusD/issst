@@ -157,7 +157,9 @@ angular.module('ScheduleApp', []).controller("ScheduleController",function ($sco
   }
 
 
-  var url   = 'http://localhost/issst/2016/wp-content/themes/2016/schedule.csv';
+  var url = window.location.origin.indexOf('localhost') > -1 ? 'http://localhost/issst/2016':'http://issst2016.net';
+  url    += '/wp-content/themes/2016/schedule.csv';
+
   var query = $http.get(url);
 
   query.then(function (response) {

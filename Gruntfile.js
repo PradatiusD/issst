@@ -42,34 +42,42 @@ module.exports = function (grunt) {
   });
 
 
-  options['ftp-deploy'] = sites.reduce(function (obj, siteFolder){
+  /* FTP */
 
-    obj[siteFolder] = {
-      src: siteFolder,
-      dest: siteFolder,
+
+  options['ftp-deploy'] = {};
+
+
+  sites.forEach(function (site) {
+
+    var exclusions = [
+      '.DS_Store',
+      'favicon.ico',
+      'screenshot.png',
+      'img', 
+      'assets',
+      'lib',
+      '.gitignore',
+      'fonts',
+      'TwitterOAuth.php',
+      'TwitterException.php'
+     ];
+
+    options['ftp-deploy'][site] = {
+      src: site,
+      dest: site,
       auth: {
-        host: 'pradadesigners.com',
-        port: 21,
-        authKey: 'key'
+        host:     process.env.FTP_HOST,
+        username: process.env.FTP_USERNAME,
+        password: process.env.FTP_PASSWORD,
+        forceVerbose: true,
+        port: 21
       },
       forceVerbose: true,
-      exclusions:[
-        '.DS_Store',
-        'favicon.ico',
-        'screenshot.png',
-        'img', 
-        'assets',
-        'lib',
-        '.gitignore',
-        'fonts',
-        'TwitterOAuth.php',
-        'TwitterException.php'
-       ]
+      exclusions: exclusions
     };
 
-    return obj;
-
-  },{});
+  });
 
 
   options.uglify = {
@@ -130,15 +138,6 @@ module.exports = function (grunt) {
     ],
     tasks: ['uglify']
   };
-
-
-  // sites.forEach(function (site) {
-  //   var withoutISSST = site.replace('issst','');
-  //   var deploySequence = 'ftp-deploy:'+site;
-
-  //   grunt.registerTask(withoutISSST,    [deploySequence]);
-  //   grunt.registerTask(withoutISSST+'sass',['sass:'+site,deploySequence]);
-  // });
 
   grunt.registerTask('default',['watch']);
   grunt.initConfig(options);
