@@ -24,26 +24,6 @@
 })(jQuery);
 
 
-var countdown = document.getElementById("countdown");
-
-var interval = setInterval(function () {
-
-  var newAmount = countdown.textContent - 3;
-  countdown.textContent = newAmount;
-
-  if (newAmount === parseInt(149)) {
-    clearInterval(interval);
-  }
-}, 10);
-
-var today    = moment();
-var confDate = moment("2016-05-16");
-
-document.getElementById("days-left").textContent = Math.abs(confDate.diff(today,'days'));
-
-
-
-
 (function neuralNetwork ($) {
 
 var $body = $('body');
@@ -154,3 +134,81 @@ function tick() {
 }
 
 })(jQuery);
+
+
+angular.module('ScheduleApp', []).controller("ScheduleController",function ($scope, $http, $sce) {
+
+  $scope.trustSnippet = function(data) {
+    return $sce.trustAsHtml(data);
+  };
+
+  var url   = 'http://localhost/issst/2016/wp-content/themes/2016/schedule.csv';
+  var query = $http.get(url);
+
+  query.then(function (response) {
+
+    $scope.data = response.data;
+
+    var rows     = response.data.split('\n"13');
+    var headers  = rows.shift().split(',').map(function (d) {
+
+      d = d.replace(/"/g,'').replace(/\(/g,'').replace(/\)/g,'').replace(" Optional",'');
+
+      if (d.indexOf("Description") > -1) {
+        d = "Description";
+      }
+      return d;
+
+    });
+
+    rows = rows.map(function (row) {
+
+      var o = {};
+
+      row = row.split(',"');
+
+      row.forEach(function (cell, index) {
+
+        var lastChar = cell[cell.length -1];
+
+        if (lastChar === "\"") {
+          cell = cell.substring(0, cell.length - 1);
+        }
+
+        if (cell[0] === "\"") {
+          cell = cell.substring(1, cell.length);
+        }
+
+        if (index === 7 && cell[cell.length - 2] === "\"") {
+          cell = cell.substring(0, cell.length - 2);
+        }
+
+        o[headers[index]] = cell;
+      });
+
+      return o;
+    });
+
+    var days = {};
+
+    for (var i = 0; i < rows.length; i++) {
+
+      var row = rows.shift();
+      var day = row.Date;
+
+      if (!days[day]) {
+        days[day] = [];
+      }
+
+      days[day].push(row);
+    };
+
+    for (var k in days) {
+      var newK = moment(new Date(k)).format("dddd, MMM Do");
+      days[newK] = days[k];
+      delete days[k];
+    }
+
+    $scope.days = days;
+  });
+});

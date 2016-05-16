@@ -36,299 +36,331 @@ $navbar-inverse-link-hover-bg:     transparent
 $navbar-inverse-link-active-color: #f4f4f4
 $navbar-inverse-link-active-bg:    lighten($navbar-inverse-bg, 6.5%)
 
+
+.mc-hide-scrolls
+  overflow: hidden
+
+.mc-cycle
+  height: 100%
+  left: 0
+  overflow: hidden
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: -1
+
+.mc-image
+  -webkit-transition: opacity 1s ease-in-out
+  -moz-transition: opacity 1s ease-in-out
+  -o-transition: opacity 1s ease-in-out
+  transition: opacity 1s ease-in-out
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  background-position: center center
+  background-repeat: no-repeat
+  height: 100%
+  overflow: hidden
+  width: 100%
+
+.mc-old-browser .mc-image
+  overflow: hidden
+
+
 /* Common HTML Elements */
 
 .navbar-inverse
-	text-transform: uppercase
-	font-weight: 200
+  text-transform: uppercase
+  font-weight: 200
 
-	.active > a
-		font-weight: 400
+  .active > a
+    font-weight: 400
 
-	.navbar-brand
-		background: url('img/issst.png')
-		background-size: 88% auto
-		background-repeat: no-repeat
-		text-indent: -9999px
-		width: 78px
-		margin-right: 14px !important
-		margin-left: 5px !important
+  .navbar-brand
+    background: url('img/issst.png')
+    background-size: 88% auto
+    background-repeat: no-repeat
+    text-indent: -9999px
+    width: 78px
+    margin-right: 14px !important
+    margin-left: 5px !important
 
 
 .breadcrumb 
-	> li:nth-child(2):before
-		content: " "
+  > li:nth-child(2):before
+    content: " "
 
-	li a
-		color: darken($issstPrimary, 15%)
+  li a
+    color: darken($issstPrimary, 15%)
 
 
 h1
-	font-weight: 900
-	font-size: 2.6em
-	border-bottom: 4px solid rgba(51, 51, 51, 0.26)
-	padding-bottom: 0.3em
+  font-weight: 900
+  font-size: 2.6em
+  border-bottom: 4px solid rgba(51, 51, 51, 0.26)
+  padding-bottom: 0.3em
 
-	body.blog &
-		font-size: 2em
+  body.blog &
+    font-size: 2em
 
-	body.home &
-		font-size: 3em
+  body.home &
+    font-size: 3em
 
-	a
-		color: #4B4A4A
+  a
+    color: #4B4A4A
 
 main p
-	margin: 0 0 1.2em
-	font-size: 1.2em
+  margin: 0 0 1.2em
+  font-size: 1.2em
 
 .site-title
-	text-align: center
-	font-weight: bold
+  text-align: center
+  font-weight: bold
 
 body
-	padding-top: 52px
+  padding-top: 52px
 
 img.alignleft
-	float: left
-	@extend .img-thumbnail
-	margin-right: 1em
+  float: left
+  @extend .img-thumbnail
+  margin-right: 1em
 
 .contact-submit, .contact-form
-	input.text, input.email, input.name, textarea
-		@extend .form-control
+  input.text, input.email, input.name, textarea
+    @extend .form-control
 
-	.pushbutton-wide
-		@extend .btn
-		@extend .btn-primary
+  .pushbutton-wide
+    @extend .btn
+    @extend .btn-primary
 
 
 body.blog
-	img.wp-post-image
-		margin: 0 auto
-		border-radius: 100%
+  img.wp-post-image
+    margin: 0 auto
+    border-radius: 100%
 
 
 .commentlist
-	code
-		white-space: pre-line
+  code
+    white-space: pre-line
 
-	#submit, .comment-reply-link
-		@extend .btn
+  #submit, .comment-reply-link
+    @extend .btn
 
-	#submit
-		@extend .btn-success
+  #submit
+    @extend .btn-success
 
-	.comment-reply-link
-		@extend .btn-sm
-		@extend .btn-primary
+  .comment-reply-link
+    @extend .btn-sm
+    @extend .btn-primary
 
-	.comment-meta, .pingback
-		margin-bottom: 1em
+  .comment-meta, .pingback
+    margin-bottom: 1em
 
 /* Homepage */
 
 #map-canvas
-	height: 600px
-	margin: 0px
-	padding: 0px
+  height: 600px
+  margin: 0px
+  padding: 0px
 
 
 
 =iconTable ($colar)
-	color: darken($colar, 55%)
+  color: darken($colar, 55%)
 
-	&:hover
-		background: darken($colar, 5%)
-	.fa
-		color: darken($colar, 25%)
+  &:hover
+    background: darken($colar, 5%)
+  .fa
+    color: darken($colar, 25%)
 
 .program-schedule
 
-	&.icon-set
-	
-		.fa
-			display: block
-			width: 100%
-			font-size: 3em
+  &.icon-set
+  
+    .fa
+      display: block
+      width: 100%
+      font-size: 3em
 
-		td.success, td.warning, td.info
-			text-align: center
-			+transition(all 0.8s ease-out)
+    td.success, td.warning, td.info
+      text-align: center
+      +transition(all 0.8s ease-out)
 
 
-		td.success
-			+iconTable(#DFF0D8)
+    td.success
+      +iconTable(#DFF0D8)
 
-		td.warning
-			+iconTable(#FCF8E3)
+    td.warning
+      +iconTable(#FCF8E3)
 
-		td.info
-			+iconTable(#D9EDF7)
+    td.info
+      +iconTable(#D9EDF7)
 
-		td:hover
-			cursor: pointer
+    td:hover
+      cursor: pointer
 
 
 .tooltip-inner
-	max-width: 250px
-	text-align: center
+  max-width: 250px
+  text-align: center
 
 #gCal
-	.table-stacked-div
-		padding: 1em
+  .table-stacked-div
+    padding: 1em
 
-	h4 a
-		color: #333
-		+transition(color 0.35s ease-out)
-		&:hover
-			color: #428BCA
+  h4 a
+    color: #333
+    +transition(color 0.35s ease-out)
+    &:hover
+      color: #428BCA
 
 $homeBreakPt: 767px
 
 body.home
-	-webkit-transform: translate3d(0,0,0)
-	+backface-visibility(hidden)
-	background: black
+  -webkit-transform: translate3d(0,0,0)
+  +backface-visibility(hidden)
+  background: black
 
-	.rest-of-content
-		background-color: #F8F8F8
-		padding-bottom: 3em
+  .rest-of-content
+    background-color: #F8F8F8
+    padding-bottom: 3em
 
-	.mc-cycle
-		position: static !important
+  .mc-cycle
+    position: static !important
 
-	.mc-image
-		max-height: 702px
+  .mc-image
+    max-height: 702px
 
-	+max-screen($homeBreakPt)
-		.mc-image
-			height: 353px !important
-			margin-top: 49px
+  +max-screen($homeBreakPt)
+    .mc-image
+      height: 353px !important
+      margin-top: 49px
 
-	.top-box, .avocado, .pasta
-		background-size: cover !important
-		height: 650px
-		text-align: center
-		background-position: center !important
+  .top-box, .avocado, .pasta
+    background-size: cover !important
+    height: 650px
+    text-align: center
+    background-position: center !important
 
-	.top-box
-		+transition (background 1s ease-out)
-		+backface-visibility(hidden)
-		position: relative
-		z-index: 1000
+  .top-box
+    +transition (background 1s ease-out)
+    +backface-visibility(hidden)
+    position: relative
+    z-index: 1000
 
-		+max-screen(767px)
-			height: 353px !important	
+    +max-screen(767px)
+      height: 353px !important  
 
-	.pasta
-		background: url('img/pasta.jpg')
+  .pasta
+    background: url('img/pasta.jpg')
 
-	.avocado
-		background: url('img/avocado.jpg')
+  .avocado
+    background: url('img/avocado.jpg')
 
-	.issst-opening
-		color: #FFF
-		margin-top: 200px
-		text-align: right
-		+max-screen($homeBreakPt)
-			margin-top: 0
+  .issst-opening
+    color: #FFF
+    margin-top: 200px
+    text-align: right
+    +max-screen($homeBreakPt)
+      margin-top: 0
 
-		p
-			font-size: 7em
-			margin: 0.45em 0 0
-			line-height: 0.5em
-			display: inline-block		
-			+max-screen($homeBreakPt)
-				font-size: 5em
-	
-		#n
-			overflow: hidden
+    p
+      font-size: 7em
+      margin: 0.45em 0 0
+      line-height: 0.5em
+      display: inline-block    
+      +max-screen($homeBreakPt)
+        font-size: 5em
+  
+    #n
+      overflow: hidden
 
-			+min-screen($homeBreakPt+1)
-				height: 70px
-
-
-			+max-screen($homeBreakPt)
-				height: 50px
-
-			&.squeeze
-				+min-screen($homeBreakPt+1)
-					+animation(squeeze 1.0s  ease-in)
-
-				+max-screen($homeBreakPt)
-					+animation(squeeze-mobile 1.0s  ease-in)		
-
-			&.expand
-				+min-screen($homeBreakPt+1)
-					+animation(expand 1.0s  ease-in)
-
-				+max-screen($homeBreakPt)
-					+animation(expand-mobile 1.0s  ease-in)		
-
-		#prefix
-			font-size: 9em
-			display: inline-block
-			vertical-align: bottom
-			line-height: 1.2em
-			+max-screen($homeBreakPt)
-				font-size: 6em
-
-		img
-			width: 300px
-			display: inline-block
-			position: relative
-			top: 5px
-			margin-right: -5px
-			+max-screen($homeBreakPt)
-				width: 200px
+      +min-screen($homeBreakPt+1)
+        height: 70px
 
 
-	.indicates-required
-		text-align: right
+      +max-screen($homeBreakPt)
+        height: 50px
 
-	.register-now
-		+transition (all 0.3s ease-out)
-		font-size: 1.65em
+      &.squeeze
+        +min-screen($homeBreakPt+1)
+          +animation(squeeze 1.0s  ease-in)
 
-	.mailchimp-join-list
-		text-align: center
+        +max-screen($homeBreakPt)
+          +animation(squeeze-mobile 1.0s  ease-in)    
 
-		#mc_embed_signup
-			text-align: left
+      &.expand
+        +min-screen($homeBreakPt+1)
+          +animation(expand 1.0s  ease-in)
 
-	.superimpose
-		position: relative
-		.fa-bolt
-			position: absolute
-			top: 18px
-			right: 0px
-			opacity: 0.8
-			font-size: 1.6em
-	.partners
-		background-color: white
-		padding: 1em 0px 2em
+        +max-screen($homeBreakPt)
+          +animation(expand-mobile 1.0s  ease-in)    
 
-		.logos
-			text-align: center
-			article
-				display: inline-block
-				width: 33%
-				padding: 1em 0
-				+screen(480px, 568px)
-					width: 49.5%
-				+max-screen(479px)
-					width: 100%
+    #prefix
+      font-size: 9em
+      display: inline-block
+      vertical-align: bottom
+      line-height: 1.2em
+      +max-screen($homeBreakPt)
+        font-size: 6em
 
-		.img-responsive
-			max-height: 150px
-			display: inline-block
-			+grayToColor(1.5s)
+    img
+      width: 300px
+      display: inline-block
+      position: relative
+      top: 5px
+      margin-right: -5px
+      +max-screen($homeBreakPt)
+        width: 200px
+
+
+  .indicates-required
+    text-align: right
+
+  .register-now
+    +transition (all 0.3s ease-out)
+    font-size: 1.65em
+
+  .mailchimp-join-list
+    text-align: center
+
+    #mc_embed_signup
+      text-align: left
+
+  .superimpose
+    position: relative
+    .fa-bolt
+      position: absolute
+      top: 18px
+      right: 0px
+      opacity: 0.8
+      font-size: 1.6em
+  .partners
+    background-color: white
+    padding: 1em 0px 2em
+
+    .logos
+      text-align: center
+      article
+        display: inline-block
+        width: 33%
+        padding: 1em 0
+        +screen(480px, 568px)
+          width: 49.5%
+        +max-screen(479px)
+          width: 100%
+
+    .img-responsive
+      max-height: 150px
+      display: inline-block
+      +grayToColor(1.5s)
 
 
 .post-password-form
-	input[type="submit"]
-		@extend .btn
-		@extend .btn-primary
+  input[type="submit"]
+    @extend .btn
+    @extend .btn-primary
 
 @import "../lib/end"

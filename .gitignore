@@ -1,8 +1,7 @@
 node_modules
-.ftppass
 bower_components
 .sass-cache
 .DS_Store
 **/.DS_Store
-temp.html
 assets
+.env

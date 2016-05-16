@@ -1,15 +1,21 @@
-var sites = ['issst','issst2015','issst2016'];
+require('dotenv').config();
+
+var path  = require('path');
+var sites = ['2014','2015','2016'];
 
 module.exports = function (grunt) {
+
+  require('load-grunt-tasks')(grunt);
+
   var assets = grunt.file.readJSON('bower.json').assets;
 
-  var config = {
+  var options = {
     pkg: grunt.file.readJSON('package.json')
   };
 
-  config.php = {
+  options.php = {
     php: {
-      test: {
+      dev: {
         options: {
           keepalive: true,
           open: true,
@@ -19,17 +25,24 @@ module.exports = function (grunt) {
     }
   };
 
-  config.copy = {
-    main: {
+
+  /* Copy */
+
+  options.copy = {};
+
+  sites.forEach(function (site) {
+
+    options.copy[site] = {
       files: [{
         expand: true,
-        src: sites.map(function (site) {return site += "/**";}),
-        dest: '../themes/'
+        src: path.join(site, '**'),
+        dest: process.env.WP_THEMES_DIR
       }]
-    }
-  };
+    };
+  });
 
-  config['ftp-deploy'] = sites.reduce(function (obj, siteFolder){
+
+  options['ftp-deploy'] = sites.reduce(function (obj, siteFolder){
 
     obj[siteFolder] = {
       src: siteFolder,
@@ -59,7 +72,7 @@ module.exports = function (grunt) {
   },{});
 
 
-  config.uglify = {
+  options.uglify = {
     combinedScripts: {
       files: {
           'issst/js/global.min.js':       assets.issstNetwork.javascripts.global, // Global across all network
@@ -70,41 +83,46 @@ module.exports = function (grunt) {
   };
 
 
-  config.sass = sites.reduce( function (obj, siteFolder) {
-    obj[siteFolder] = {
+  /* Sass */
+
+  options.sass = {};
+
+  sites.forEach(function (site) {
+
+    options.sass[site] = {
       files: {}
     };
 
-    var styleFilePath = siteFolder+"/style";
-    obj[siteFolder].options = {sourcemap: "none"};
-    obj[siteFolder].files[styleFilePath+".css"] = styleFilePath+".sass";
+    options.sass[site].files[path.join(site,'style.css')] = path.join(site,'style.sass');
 
-    return obj;
-  }, {});
-
-  config.sass = {};
+  });
 
 
-  config.watch = {};
+  /* Watch */
 
-  config.watch.copy = {
-    files: sites.map(function (site){
-        return [site+'/*','!'+site+'/style.sass'];
-    }),
-    tasks: ['copy'],
-    options: {
-      livereload: true
-    }
-  };
+  options.watch = {};
 
-  config.watch.sass = {
-    files: sites.map(function(site){
-      return site+'/style.sass';
-    }),
-    tasks: ['sass']
-  };
+  sites.forEach(function (site) {
 
-  config.watch.javascripts = {
+    options.watch[site + "sass"] = {
+      files: path.join(site, 'style.sass'),
+      tasks: 'sass:'+site,
+      options: {
+        livereload: true
+      }
+    };
+
+    options.watch[site + "copy"] = {
+      files: [path.join(site, "**"), path.join(site, '!style.sass')],
+      tasks: ['copy:'+site],
+      options: {
+        livereload: true
+      }
+    };
+
+  });
+
+  options.watch.javascripts = {
     files: [
       assets.issstNetwork.javascripts.global,
       assets.issst2014.javascripts.homepage,
@@ -113,21 +131,16 @@ module.exports = function (grunt) {
     tasks: ['uglify']
   };
 
-  grunt.initConfig(config);
 
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-ftp-deploy');
-  grunt.registerTask('default', ['watch']);
-  grunt.registerTask('deploy',  ['ftp-deploy']);
-  grunt.registerTask('2014',    ['ftp-deploy:issst']);
+  // sites.forEach(function (site) {
+  //   var withoutISSST = site.replace('issst','');
+  //   var deploySequence = 'ftp-deploy:'+site;
 
-  sites.forEach(function (site) {
-    var withoutISSST = site.replace('issst','');
-    var deploySequence = 'ftp-deploy:'+site;
+  //   grunt.registerTask(withoutISSST,    [deploySequence]);
+  //   grunt.registerTask(withoutISSST+'sass',['sass:'+site,deploySequence]);
+  // });
 
-    grunt.registerTask(withoutISSST,    [deploySequence]);
-    grunt.registerTask(withoutISSST+'sass',['sass:'+site,deploySequence]);
-  });
+  grunt.registerTask('default',['watch']);
+  grunt.initConfig(options);
+
 };
