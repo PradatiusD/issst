@@ -142,12 +142,34 @@ add_action('wp_enqueue_scripts','custom_header');
 
 remove_action('genesis_footer', 'genesis_do_footer');
 add_action( 'genesis_footer', 'social_footer_links' );
+
 function social_footer_links() {
   ?>
-  <p class="text-center footer-social">
-    <a href="https://twitter.com/issstnetwork" target="_blank"><i class="ion-social-twitter"></i></a>
-    <a href="https://www.facebook.com/issstconference/" target="_blank"><i class="ion-social-facebook"></i></a>
-    <a href="https://www.linkedin.com/grps?home=&gid=4149460" target="_blank"><i class="ion-social-linkedin"></i></a>
-  </p>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-4 text-right">
+          <img src="<?php echo get_stylesheet_directory_uri().'/img/lise-lauren.jpg';?>" style="max-width: 90px; height: auto; border-radius: 100%; border: 3px solid white; max-width: 120px;">
+        </div>
+        <div class="col-md-8">
+          <blockquote><span style="font-weight: 200; font-size: 1.1em; font-style: italic;">&ldquo;I go to other conferences to teach.  I come to this one to learn.&rdquo;</span><br>
+            <cite>
+              Lise Lauren<br>
+              CEO, EarthShift Global
+            </cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <p class="text-center footer-social" style="margin-top: 1.5em;">
+        <a href="https://twitter.com/issstnetwork" target="_blank"><i class="ion-social-twitter"></i></a>
+        <a href="https://www.facebook.com/issstconference/" target="_blank"><i class="ion-social-facebook"></i></a>
+        <a href="https://www.linkedin.com/grps?home=&gid=4149460" target="_blank"><i class="ion-social-linkedin"></i></a>
+      </p>
+    </div>
+  </div>
+
   <?php
 }

@@ -2541,6 +2541,9 @@
   -o-animation-name: wobble;
   animation-name: wobble; }
 
+body {
+  -webkit-font-smoothing: antialiased; }
+
 /* Bootstrap + Genesis Grid */
 /* Navigation */
 .header-widget-area .navbar {
